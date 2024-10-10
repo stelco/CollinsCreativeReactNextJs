@@ -5,7 +5,7 @@ const nextConfig = {
     ppr: 'incremental',
   },
   images: {
-    domains: ['collins-creative-react-next-krq8613kz-steven-collins-projects.vercel.app'], // Add your domain here
+    domains: ['collins-creative-react-next-krq8613kz-steven-collins-projects.vercel.app']
   },
   // Other configurations
 };
