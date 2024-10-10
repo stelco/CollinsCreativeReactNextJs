@@ -1,0 +1,8 @@
+.gold-600 {
+    --tw-text-opacity: 1;
+    color: rgb(211 109 0 / var(--tw-text-opacity));
+  }
+  .gold-300 {
+    --tw-text-opacity: 0.5;
+    color: rgb(211 109 0 / var(--tw-text-opacity));
+  }
