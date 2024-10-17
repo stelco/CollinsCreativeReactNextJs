@@ -32,7 +32,7 @@ export type Revenue = {
 };
 
 export type Skill = {
-  id: string;
+  id: number;
   name: string;
   color: string;
   percentage: number | undefined;
