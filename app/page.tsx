@@ -46,7 +46,7 @@ export default function Page() {
         />
       </div>
 
-      <div className="z-10 flex-1 flex md:flex-row items-start justify-center">
+      <div className="z-10 flex flex-col md:flex-row md:overflow-hidden">
 
         <div className="w-full flex-none md:w-64">
           <SideNav />
