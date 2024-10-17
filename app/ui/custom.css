@@ -6,3 +6,22 @@
     --tw-text-opacity: 0.5;
     color: rgb(211 109 0 / var(--tw-text-opacity));
   }
+
+  .text-xxl {
+    font-size: 2.5rem;
+  }
+
+  .skill-basic {
+    --tw-text-opacity: 0.2;
+    background-color: rgb(211 109 0 / var(--tw-text-opacity));
+  }
+
+  .skill-intermediate {
+    --tw-text-opacity: 0.4;
+    background-color: rgb(211 109 0 / var(--tw-text-opacity));
+  }
+
+  .skill-advanced {
+    --tw-text-opacity: 0.8;
+    background-color: rgb(211 109 0 / var(--tw-text-opacity));
+  }

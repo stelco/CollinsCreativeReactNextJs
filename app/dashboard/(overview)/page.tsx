@@ -1,10 +1,9 @@
 import { Card } from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
-import { jost } from '@/app/ui/fonts';
-import { fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
+import { exo2 } from '@/app/ui/fonts';
 import { Suspense } from 'react';
-import CardWrapper from '@/app/ui/dashboard/cards';
+import { CardWrapper } from '@/app/ui/dashboard/cards';
 import {
   RevenueChartSkeleton,
   LatestInvoicesSkeleton,
@@ -15,7 +14,7 @@ export default async function Page() {
 
   return (
     <main>
-      <h1 className={`${jost.className} mb-4 text-xl md:text-2xl`}>
+      <h1 className={`${exo2.className} mb-4 text-xl md:text-2xl`}>
         Dashboard
       </h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

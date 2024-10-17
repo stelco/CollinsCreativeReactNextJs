@@ -1,6 +1,6 @@
 import '@/app/ui/global.css';
 import '@/app/ui/custom.css';
-import { jost } from '@/app/ui/fonts';
+import { exo2 } from '@/app/ui/fonts';
 import { Metadata } from 'next';
  
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: '%s | Acme Dashboard',
     default: 'Acme Dashboard',
   },
-  description: 'The official Next.js Learn Dashboard built with App Router.',
+  description: 'The official Next.js Learn Dashboard built with App Router | Customised by Steven collins',
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
 };
  
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${jost.className} antialiased`}>{children}</body>
+      <body className={`${exo2.className} antialiased`}>{children}</body>
     </html>
   );
 }

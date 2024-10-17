@@ -31,6 +31,13 @@ export type Revenue = {
   revenue: number;
 };
 
+export type Skill = {
+  id: string;
+  name: string;
+  color: string;
+  percentage: number | undefined;
+};
+
 export type LatestInvoice = {
   id: string;
   name: string;

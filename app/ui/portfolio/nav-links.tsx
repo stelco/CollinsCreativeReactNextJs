@@ -1,9 +1,7 @@
 'use client';
 
 import {
-  UserGroupIcon,
   HomeIcon,
-  DocumentDuplicateIcon,
   ChartBarSquareIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -13,14 +11,11 @@ import clsx from 'clsx';
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'My Portfolio', href: '/', icon: HomeIcon },
+  { name: 'Web/CMS', href: '/web-cms', icon: HomeIcon },
+  { name: 'UI/UX', href: '/portfolio/web-cms', icon: HomeIcon },
+  { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
+  { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {
@@ -34,7 +29,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-100 p-3 text-sm font-medium hover:bg-gray-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md border-gray-300 bg-gray-100 p-3 text-sm font-medium hover:bg-gray-100 hover:text-orange-600 md:flex-none md:justify-start md:p-2 md:px-3 ',
               {
                 'bg-gray-100 text-blue-600': pathname === link.href,
               },
