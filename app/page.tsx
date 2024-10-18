@@ -23,7 +23,7 @@ export default function Page() {
           href="/portfolio/home"
           className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
         >
-          Go To Portfolio Home Page >
+          Go To Portfolio Home Page
         </Link>
 
     </main>
