@@ -1,7 +1,7 @@
 import { generateYAxisSkills } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
-import skills from '@/app/portfolio/skills';
+import skills from '@/app/portfolio/data/skills';
 
 export default async function SkillsChart() {
 
@@ -26,7 +26,7 @@ export default async function SkillsChart() {
       {
         <div className="rounded-xl bg-gray-100 p-4">
 
-          <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
+          <div className="sm:grid-cols-10 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
             <div
               className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
               style={{ height: `${chartHeight}px` }}
@@ -42,7 +42,7 @@ export default async function SkillsChart() {
                   className={`w-full rounded-md ${skill.color}`}
                   style={{
                     height: `${(chartHeight / topLabel) * (skill.percentage ?? 0)}px`,
-                    width: '30px',
+                    width: '50px',
                   }}
                 ></div>
                 <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">
