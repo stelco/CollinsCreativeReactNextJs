@@ -6,8 +6,7 @@ export default function SideNav() {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md  p-4 md:h-40"
-        style={{ backgroundColor: '#d36d00' }}
+        className="mb-2 flex h-20 items-end justify-start rounded-md p-3 md:h-40 bg-gradient-to-r from-orange-400 to-transparent"
         href="/"
       >
         <div className="text-white">
