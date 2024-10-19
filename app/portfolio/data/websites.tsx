@@ -56,6 +56,68 @@ const websites = [
             skills[17],
             skills[19],
         ]
+    },
+    {
+        heading: 'Alpha Machine Tools Ltd',
+        value: 'A Joomla CMS driven website for an industrial machine tools company. The CMS back end uses a unique category system so the administrator can easily add new products.',
+        image: '/websites/alphamachinetools.jpg',
+        isWorkItem: true,
+        skills: [
+            skills[0],
+            skills[1],
+            skills[2],
+            skills[14],
+            skills[16],
+            skills[17]
+        ]
+    },
+    {
+        heading: 'Oldham Roll Of Rememberance',
+        value: 'A bespoke application built using PHP with a MySql back end. Includes an autocomplete search which queries the database and loads the selected image.',
+        image: '/websites/oldhamwar.jpg',
+        isWorkItem: true,
+        skills: [
+            skills[0],
+            skills[1],
+            skills[2],
+            skills[12],
+            skills[14],
+            skills[16],
+            skills[17]
+        ]
+    },
+    {
+        heading: 'Shenanigans Irish Bar',
+        value: 'A Joomla CMS driven website for an Irish Bar in Liverpool. Includes custom built components for an events calendar. I also set up a front end admin system for this so the administrator can easily update content.',
+        value2: 'This website has since been taken over and a lot of the design elements and content has been retained. I helped with the migration.',
+        image: '/websites/shenanigans.jpg',
+        isWorkItem: true,
+        skills: [
+            skills[0],
+            skills[1],
+            skills[2],
+            skills[12],
+            skills[14],
+            skills[16],
+            skills[17]
+        ]
+    },
+    {
+        heading: 'Direct Roof and Build Ltd',
+        value: 'A roofing company website I built using the Joomla CMS. The client wanted a simple, clean design with a gallery and contact form.',
+        value2: 'The image gallery is hosted on Flickr and uses their API to pull in the images. The contact form uses a custom built module to send the form data to the client.',
+        image: '/websites/directroofandbuild.png',
+        isWorkItem: true,
+        skills: [
+            skills[0],
+            skills[1],
+            skills[2],
+            skills[11],
+            skills[12],
+            skills[14],
+            skills[16],
+            skills[17]
+        ]
     }
 ];
 
