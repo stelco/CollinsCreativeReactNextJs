@@ -1,50 +1,87 @@
-import Pagination from '@/app/ui/invoices/pagination';
-import Search from '@/app/ui/search';
-import Table from '@/app/ui/customers/table-customers';
-import { exo2 } from '@/app/ui/fonts';
-import { CustomersTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
-import { fetchCustomersPages } from '@/app/lib/data';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { PlusIcon } from '@heroicons/react/24/outline';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import { CardBasic } from '@/app/ui/cards';
+import { CardSkeleton } from '@/app/ui/skeletons';
+import documentation from '@/app/portfolio/data/documentation';
 
 export const metadata: Metadata = {
   title: 'Collins Creative | Documentation',
 };
  
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
-
-  const totalPages = await fetchCustomersPages(query);
+export default async function Page() {
 
   return (
-    <div className="w-full">
+    <main className="flex min-h-screen flex-col">
+
+      <div className="fixed inset-0 z-0">
+        <Image
+          src="/plaque-fullsize-cropped.jpg"
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+      </div>
 
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/portfolio/home' },
           {
-            label: 'Documentation',
+            label: 'UIUX',
             href: '/portfolio/documentation',
             active: true,
           },
         ]}
       />
 
-      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+      <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
+
+        {documentation
+          .filter((doc) => doc.heading === "VueJs Component Structure Document")
+          .map((doc, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={doc} />
+            </Suspense>
+        ))}
+
+        {documentation
+          .filter((doc) => doc.heading === "UI Research and Prototypes")
+          .map((doc, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={doc} />
+            </Suspense>
+        ))}
+
+        {documentation
+          .filter((doc) => doc.heading === "CMS Administration Guidance")
+          .map((doc, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={doc} />
+            </Suspense>
+        ))}
+
+        {documentation
+          .filter((doc) => doc.heading === "The Byte! (circa 1987)")
+          .map((doc, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={doc} />
+            </Suspense>
+        ))}
+
+        {documentation
+          .filter((doc) => doc.heading === "CMS Research and Analysis")
+          .map((doc, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={doc} />
+            </Suspense>
+        ))}
 
       </div>
 
-    </div>
+    </main>
+
   );
 }

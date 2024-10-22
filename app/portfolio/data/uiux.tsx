@@ -1,5 +1,3 @@
-import skills from '@/app/portfolio/data/skills';
-
 const uiux = [
     {
         heading: 'Mobile Devices UI',
