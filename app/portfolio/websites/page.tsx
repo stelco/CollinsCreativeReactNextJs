@@ -28,7 +28,7 @@ export default async function Page() {
 
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Home', href: '/' },
+          { label: 'Home', href: '/portfolio/home' },
           {
             label: 'Websites',
             href: '/portfolio/websites',

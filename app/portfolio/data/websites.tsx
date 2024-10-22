@@ -1,5 +1,4 @@
 import skills from '@/app/portfolio/data/skills';
-import { url } from 'inspector';
 
 const websites = [
     {
