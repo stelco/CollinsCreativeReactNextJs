@@ -3,11 +3,13 @@ import {
   ClockIcon,
   UserGroupIcon,
   InboxIcon,
+  ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 import Image from 'next/image';
 import Pill from '@/app/ui/pill';
+import Link from 'next/link';
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -21,6 +23,7 @@ interface CardBasicProps {
   CardContent: {
     title?: string;
     heading?: string;
+    url?: string;
     value?: string | number;
     value2?: string;
     image?: string;
@@ -34,6 +37,7 @@ export function CardBasic({ CardContent }: CardBasicProps) {
   return <Card
     title={CardContent.title}
     heading={CardContent.heading}
+    url={CardContent.url}
     value={CardContent.value}
     value2={CardContent.value2}
     image={CardContent.image}
@@ -67,6 +71,7 @@ export async function CardWrapper() {
 export function Card({
   title,
   heading,
+  url,
   value,
   value2,
   type,
@@ -76,6 +81,7 @@ export function Card({
 }: {
   title?: string;
   heading?: string;
+  url?: string;
   value?: number | string;
   value2?: string | undefined;
   type: 'invoices' | 'customers' | 'pending' | 'collected' | 'person';
@@ -110,11 +116,27 @@ export function Card({
         <div className="flex flex-col flex-1 gap-6">
 
           <div className="flex flex-col gap-3">
-            <div style={{ color: '#d36d00' }}>
+
+            <div
+              className="flex items-center justify-flex-start"
+              style={{ color: '#d36d00' }}>
+
               {heading && (
                 <h2>{heading}</h2>
               )}
+
+              {url && (
+                <Link
+                  href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
+                  >
+                  <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
+                </Link>
+              )}
             </div>
+
             <div>
               {value && (
                 <div className='text-gray-400'>{value}</div>
@@ -156,7 +178,6 @@ export function Card({
               </div>
             )}
           </div>
-
         </div>
 
       </div>
