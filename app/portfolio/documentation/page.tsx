@@ -30,7 +30,7 @@ export default async function Page() {
         breadcrumbs={[
           { label: 'Home', href: '/portfolio/home' },
           {
-            label: 'UIUX',
+            label: 'Documentation',
             href: '/portfolio/documentation',
             active: true,
           },
