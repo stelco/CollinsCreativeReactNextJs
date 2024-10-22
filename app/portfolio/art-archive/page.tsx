@@ -1,50 +1,42 @@
-import Pagination from '@/app/ui/invoices/pagination';
-import Search from '@/app/ui/search';
-import Table from '@/app/ui/customers/table-customers';
-import { exo2 } from '@/app/ui/fonts';
-import { CustomersTableSkeleton } from '@/app/ui/skeletons';
-import { Suspense } from 'react';
-import { fetchCustomersPages } from '@/app/lib/data';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { PlusIcon } from '@heroicons/react/24/outline';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import fs from 'fs';
+import path from 'path';
+import Image from 'next/image';
 
-export const metadata: Metadata = {
-  title: 'Collins Creative | Art Archive',
-};
- 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
-}) {
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
+async function fetchImages() {
+  const imagesDirectory = path.join(process.cwd(), 'public/art-archive');
+  const filenames = fs.readdirSync(imagesDirectory);
 
-  const totalPages = await fetchCustomersPages(query);
+  const images = filenames.map((filename) => {
+    const filePath = path.posix.join('/art-archive', filename); // Use path.posix.join to ensure forward slashes
+    return {
+      id: filename,
+      src: filePath,
+      alt: filename,
+      width: 800, // You can adjust the width and height as needed
+      height: 600,
+    };
+  });
+
+  return images;
+}
+
+export default async function ImageGallery() {
+  const images = await fetchImages();
 
   return (
-    <div className="w-full">
-
-      <Breadcrumbs
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          {
-            label: 'Art Archive',
-            href: '/portfolio/art-archive',
-            active: true,
-          },
-        ]}
-      />
-
-      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-
-      </div>
-
+    <div className="gallery">
+      {images.map((img) => (
+        <div key={img.id} className="gallery-item">
+          <Image
+            src={img.src}
+            alt={img.alt}
+            width={img.width}
+            height={img.height}
+            layout="responsive"
+            loading="lazy"
+          />
+        </div>
+      ))}
     </div>
   );
 }
