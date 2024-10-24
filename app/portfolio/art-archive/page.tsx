@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import Image from 'next/image';
-import { Metadata } from 'next';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import ImageGallery from '@/app/components/ImageGallery';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Collins Creative | Art Archive',
 };
 
@@ -18,20 +18,19 @@ async function fetchImages() {
       id: filename,
       src: filePath,
       alt: filename,
-      width: 800, // You can adjust the width and height as needed
-      height: 600,
+      width: 150,
+      height: 150,
     };
   });
 
   return images;
 }
 
-export default async function ImageGallery() {
+export default async function Page() {
   const images = await fetchImages();
 
   return (
     <main className="flex min-h-screen flex-col">
-
       <div className="fixed inset-0 z-0">
         <Image
           src="/plaque-fullsize-cropped.jpg"
@@ -53,22 +52,7 @@ export default async function ImageGallery() {
         ]}
       />
 
-
-    <div className="gallery mt-8">
-      {images.map((img) => (
-        <div key={img.id} className="gallery-item">
-          <Image
-            src={img.src}
-            alt={img.alt}
-            width={img.width}
-            height={img.height}
-            layout="responsive"
-            loading="lazy"
-          />
-        </div>
-      ))}
-    </div>
-
+      <ImageGallery images={images} />
     </main>
   );
 }
