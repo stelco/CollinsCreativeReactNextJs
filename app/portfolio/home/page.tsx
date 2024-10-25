@@ -5,7 +5,7 @@ import { CardBasic } from '@/app/ui/cards';
 import SkillsChart from '@/app/ui/portfolio/skills-chart';
 import { Suspense } from 'react';
 import { CardSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
-import { aboutMe, aboutPage } from '@/app/portfolio/data/home';
+import { aboutMe, aboutPage, aboutOldPage } from '@/app/portfolio/data/home';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -37,7 +37,10 @@ export default function Page() {
 
           <div className="flex flex-col justify-center gap-2 rounded-lg">
             <Suspense fallback={<CardSkeleton />}>
-            <CardBasic CardContent={aboutPage}/>
+              <CardBasic CardContent={aboutPage}/>
+            </Suspense>
+            <Suspense fallback={<CardSkeleton />}>
+              <CardBasic CardContent={aboutOldPage}/>
             </Suspense>
           </div>
 

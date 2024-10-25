@@ -1,4 +1,5 @@
 import skills from '@/app/portfolio/data/skills';
+import { url } from 'inspector';
 
 const aboutMe = 
     {
@@ -20,4 +21,13 @@ const aboutPage =
         image: '/nextjs-logo.png'
     };
 
-export { aboutMe, aboutPage };
+    const aboutOldPage =
+    {
+        title: 'Legacy Portfolio',
+        heading: 'Collins Creative Legacy Version',
+        value: 'This is an the old version of my portfolio from around 15 years ago which I built using pure HTML, CSS and Vanilla Javascript.',
+        value2: 'My skills have come a long way since then but I like to keep it here as a reminder of where I started!',
+        url: 'http://stelco-001-site1.itempurl.com/'
+    };
+
+export { aboutMe, aboutPage, aboutOldPage };
