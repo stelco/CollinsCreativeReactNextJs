@@ -2,7 +2,8 @@ import { generateYAxisSkills } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
 import { Skill } from '@/app/lib/definitions';
-import { GRAPHQL_ENDPOINT } from '@/app/lib/utils';
+
+const GRAPHQL_ENDPOINT = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || "https://www.collinscreative.co.uk/graphql";
 
 export default async function SkillsChart() {
   const chartHeight = 350;
