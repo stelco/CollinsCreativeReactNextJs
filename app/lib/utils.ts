@@ -1,5 +1,7 @@
 import { Revenue, Skill } from './definitions';
 
+export const GRAPHQL_ENDPOINT = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT;
+
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-GB', {
     style: 'currency',

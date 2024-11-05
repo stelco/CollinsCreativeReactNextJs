@@ -35,7 +35,7 @@ export type Skill = {
   id: number;
   name: string;
   color: string;
-  percentage: number | undefined;
+  percentage: number | null;
 };
 
 export type LatestInvoice = {
