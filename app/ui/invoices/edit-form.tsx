@@ -10,7 +10,20 @@ import {
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { updateInvoice, State } from '@/app/lib/actions';
-import { useActionState } from 'react';
+import { useReducer } from 'react';
+
+const initialState: State = { message: null, errors: {} };
+
+function reducer(state: State, action: any): State {
+  switch (action.type) {
+    case 'SET_MESSAGE':
+      return { ...state, message: action.payload };
+    case 'SET_ERRORS':
+      return { ...state, errors: action.payload };
+    default:
+      return state;
+  }
+}
 
 export default function EditInvoiceForm({
   invoice,
@@ -19,12 +32,25 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
-  const initialState: State = { message: null, errors: {} };
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
-  const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const updateInvoiceWithId = async (formData: FormData) => {
+    try {
+      const result = await updateInvoice(invoice.id, state, formData);
+      dispatch({ type: 'SET_MESSAGE', payload: result.message });
+      dispatch({ type: 'SET_ERRORS', payload: result.errors });
+    } catch (error) {
+      dispatch({ type: 'SET_MESSAGE', payload: 'An error occurred' });
+    }
+  };
+
+  const formAction = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement);
+    await updateInvoiceWithId(formData);
+  };
 
   return (
-    <form action={formAction}>
+    <form onSubmit={formAction}>
       <div className="rounded-md bg-gray-100 p-4 md:p-6 mt-6">
         {/* Customer Name */}
         <div className="mb-4">

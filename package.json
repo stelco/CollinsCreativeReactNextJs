@@ -1,5 +1,6 @@
 {
   "private": true,
+  "homepage": "https://github.com/stelco/hume-voice-next-js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
