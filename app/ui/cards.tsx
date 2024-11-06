@@ -29,9 +29,10 @@ interface CardBasicProps {
     image?: string;
     skills?: { id: number; name: string; color: string }[];
     isWorkItem?: boolean;
+    buttonLink?: boolean;
+    buttonLinkUrl?: string;
   };
 }
-
 
 export function CardBasic({ CardContent }: CardBasicProps) {
   return <Card
@@ -43,6 +44,8 @@ export function CardBasic({ CardContent }: CardBasicProps) {
     image={CardContent.image}
     skills={CardContent.skills}
     isWorkItem={!!CardContent.isWorkItem}
+    buttonLink={!!CardContent.buttonLink}
+    buttonLinkUrl={CardContent.buttonLinkUrl}
     type="person"
   />;
 }
@@ -77,7 +80,9 @@ export function Card({
   type,
   image,
   skills,
-  isWorkItem
+  isWorkItem,
+  buttonLink,
+  buttonLinkUrl
 }: {
   title?: string;
   heading?: string;
@@ -88,6 +93,8 @@ export function Card({
   image?: string;
   skills?: { id: number; name: string; color: string }[];
   isWorkItem?: boolean;
+  buttonLink?: boolean;
+  buttonLinkUrl?: string;
 }) {
   const Icon = iconMap[type];
 
@@ -146,6 +153,18 @@ export function Card({
               {value2 && (
                 <div className='text-gray-400'>{value2}</div>
               )}
+            </div>
+            <div>
+            {buttonLink && buttonLinkUrl && (
+              <Link
+                href={buttonLinkUrl}
+                className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                style={{ backgroundColor: '#d36d00' }}
+              >
+                <span className="hidden md:block">Go To Experiment</span>{' '}
+                <ArrowTopRightOnSquareIcon className="h-5 md:ml-4" />
+              </Link>
+            )}
             </div>
           </div>
 

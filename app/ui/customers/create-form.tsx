@@ -6,13 +6,26 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { Button } from '@/app/ui/button';
 import { createCustomer, CustomerState } from '@/app/lib/actions';
-import { useActionState } from 'react';
-import { useEffect, useState } from 'react';
+import { useReducer, useEffect, useState } from 'react';
+
+const initialState: CustomerState = { message: '', errors: { id: [], name: [], email: [], file: [] } };
+
+function reducer(state: CustomerState, action: any): CustomerState {
+  switch (action.type) {
+    case 'SET_MESSAGE':
+      return { ...state, message: action.payload };
+    case 'SET_ERRORS':
+      return { ...state, errors: action.payload };
+    default:
+      return state;
+  }
+}
 
 export default function Form({ customers }: { customers: CustomerField[] }) { 
   const [images, setImages] = useState<string[]>([]);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
     async function fetchImages() {
@@ -47,11 +60,20 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
     }
   };
 
-  const initialState: CustomerState = { message: '', errors: { id: [], name: [], email: [], file: [] } };
-  const [state, formAction] = useActionState(createCustomer, initialState);
+  const formAction = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.target as HTMLFormElement);
+      const result = await createCustomer(state, formData);
+      dispatch({ type: 'SET_MESSAGE', payload: result.message });
+      dispatch({ type: 'SET_ERRORS', payload: result.errors });
+    } catch (error) {
+      dispatch({ type: 'SET_MESSAGE', payload: 'An error occurred' });
+    }
+  };
 
   return (
-    <form action={formAction}>
+    <form onSubmit={formAction}>
       <div className="rounded-md bg-gray-100 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">

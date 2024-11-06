@@ -2,7 +2,8 @@
 
 import {
   HomeIcon,
-  ChartBarSquareIcon
+  ChartBarSquareIcon,
+  StarIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,6 +18,7 @@ const links = [
   { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
+  { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: StarIcon },
 ];
 
 export default function NavLinks() {
@@ -32,7 +34,7 @@ export default function NavLinks() {
             className={clsx(
               'flex h-[48px] grow items-center justify-center gap-2 rounded-md border-gray-300 bg-gray-100 p-3 text-sm font-medium hover:bg-gray-100 hover:text-orange-600 md:flex-none md:justify-start md:p-2 md:px-3 ',
               {
-                'bg-gray-100 text-orange-600': pathname === link.href,
+                'bg-gray-100 text-orange-600': pathname === link.href || pathname.startsWith(link.href),
               },
             )}
           >

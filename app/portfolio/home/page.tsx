@@ -9,6 +9,7 @@ import { aboutMe, aboutPage, aboutOldPage } from '@/app/portfolio/data/home';
 
 export const metadata: Metadata = {
   title: 'Home',
+  description: 'Collins Creative Home Page'
 };
 
 export default function Page() {

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { CustomerField } from '@/app/lib/definitions';
@@ -11,14 +10,38 @@ import {
 } from '@heroicons/react/24/outline';
 import { Button } from '@/app/ui/button';
 import { createInvoice, State } from '@/app/lib/actions';
-import { useActionState } from 'react';
+import { useReducer } from 'react';
+
+const initialState: State = { message: '', errors: { customerId: [], amount: [], status: [] } };
+
+function reducer(state: State, action: any): State {
+  switch (action.type) {
+    case 'SET_MESSAGE':
+      return { ...state, message: action.payload };
+    case 'SET_ERRORS':
+      return { ...state, errors: action.payload };
+    default:
+      return state;
+  }
+}
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState: State = { message: '', errors: { customerId: [], amount: [], status: [] } };
-  const [state, formAction] = useActionState(createInvoice, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const formAction = async (event: React.FormEvent) => {
+    event.preventDefault();
+    try {
+      const formData = new FormData(event.target as HTMLFormElement);
+      const result = await createInvoice(state, formData);
+      dispatch({ type: 'SET_MESSAGE', payload: result.message });
+      dispatch({ type: 'SET_ERRORS', payload: result.errors });
+    } catch (error) {
+      dispatch({ type: 'SET_MESSAGE', payload: 'An error occurred' });
+    }
+  };
 
   return (
-    <form action={formAction}>
+    <form onSubmit={formAction}>
       <div className="rounded-md bg-gray-100 p-4 md:p-6 mt-6">
         {/* Customer Name */}
         <div className="mb-4">

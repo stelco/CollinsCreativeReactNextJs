@@ -9,12 +9,13 @@ interface Breadcrumb {
 }
 
 export default function Breadcrumbs({
-  breadcrumbs,
+  breadcrumbs
 }: {
   breadcrumbs: Breadcrumb[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="z-10 block rounded-xl bg-gray-100 p-3 shadow-sm">
+    <nav aria-label="Breadcrumb" className="z-10 block rounded-xl bg-gray-100 p-3 shadow-sm"
+    >
       <ol className={clsx(exo2.className, 'flex text-xl md:text-2xl')}>
         {breadcrumbs.map((breadcrumb, index) => (
           <li
