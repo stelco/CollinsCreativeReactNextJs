@@ -15,28 +15,38 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgWidth, imgHeight }) => {
   if (!isOpen) return null;
 
+  const isPdf = imgSrc.endsWith('.pdf');
+
   return (
     <div className="modal">
       <div
         className="modal-content w-[70vw] md:w-[45vw]"
-        >
+      >
         <XCircleIcon
-            className="absolute top-0 right-0 m-4 text-black w-6 md:w-10"
-            style={{ cursor: 'hand', borderRadius: '50%', backgroundColor: '#fff' }}
-            onClick={onClose}
+          className="absolute top-0 right-0 m-4 text-black w-6 md:w-10"
+          style={{ cursor: 'hand', borderRadius: '50%', backgroundColor: '#fff' }}
+          onClick={onClose}
         />
 
         <div className="image-container">
-        <Image
-            src={imgSrc}
-            alt={imgAlt}
-            width={imgWidth}
-            height={imgHeight}
-            layout="responsive"
-            objectFit="contain"
-          />
+          {isPdf ? (
+            <iframe
+              src={imgSrc}
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+            />
+          ) : (
+            <Image
+              src={imgSrc}
+              alt={imgAlt}
+              width={imgWidth}
+              height={imgHeight}
+              layout="responsive"
+              objectFit="contain"
+            />
+          )}
         </div>
-
       </div>
     </div>
   );

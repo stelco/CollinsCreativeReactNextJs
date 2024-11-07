@@ -1,15 +1,20 @@
+'use client';
+
+import React, { useState } from 'react';
 import {
   BanknotesIcon,
   ClockIcon,
   UserGroupIcon,
   InboxIcon,
-  ArrowTopRightOnSquareIcon
+  ArrowTopRightOnSquareIcon,
 } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 import Image from 'next/image';
 import Pill from '@/app/ui/pill';
 import Link from 'next/link';
+import { Button } from '@/app/ui/button';
+import Modal from '@/app/components/Modal';
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -31,6 +36,7 @@ interface CardBasicProps {
     isWorkItem?: boolean;
     buttonLink?: boolean;
     buttonLinkUrl?: string;
+    isModal?: boolean;
   };
 }
 
@@ -46,6 +52,7 @@ export function CardBasic({ CardContent }: CardBasicProps) {
     isWorkItem={!!CardContent.isWorkItem}
     buttonLink={!!CardContent.buttonLink}
     buttonLinkUrl={CardContent.buttonLinkUrl}
+    isModal={!!CardContent.isModal}
     type="person"
   />;
 }
@@ -82,7 +89,8 @@ export function Card({
   skills,
   isWorkItem,
   buttonLink,
-  buttonLinkUrl
+  buttonLinkUrl,
+  isModal
 }: {
   title?: string;
   heading?: string;
@@ -95,8 +103,22 @@ export function Card({
   isWorkItem?: boolean;
   buttonLink?: boolean;
   buttonLinkUrl?: string;
+  isModal?: boolean;
 }) {
   const Icon = iconMap[type];
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState({ src: '', alt: '', width: 0, height: 0 });
+
+  const openModal = (selectedImage: { src: string; alt: string; width: number; height: number }) => {
+    setSelectedImage(selectedImage);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
+  };
 
   return (
     <div className="rounded-xl bg-gray-100 p-2 shadow-sm">
@@ -106,7 +128,7 @@ export function Card({
           {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
           <h3 className="ml-2 text-md font-medium">{title}</h3>
         </div>
-        )}
+      )}
 
       <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
         
@@ -124,43 +146,51 @@ export function Card({
 
           <div className="flex flex-col gap-3">
 
-              <div
-                className="flex items-center justify-flex-start"
-                style={{ color: '#d36d00' }}>
+            <div
+              className="flex items-center justify-flex-start"
+              style={{ color: '#d36d00' }}>
 
-                {heading && (
-                  <div className='text-[25px]'>{heading}</div>
-                )}
-
-                {url && (
-                  <Link
-                    href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
-                    >
-                    <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
-                  </Link>
-                )}
-              </div>
-
-              {value && (
-                <div className='text-gray-400 text-sm lg:text-lg'>{value}</div>
-              )}
-              {value2 && (
-                <div className='text-gray-400 text-sm lg:text-lg'>{value2}</div>
+              {heading && (
+                <div className='text-[25px]'>{heading}</div>
               )}
 
+              {url && (
+                <Link
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
+                >
+                  <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
+                </Link>
+              )}
+            </div>
+
+            {value && (
+              <div className='text-gray-400 text-sm lg:text-lg'>{value}</div>
+            )}
+            {value2 && (
+              <div className='text-gray-400 text-sm lg:text-lg'>{value2}</div>
+            )}
 
             {buttonLink && buttonLinkUrl && (
-              <Link
-                href={buttonLinkUrl}
-                className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
-                style={{ backgroundColor: '#d36d00' }}
+              <Button
+                onClick={() => isModal ? openModal({ src: buttonLinkUrl, alt: heading || '', width: 800, height: 600 }) : window.location.href = buttonLinkUrl }
+                className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-600 hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                style={{ alignSelf: 'center' }}
               >
-                <span>Go To Experiment</span>{' '}
+                {
+                  isModal && (
+                    <span>Open Examples</span>
+                  )
+                }
+                {
+                  !isModal && (
+                    <span>Open Page</span>
+                  )
+                }
                 <ArrowTopRightOnSquareIcon className="h-5 ml-4" />
-              </Link>
+              </Button>
             )}
 
           </div>
@@ -194,6 +224,15 @@ export function Card({
         </div>
 
       </div>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={closeModal}
+        imgSrc={selectedImage.src}
+        imgAlt={selectedImage.alt}
+        imgWidth={selectedImage.width}
+        imgHeight={selectedImage.height}
+      />
     </div>
   );
 }

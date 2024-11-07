@@ -98,9 +98,15 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px;
 }
 
 .image-container img {
   max-height: 100%;
   width: auto;
+}
+
+.image-container iframe {
+  height: 90vh;
+  padding: 10px;
 }

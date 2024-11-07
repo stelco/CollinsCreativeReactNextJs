@@ -3,7 +3,7 @@
 import {
   HomeIcon,
   ChartBarSquareIcon,
-  StarIcon
+  SparklesIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -18,7 +18,7 @@ const links = [
   { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
   { name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
-  { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: StarIcon },
+  { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];
 
 export default function NavLinks() {
