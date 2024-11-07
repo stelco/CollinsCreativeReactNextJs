@@ -30,7 +30,7 @@ export default function StartCall() {
                 exit: { scale: 0.5 },
               }}
             >
-              <div className={"flex flex-col items-center gap-4"}>
+              <div className={"flex flex-col items-center gap-4 mb-[60px] md:mb-[0px]"}>
                 <Image
                   src="/ai/hume-voice-cannon.png"
                   alt="Hume Voice Call"

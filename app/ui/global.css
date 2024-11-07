@@ -49,8 +49,8 @@ h2 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
 }
 
 .gallery-item {
@@ -77,10 +77,9 @@ h2 {
 .modal-content {
   position: relative;
   background: white;
-  padding: 10px;
   border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
+  /*apply width on element*/
+  height: auto;
   overflow: hidden;
 }
 

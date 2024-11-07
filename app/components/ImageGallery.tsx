@@ -31,11 +31,12 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   };
 
   return (
-    <div className="gallery mt-6">
+    <div className="mt-6 gallery">
       {images.map((img) => (
         <div
           key={img.id}
           className="gallery-item"
+          style={{ cursor: 'pointer' }}
           onClick={() => openModal(img)}
         >
           <Image

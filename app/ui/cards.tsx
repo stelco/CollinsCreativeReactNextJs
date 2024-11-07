@@ -124,79 +124,73 @@ export function Card({
 
           <div className="flex flex-col gap-3">
 
-            <div
-              className="flex items-center justify-flex-start"
-              style={{ color: '#d36d00' }}>
+              <div
+                className="flex items-center justify-flex-start"
+                style={{ color: '#d36d00' }}>
 
-              {heading && (
-                <h2>{heading}</h2>
-              )}
+                {heading && (
+                  <div className='text-[25px]'>{heading}</div>
+                )}
 
-              {url && (
-                <Link
-                  href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
-                  >
-                  <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
-                </Link>
-              )}
-            </div>
+                {url && (
+                  <Link
+                    href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
+                    >
+                    <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
+                  </Link>
+                )}
+              </div>
 
-            <div>
               {value && (
-                <div className='text-gray-400'>{value}</div>
+                <div className='text-gray-400 text-sm lg:text-lg'>{value}</div>
               )}
-            </div>
-            <div>
               {value2 && (
-                <div className='text-gray-400'>{value2}</div>
+                <div className='text-gray-400 text-sm lg:text-lg'>{value2}</div>
               )}
-            </div>
-            <div>
+
+
             {buttonLink && buttonLinkUrl && (
               <Link
                 href={buttonLinkUrl}
                 className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                 style={{ backgroundColor: '#d36d00' }}
               >
-                <span className="hidden md:block">Go To Experiment</span>{' '}
-                <ArrowTopRightOnSquareIcon className="h-5 md:ml-4" />
+                <span>Go To Experiment</span>{' '}
+                <ArrowTopRightOnSquareIcon className="h-5 ml-4" />
               </Link>
             )}
+
+          </div>
+
+          {skills && !isWorkItem && (
+            <h2 style={{ color: '#d36d00' }}>Skills</h2>
+          )}
+          {skills && isWorkItem && (
+            <h2 style={{ color: '#d36d00' }}>Skills Used</h2>
+          )}
+
+          {skills && !isWorkItem && (
+            <div className="flex flex-wrap gap-4">
+              {skills.map((pill) => (
+                <div key={pill.id}>
+                  <Pill text={pill.name} color={pill.color} />
+                </div>
+              ))}
             </div>
-          </div>
+          )}
+          {skills && isWorkItem && (
+            <div className="flex flex-wrap gap-4">
+              {skills.map((pill) => (
+                <div key={pill.id}>
+                  <Pill text={pill.name} color={pill.color} />
+                </div>
+              ))}
+            </div>
+          )}
 
-          <div>
-            {skills && !isWorkItem && (
-              <h2 style={{ color: '#d36d00' }}>Skills</h2>
-            )}
-            {skills && isWorkItem && (
-              <h2 style={{ color: '#d36d00' }}>Skills Used</h2>
-            )}
-          </div>
-
-          <div>
-            {skills && !isWorkItem && (
-              <div className="flex flex-wrap gap-4">
-                {skills.map((pill) => (
-                  <div key={pill.id}>
-                    <Pill text={pill.name} color={pill.color} />
-                  </div>
-                ))}
-              </div>
-            )}
-            {skills && isWorkItem && (
-              <div className="flex flex-wrap gap-4">
-                {skills.map((pill) => (
-                  <div key={pill.id}>
-                    <Pill text={pill.name} color={pill.color} />
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
 
       </div>

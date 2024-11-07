@@ -17,9 +17,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgWidth
 
   return (
     <div className="modal">
-      <div className="modal-content">
+      <div
+        className="modal-content w-[70vw] md:w-[45vw]"
+        >
         <XCircleIcon
-            className="absolute top-0 right-0 m-4 text-black w-10 md:w-10"
+            className="absolute top-0 right-0 m-4 text-black w-6 md:w-10"
             style={{ cursor: 'hand', borderRadius: '50%', backgroundColor: '#fff' }}
             onClick={onClose}
         />

@@ -40,7 +40,7 @@ const Messages = forwardRef<
                     y: 10,
                   }}
                   animate={{
-                    opacity: 1,
+                    opacity: 0.75,
                     y: 0,
                   }}
                   exit={{
