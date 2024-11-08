@@ -5,7 +5,7 @@ const websites = [
         heading: 'MaxContact',
         url: 'https://www.maxcontact.com',
         value: 'I worked on the rebuild and legacy migration of the UI for bespoke contact centre software using VueJs version 3 and Typescript (Options & Composition API). The backend API was built using C# and .Net. Azure DevOps was used for version control and CI/CD.',
-        value2: 'I also worked closely with the UI/UX designers converting Figma designs to code and ensuring the software was responsive and accessible.',
+        value2: 'I also worked closely with the UI/UX designers converting Figma designs to code and ensuring the software was responsive and accessible. You can see some of my work in the videos section below...',
         image: '/websites/maxcontact.jpg',
         isWorkItem: true,
         skills: [
@@ -20,7 +20,9 @@ const websites = [
             skills[11],
             skills[18],
             skills[20],
-        ]
+        ],
+        buttonLink: true,
+        buttonLinkUrl: '/portfolio/ui-ux/videos',
     },
     {
         heading: 'Destinology',

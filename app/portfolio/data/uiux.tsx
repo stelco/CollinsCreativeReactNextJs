@@ -20,10 +20,11 @@ const uiux = [
     {
         heading: 'Wireframes',
         value: 'An example wireframe for a website home page. Created using Balsamiq Mockups.',
-        image: '/uiux/wireframe.jpg',
+        value2: 'I have more recently worked with Figma, taking designs from wireframe to prototype.',
+        image: '/uiux/wireframe.png',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: '/uiux/wireframe.jpg',
+        buttonLinkUrl: '/uiux/wireframe.png',
         isModal: true
     },
     {

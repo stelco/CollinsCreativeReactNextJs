@@ -36,9 +36,7 @@ export default function Controls() {
               y: "100%",
               opacity: 0,
             }}
-            className={
-              "p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4 w-full sm:w-auto"
-            }
+            className="p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4 w-full sm:w-auto"
           >
             <Toggle
               pressed={!isMuted}

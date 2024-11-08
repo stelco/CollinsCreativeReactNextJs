@@ -53,11 +53,21 @@ h2 {
   gap: 8px;
 }
 
+.gallery-video {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 0fr));
+  gap: 32px;
+}
+
 .gallery-item {
   position: relative;
   width: 100%;
   overflow: hidden;
   height: 150px;
+}
+
+.pdf-container {
+  height: 90vh;
 }
 
 /* global.css */

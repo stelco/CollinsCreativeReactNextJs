@@ -6,13 +6,18 @@ import Controls from "./Controls";
 import StartCall from "./StartCall";
 import { ComponentRef, useRef } from "react";
 
+type MessagesRef = {
+  scrollHeight: number;
+  scrollTo: (options: ScrollToOptions) => void;
+};
+
 export default function ClientComponent({
   accessToken,
 }: {
   accessToken: string;
 }) {
   const timeout = useRef<number | null>(null);
-  const ref = useRef<ComponentRef<typeof Messages> | null>(null);
+  const ref = useRef<MessagesRef | null>(null);
 
   // optional: use configId from environment variable
   const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];

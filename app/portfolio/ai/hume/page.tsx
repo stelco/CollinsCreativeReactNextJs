@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { Metadata } from 'next';
 
 import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
 import dynamic from "next/dynamic";
 
-export const metadata: Metadata = {
-  title: 'AI',
+export const metadata = {
+  title: 'Collins Creative | AI Hume Empathatic Voice Interface',
 };
 
 const Chat = dynamic(() => import("@/app/components/ai/hume/voice/Chat"), {
