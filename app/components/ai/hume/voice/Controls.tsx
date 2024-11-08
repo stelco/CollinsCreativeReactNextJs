@@ -10,17 +10,17 @@ import { cn } from "@/utils";
 export default function Controls() {
   const { disconnect, status, isMuted, unmute, mute, micFft } = useVoice();
 
-  const containerClassName = cn(
-    "fixed bottom-0 left-0 w-full p-4 flex items-center justify-center",
-    "bg-gradient-to-t from-card via-card/90 to-card/0",
-    "border-t border-t-black",
-    "bg-gray-100"
-  );
-
-  const motionDivClassName = "p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4 w-full sm:w-auto";
-
   return (
-    <div className={containerClassName}>
+    <div
+      className={
+        cn(
+          "fixed bottom-0 left-0 w-full p-4 flex items-center justify-center",
+          "bg-gradient-to-t from-card via-card/90 to-card/0",
+          "border-t border-t-black",
+          "bg-gray-100"
+        )
+      }
+    >
       <AnimatePresence>
         {status.value === "connected" ? (
           <motion.div
@@ -36,7 +36,7 @@ export default function Controls() {
               y: "100%",
               opacity: 0,
             }}
-            {...{ className: motionDivClassName }}
+            className="p-4 bg-card border border-border rounded-lg shadow-sm flex items-center gap-4 w-full sm:w-auto"
           >
             <Toggle
               pressed={!isMuted}
