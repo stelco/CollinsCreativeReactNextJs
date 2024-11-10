@@ -55,7 +55,7 @@ h2 {
 
 .gallery-video {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 0fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 0fr));
   gap: 32px;
 }
 
