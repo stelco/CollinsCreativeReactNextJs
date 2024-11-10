@@ -18,7 +18,7 @@ const links = [
   { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
   //{ name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
-  { name: 'Dashboard (new window)', href: 'https://react-next-js-dashboard-hulx.vercel.app/dashboard', target: '_blank', icon: ChartBarSquareIcon },
+  { name: 'Dashboard', href: 'https://react-next-js-dashboard-hulx.vercel.app/', icon: ChartBarSquareIcon },
   { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];
 
@@ -32,7 +32,6 @@ export default function NavLinks() {
           <Link
             key={link.name}
             href={link.href}
-            target={link.target} // Add this line to pass the target attribute
             className={clsx(
               'flex h-[48px] grow items-center justify-center gap-2 rounded-md border-gray-300 bg-gray-100 p-2 text-sm font-medium hover:bg-gray-100 hover:text-orange-600 md:flex-none md:justify-start md:p-2 md:px-3 ',
               {
