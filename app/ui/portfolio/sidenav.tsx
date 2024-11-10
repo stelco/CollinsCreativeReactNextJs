@@ -15,7 +15,15 @@ export default function SideNav() {
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
-        <div className="h-auto w-full grow rounded-md bg-transparent md:block"></div>
+        <div className="hidden h-auto w-full grow rounded-md bg-transparent md:block"></div>
+        <div>
+          <iframe 
+          className="mb-3"
+          width="100%"
+          height="60"
+          src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&hide_artwork=1&feed=%2Fstec74%2Fplaylists%2Feclectric-mix-series%2F">
+          </iframe>
+        </div>
       </div>
     </div>
   );
