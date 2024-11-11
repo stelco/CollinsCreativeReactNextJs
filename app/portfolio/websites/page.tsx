@@ -56,7 +56,7 @@ export default async function Page() {
         ))}
 
         {websites
-          .filter((website) => website.heading === "Shenanigans Irish Bar")
+          .filter((website) => website.heading === "Destinology")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={website} />
@@ -64,7 +64,7 @@ export default async function Page() {
         ))}
 
         {websites
-          .filter((website) => website.heading === "Destinology")
+          .filter((website) => website.heading === "York Montessori")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={website} />
@@ -88,7 +88,7 @@ export default async function Page() {
         ))}
 
         {websites
-          .filter((website) => website.heading === "York Montessori")
+          .filter((website) => website.heading === "Shenanigans Irish Bar")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={website} />
