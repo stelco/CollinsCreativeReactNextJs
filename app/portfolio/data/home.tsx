@@ -15,9 +15,10 @@ const aboutMe =
 const aboutPage =
     {
         title: 'About This Portfolio',
-        heading: 'This is a React/Next.js app with Tailwind CSS',
-        value: 'This is a Next.js app with Tailwind CSS, TypeScript, GraphQl and Heroicons. It is a simple portfolio site that showcases my more recent technical and design skills. Im also experimenting with new AI technologies and integrating them into the site.',
-        value2: 'It is built using the Next.js tutorial Dashboard page as a boilerplate and the components and data have been customised for my portfolio pages. It uses a PostGres SQL database for the Dashboard data and local JSON data for the Skills. It is a work in progress and I will be adding more features and content in the future.',
+        url: 'https://github.com/stelco/CollinsCreativeReactNextJs',
+        heading: 'React/Next.js',
+        value: 'This is a Next.js app with Tailwind CSS, TypeScript, GraphQl and Heroicons. It is a simple portfolio site that showcases my more recent technical and design skills. Im also experimenting with new AI technologies and integrating them into the site (WIP).',
+        value2: 'It is built using the Next.js tutorial Dashboard page (available in website section) as a boilerplate and the components, styling and data have been customised for my portfolio pages. It uses a PostGres SQL database for the Dashboard data and local JSON data for the Skills. You can find the code on my GitHub page from the link above.',
         image: '/nextjs-logo.png'
     };
 

@@ -18,7 +18,6 @@ const links = [
   { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
   //{ name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
-  { name: 'Dashboard', href: 'https://react-next-js-dashboard-hulx.vercel.app/', icon: ChartBarSquareIcon },
   { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];
 

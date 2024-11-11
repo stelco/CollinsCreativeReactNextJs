@@ -39,6 +39,14 @@ export default async function Page() {
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 
+      {websites
+          .filter((website) => website.heading === "NextJs Dashboard")
+          .map((website, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={website} />
+            </Suspense>
+        ))}
+
         {websites
           .filter((website) => website.heading === "MaxContact")
           .map((website, index) => (

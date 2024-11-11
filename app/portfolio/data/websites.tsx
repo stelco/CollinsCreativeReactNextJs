@@ -2,6 +2,30 @@ import skills from '@/app/portfolio/data/skills';
 
 const websites = [
     {
+        heading: 'NextJs Dashboard',
+        url: 'https://github.com/stelco/ReactNextJsDashboard/tree/main/nextjs-dashboard',
+        value: 'This is a Next.js tutorial/course I recently completed. It is a Dashboard app I built using Tailwind CSS, TypeScript, GraphQl and Heroicons. I made quite a few customisations to the original tutorial and added some extra features like adding new customers and uploading profile images.',
+        value2: 'I used this as a starting point for building this new portfolio site. You can find the code on my GitHub page from the link above.',
+        image: '/websites/acme-dashboard.jpg',
+        isWorkItem: true,
+        skills: [
+            skills[0],
+            skills[1],
+            skills[3],
+            skills[4],
+            skills[6],
+            skills[7],
+            skills[11],
+            skills[13],
+            skills[17],
+            skills[18],
+            skills[20],
+        ],
+        buttonLink: true,
+        buttonLinkUrl: 'https://react-next-js-dashboard-hulx.vercel.app/',
+        buttonLinkUrlBlank: true,
+    },
+    {
         heading: 'MaxContact',
         url: 'https://www.maxcontact.com',
         value: 'I worked on the rebuild and legacy migration of the UI for bespoke contact centre software using VueJs version 3 and Typescript (Options & Composition API). The backend API was built using C# and .Net. Azure DevOps was used for version control and CI/CD.',
@@ -18,6 +42,7 @@ const websites = [
             skills[8],
             skills[9],
             skills[11],
+            skills[17],
             skills[18],
             skills[20],
         ],

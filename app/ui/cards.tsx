@@ -36,6 +36,7 @@ interface CardBasicProps {
     isWorkItem?: boolean;
     buttonLink?: boolean;
     buttonLinkUrl?: string;
+    buttonLinkUrlBlank?: boolean;
     isModal?: boolean;
   };
 }
@@ -52,6 +53,7 @@ export function CardBasic({ CardContent }: CardBasicProps) {
     isWorkItem={!!CardContent.isWorkItem}
     buttonLink={!!CardContent.buttonLink}
     buttonLinkUrl={CardContent.buttonLinkUrl}
+    buttonLinkUrlBlank={!!CardContent.buttonLinkUrlBlank}
     isModal={!!CardContent.isModal}
     type="person"
   />;
@@ -90,6 +92,7 @@ export function Card({
   isWorkItem,
   buttonLink,
   buttonLinkUrl,
+  buttonLinkUrlBlank,
   isModal
 }: {
   title?: string;
@@ -103,6 +106,7 @@ export function Card({
   isWorkItem?: boolean;
   buttonLink?: boolean;
   buttonLinkUrl?: string;
+  buttonLinkUrlBlank?: boolean;
   isModal?: boolean;
 }) {
   const Icon = iconMap[type];
@@ -175,7 +179,7 @@ export function Card({
 
             {buttonLink && buttonLinkUrl && (
               <Button
-                onClick={() => isModal ? openModal({ src: buttonLinkUrl, alt: heading || '', width: 800, height: 600 }) : window.location.href = buttonLinkUrl }
+                onClick={() => isModal ? openModal({ src: buttonLinkUrl, alt: heading || '', width: 800, height: 600 }) : window.open(buttonLinkUrl, buttonLinkUrlBlank ? '_blank' : '_self')}
                 className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-600 hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                 style={{ alignSelf: 'center' }}
               >

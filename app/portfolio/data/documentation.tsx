@@ -28,12 +28,12 @@ const documentation = [
     },
     {
         heading: 'The Byte! (circa 1987)',
-        value: 'This was the first ever Graphic Design work I produced with a friend when I was 14 years old. We hand drew everything and typed up the copy on a ZX Spectrum 48k! Page flip functionality built using Javascript.',
+        value: 'This was the first ever Graphic Design work I produced with a friend when I was 14 years old. We hand drew everything and typed up the copy on a ZX Spectrum 48k! The page flip functionality built using Vanilla Javascript and JQuery.',
         image: '/documentation/the-byte.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: '/documentation/the-byte.jpg',
-        isModal: true
+        buttonLinkUrl: 'http://stelco-001-site1.itempurl.com/thebyte/index.html',
+        buttonLinkUrlBlank: true,
     },
     {
         heading: 'CMS Research and Analysis',
