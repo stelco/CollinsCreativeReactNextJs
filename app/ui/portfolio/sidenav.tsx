@@ -16,7 +16,7 @@ export default function SideNav() {
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-transparent md:block"></div>
-        <div>
+        <div className='hidden h-auto w-full md:block'>
           <iframe 
           className="mb-3"
           width="100%"
