@@ -1,6 +1,29 @@
+'use client';
+
 import SideNav from '@/app/ui/portfolio/sidenav';
+import { useEffect } from 'react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://app.chatbit.co/embed.min.js";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    const scriptConfig = document.createElement('script');
+    scriptConfig.innerHTML = `
+      window.cbConfig = {
+        chatId: "17c64691-26fc-42d1-b35b-3fd235807059"
+      };
+    `;
+    document.body.appendChild(scriptConfig);
+
+    return () => {
+      document.body.removeChild(script);
+      document.body.removeChild(scriptConfig);
+    };
+  }, []);
+
   return (
     <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
       <div className="z-10 w-full flex-none md:w-64">

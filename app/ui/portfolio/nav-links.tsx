@@ -2,7 +2,10 @@
 
 import {
   HomeIcon,
-  ChartBarSquareIcon,
+  GlobeAltIcon,
+  PresentationChartLineIcon,
+  DocumentTextIcon,
+  BuildingLibraryIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -13,10 +16,10 @@ import clsx from 'clsx';
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/portfolio/home', icon: HomeIcon },
-  { name: 'Websites', href: '/portfolio/websites', icon: HomeIcon },
-  { name: 'UI/UX', href: '/portfolio/ui-ux', icon: HomeIcon },
-  { name: 'Documentation', href: '/portfolio/documentation', icon: HomeIcon },
-  { name: 'Art Archive', href: '/portfolio/art-archive', icon: HomeIcon },
+  { name: 'Websites', href: '/portfolio/websites', icon: GlobeAltIcon },
+  { name: 'UI/UX', href: '/portfolio/ui-ux', icon: PresentationChartLineIcon },
+  { name: 'Documentation', href: '/portfolio/documentation', icon: DocumentTextIcon },
+  { name: 'Art Archive', href: '/portfolio/art-archive', icon: BuildingLibraryIcon },
   //{ name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
   { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];

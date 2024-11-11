@@ -5,16 +5,16 @@ import skills from '@/app/portfolio/data/skills';
 
 export default async function SkillsChart() {
 
-  const chartHeight = 350;
+  const chartHeight = 440;
 
-    // Filter filteredSkills to only include those with a defined percentage
-    const filteredSkills = skills.filter(skill => skill.percentage !== undefined);
+  // Filter filteredSkills to only include those with a defined percentage
+  const filteredSkills = skills.filter(skill => skill.percentage !== undefined);
 
   const { yAxisLabels, topLabel } = generateYAxisSkills(filteredSkills);
 
   if (!filteredSkills || filteredSkills.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
-    }
+  }
 
   return (
     <div className="w-full md:col-span-4">
@@ -26,9 +26,12 @@ export default async function SkillsChart() {
       {
         <div className="rounded-xl bg-gray-100 p-4">
 
-          <div className="sm:grid-cols-10 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
+          <div
+            className="flex items-end gap-2 rounded-md bg-white p-4 md:gap-4"
+            style={{ overflowX: 'auto' }}
+            >
             <div
-              className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
+              className="mb-8 flex flex-col justify-between text-sm text-gray-400"
               style={{ height: `${chartHeight}px` }}
             >
               {yAxisLabels.map((label) => (
@@ -37,26 +40,26 @@ export default async function SkillsChart() {
             </div>
 
             {filteredSkills.map((skill) => (
-              <div key={skill.name} className="flex flex-col items-center gap-2 min-w-[100px]">
+              <div key={skill.name} className="flex flex-col items-center gap-2 pb-8 min-w-[80px]">
                 <div
                   className={`w-full rounded-md ${skill.color}`}
                   style={{
                     height: `${(chartHeight / topLabel) * (skill.percentage ?? 0)}px`,
-                    width: '50px',
+                    width: '20px',
                   }}
                 ></div>
-                <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">
+                <p className="-rotate-90 text-sm text-gray-400 sm:rotate-90 mt-8">
                   {skill.name}
                 </p>
               </div>
             ))}
           </div>
 
-        <div className="flex items-center pb-2 pt-6">
-          <CalendarIcon className="h-5 w-5 text-gray-500" />
-          <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+          <div className="flex items-center pb-2 pt-6">
+            <CalendarIcon className="h-5 w-5 text-gray-500" />
+            <h3 className="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+          </div>
         </div>
-      </div>
       }
     </div>
   );
