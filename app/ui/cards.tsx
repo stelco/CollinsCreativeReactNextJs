@@ -137,7 +137,7 @@ export function Card({
         </div>
       )}
 
-      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white text-grey-400 dark:bg-gray-600 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
+      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
         
         {image && (
           <Image
