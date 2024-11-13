@@ -36,7 +36,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={cn(
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md border-gray-300 bg-gray-100 p-2 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3 text-slate-500 hover:text-orange-600",
+              "flex h-[48px] grow items-center justify-center gap-2 rounded-md border-gray-300 bg-gray-100 p-2 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3 text-slate-600 hover:text-orange-600",
               "dark:bg-gray-600 dark:text-slate-100 dark:hover:text-orange-400",
               {
                 'bg-gray-100 text-orange-600 dark:text-orange-400': pathname === link.href || pathname.startsWith(link.href),

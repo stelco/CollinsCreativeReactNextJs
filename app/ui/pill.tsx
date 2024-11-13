@@ -11,17 +11,7 @@ export default function Pill({ text, color }: PillProps) {
   return (
     <div className={`${exo2.className}`}>
       <div
-        className={`${color} pill`}
-        style={{
-          padding: '5px 10px',
-          borderRadius: '9999px',
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '14px',
-          fontWeight: 'bold',
-          color: '#333',
-        }}
+        className={`${color} pill md:py-2 md:px-2 text-xs md:text-sm`}
       >
         {text}
       </div>

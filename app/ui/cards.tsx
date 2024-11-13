@@ -219,7 +219,7 @@ export function Card({
             </div>
           )}
           {skills && isWorkItem && (
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2">
               {skills.map((pill) => (
                 <div key={pill.id}>
                   <Pill text={pill.name} color={pill.color} />
