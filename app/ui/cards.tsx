@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import cn from "classnames";
+
 import {
   BanknotesIcon,
   ClockIcon,
@@ -125,16 +127,17 @@ export function Card({
   };
 
   return (
-    <div className="rounded-xl bg-gray-100 p-2 shadow-sm">
+    //use cn to apply dark mode
+    <div className={cn("bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
 
       {!isWorkItem && (
         <div className="flex p-2 align-top items-center">
-          {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
+          {Icon ? <Icon className={cn("h-5 w-5 text-gray-700", "dark:bg-gray-600 dark:text-slate-100")} /> : null}
           <h3 className="ml-2 text-md font-medium">{title}</h3>
         </div>
       )}
 
-      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
+      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white text-grey-400 dark:bg-gray-600 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
         
         {image && (
           <Image
@@ -142,7 +145,7 @@ export function Card({
             width={isWorkItem ? 500 : 250}
             height={320}
             alt={image}
-            style={{ height: 'fit-content', borderRadius: '4px', border: '1px solid #f3f4f6' }}
+            style={{ height: 'fit-content', borderRadius: '8px' }}
           />
         )}
 
@@ -151,8 +154,8 @@ export function Card({
           <div className="flex flex-col gap-3">
 
             <div
-              className="flex items-center justify-flex-start"
-              style={{ color: '#d36d00' }}>
+              className={cn("flex items-center justify-flex-start text-orange-400",  "dark:text-orange-300")}
+              >
 
               {heading && (
                 <div className='text-[25px]'>{heading}</div>
@@ -163,7 +166,7 @@ export function Card({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center font-medium text-gray-400 transition-colors hover:text-orange-400 md:text-base pl-3"
+                  className="flex items-center font-medium transition-colors hover:text-orange-600 md:text-base pl-3"
                 >
                   <span><ArrowTopRightOnSquareIcon className="w-5 md:w-6" /></span>
                 </Link>
@@ -171,16 +174,16 @@ export function Card({
             </div>
 
             {value && (
-              <div className='text-gray-400 text-sm lg:text-lg'>{value}</div>
+              <div className='text-sm lg:text-lg'>{value}</div>
             )}
             {value2 && (
-              <div className='text-gray-400 text-sm lg:text-lg'>{value2}</div>
+              <div className='text-sm lg:text-lg'>{value2}</div>
             )}
 
             {buttonLink && buttonLinkUrl && (
               <Button
                 onClick={() => isModal ? openModal({ src: buttonLinkUrl, alt: heading || '', width: 800, height: 600 }) : window.open(buttonLinkUrl, buttonLinkUrlBlank ? '_blank' : '_self')}
-                className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-600 hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-400 hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:text-slate-800"
                 style={{ alignSelf: 'center' }}
               >
                 {

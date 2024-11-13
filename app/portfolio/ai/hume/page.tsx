@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 
 import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
@@ -21,16 +20,6 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/plaque-fullsize-cropped.jpg"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
 
       <Breadcrumbs
         breadcrumbs={[

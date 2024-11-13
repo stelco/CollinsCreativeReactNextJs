@@ -16,16 +16,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col">
-      
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/plaque-fullsize-cropped.jpg"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
 
       <Breadcrumbs
         breadcrumbs={[

@@ -30,10 +30,10 @@ const uiux = [
     {
         heading: 'Tablet UI',
         value: 'User Interface designs for an Apple iPad showing the UX process between different screens.',
-        image: '/uiux/UIdesign6.jpg',
+        image: '/uiux/UIdesign5.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: '/uiux/UIdesign6.jpg',
+        buttonLinkUrl: '/uiux/UIdesign5.jpg',
         isModal: true
     },
     {

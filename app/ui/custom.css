@@ -25,3 +25,15 @@
     --tw-text-opacity: 0.8;
     background-color: rgb(211 109 0 / var(--tw-text-opacity));
   }
+
+  .bg-light {
+    background-image: url('/plaque-fullsize-cropped.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-dark {
+    background-image: url('/plaque-fullsize-cropped-dark.jpg');
+    background-size: cover;
+    background-position: center;
+  }

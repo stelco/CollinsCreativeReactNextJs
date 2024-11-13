@@ -1,6 +1,6 @@
 export default function SocialIcons() {
   return (
-    <div className="hidden sm:flex align-middle">
+    <div className="hidden sm:flex align-middle justify-end flex-1">
       <a href="https://www.linkedin.com/in/steven-collins-26367733/" target="_blank" className="text-gray-400 hover:text-orange-300">
         <span className="sr-only">Linked In</span>
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 16 16">

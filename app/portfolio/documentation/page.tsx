@@ -1,7 +1,5 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { CardBasic } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
@@ -15,16 +13,6 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen flex-col">
-
-      <div className="fixed inset-0 z-0">
-        <Image
-          src="/plaque-fullsize-cropped.jpg"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
 
       <Breadcrumbs
         breadcrumbs={[

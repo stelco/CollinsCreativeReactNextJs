@@ -2,6 +2,7 @@ import { generateYAxisSkills } from '@/app/lib/utils';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
 import skills from '@/app/portfolio/data/skills';
+import cn from "classnames";
 
 export default async function SkillsChart() {
 
@@ -17,17 +18,17 @@ export default async function SkillsChart() {
   }
 
   return (
-    <div className="w-full md:col-span-4">
+    <div className={cn("w-full md:col-span-4 bg-gray-100 rounded-xl p-2 shadow-sm text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
 
-      <h2 className={`${exo2.className} mb-4 text-xl md:text-2xl`}>
+      <h2 className={`${exo2.className} mb-4 mt-2 ml-4 text-xl md:text-2xl`}>
         Skills Chart
       </h2>
 
       {
-        <div className="rounded-xl bg-gray-100 p-4">
+        <div className={cn("w-full md:col-span-4 bg-gray-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
 
           <div
-            className="flex items-end gap-2 rounded-md bg-white p-4 md:gap-4"
+            className={cn("flex items-end gap-2 rounded-xl bg-white p-4 md:gap-4","dark:bg-gray-700")}
             style={{ overflowX: 'auto' }}
             >
             <div

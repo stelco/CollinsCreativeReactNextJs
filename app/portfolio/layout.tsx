@@ -2,6 +2,7 @@
 
 import SideNav from '@/app/ui/portfolio/sidenav';
 import { useEffect } from 'react';
+import "@/app/globals.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     const scriptConfig = document.createElement('script');
     scriptConfig.innerHTML = `
-      window.cbConfig = {
+      window.cbConfig = {     
         chatId: "17c64691-26fc-42d1-b35b-3fd235807059"
       };
     `;
