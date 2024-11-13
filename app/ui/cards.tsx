@@ -203,10 +203,10 @@ export function Card({
           </div>
 
           {skills && !isWorkItem && (
-            <h2 style={{ color: '#d36d00' }}>Skills</h2>
+            <div className={cn("flex items-center justify-flex-start text-orange-400 text-[20px]",  "dark:text-orange-300")}>Skills</div>
           )}
           {skills && isWorkItem && (
-            <h2 style={{ color: '#d36d00' }}>Skills Used</h2>
+            <div className={cn("flex items-center justify-flex-start text-orange-400 text-[20px]",  "dark:text-orange-300")}>Skills</div>
           )}
 
           {skills && !isWorkItem && (

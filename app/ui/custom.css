@@ -48,3 +48,18 @@
     font-weight: bold;
     color: #333;
   }
+
+  .mixcloud-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background-color: #4b5563;
+    opacity: 0.5;
+    pointer-events: none; /* Ensure the overlay does not block interactions with the iframe */
+  }
+
+  .text-bevel {
+    text-shadow: 0px 1px 1px #f97316, 0px 1px 1px #f97316;
+  }
