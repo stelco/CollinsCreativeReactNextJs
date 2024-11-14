@@ -3,11 +3,19 @@ const ai = [
         heading: 'Hume Empathatic Voice Interface',
         url: 'https://github.com/stelco/hume-voice-next-js',
         value: 'This project features a sample implementation of Hume`s Empathic Voice Interface using Hume`s React SDK. Here, we have a simple EVI that uses the Next.js App Router.',
-        value2: 'Ive integrated the Hume SDK into the Next.js app and created a simple chat interface to interact with the EVI.',
+        value2: 'Ive integrated the Hume SDK into my portfolio and created a simple chat interface where you can interact with the EVI.',
         image: '/ai/hume.png',
         isWorkItem: true,
         buttonLink: true,
         buttonLinkUrl: '/portfolio/ai/hume'
+    },
+    {
+        heading: 'More to follow...',
+        url: '',
+        value: 'Im looking forward to adding more AI projects to this portfolio. Stay tuned!',
+        value2: 'Click the picture of me and my son for a surprise!',
+        image: '/ai/ai.jpg',
+        isWorkItem: true
     }
 ];
 
