@@ -10,20 +10,6 @@
     transition: all 0.3s ease-in-out 0s !important;
   }
   
-  [data-mode="system"] .switch::after {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    font-weight: 600;
-    font-size: calc(var(--size) / 2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: "A";
-  }
-  
   [data-mode="light"] .switch {
     background-color: #fb923c;
   }

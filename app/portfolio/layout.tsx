@@ -19,9 +19,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     `;
     document.body.appendChild(scriptConfig);
 
+    const handleFocus = () => {
+      window.updateDOM && window.updateDOM();
+    };
+
+    window.addEventListener('focus', handleFocus);
+
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(scriptConfig);
+      window.removeEventListener('focus', handleFocus);
     };
   }, []);
 

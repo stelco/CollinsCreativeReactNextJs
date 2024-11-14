@@ -7,17 +7,17 @@ declare global {
   var updateDOM: () => void;
 }
 
-type ColorSchemePreference = "system" | "dark" | "light";
+type ColorSchemePreference = "dark" | "light";
 
 const STORAGE_KEY = "nextjs-blog-starter-theme";
-const modes: ColorSchemePreference[] = ["system", "dark", "light"];
+const modes: ColorSchemePreference[] = ["dark", "light"];
 
 /** to reuse updateDOM function defined inside injected script */
 
 /** function to be injected in script tag for avoiding FOUC (Flash of Unstyled Content) */
 export const NoFOUCScript = (storageKey: string) => {
   /* can not use outside constants or function as this script will be injected in a different context */
-  const [SYSTEM, DARK, LIGHT] = ["system", "dark", "light"];
+  const [DARK, LIGHT] = ["dark", "light"];
 
   /** Modify transition globally to avoid patched transitions */
   const modifyTransition = () => {
@@ -38,13 +38,11 @@ export const NoFOUCScript = (storageKey: string) => {
   /** function to add remove dark class */
   window.updateDOM = () => {
     const restoreTransitions = modifyTransition();
-    const mode = localStorage.getItem(storageKey) ?? SYSTEM;
-    const systemMode = media.matches ? DARK : LIGHT;
-    const resolvedMode = mode === SYSTEM ? systemMode : mode;
+    const mode = localStorage.getItem(storageKey);
     const classList = document.documentElement.classList;
-    if (resolvedMode === DARK) classList.add(DARK);
+    if (mode === DARK) classList.add(DARK);
     else classList.remove(DARK);
-    document.documentElement.setAttribute("data-mode", mode);
+    document.documentElement.setAttribute("data-mode", mode || "");
     restoreTransitions();
   };
   window.updateDOM();
@@ -61,16 +59,24 @@ const Switch = () => {
     () =>
       ((typeof localStorage !== "undefined" &&
         localStorage.getItem(STORAGE_KEY)) ??
-        "system") as ColorSchemePreference,
+        "") as ColorSchemePreference,
   );
 
   useEffect(() => {
     // store global functions to local variables to avoid any interference
     updateDOM = window.updateDOM;
+    updateDOM(); // Ensure updateDOM is called on initial load
     /** Sync the tabs */
     addEventListener("storage", (e: StorageEvent): void => {
       e.key === STORAGE_KEY && setMode(e.newValue as ColorSchemePreference);
     });
+
+    // Ensure updateDOM is called when the component mounts
+    window.addEventListener('load', updateDOM);
+
+    return () => {
+      window.removeEventListener('load', updateDOM);
+    };
   }, []);
 
   useEffect(() => {

@@ -12,7 +12,7 @@ export default function SideNav(props: React.HTMLAttributes<HTMLDivElement>) {
   useEffect(() => {
     const htmlElement = document.documentElement;
     const observer = new MutationObserver(() => {
-      setIsDarkMode(htmlElement.getAttribute('data-mode') === 'dark' || htmlElement.getAttribute('data-mode') === 'system');
+      setIsDarkMode(htmlElement.getAttribute('data-mode') === 'dark');
     });
 
     observer.observe(htmlElement, { attributes: true, attributeFilter: ['data-mode'] });
