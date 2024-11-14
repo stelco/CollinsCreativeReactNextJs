@@ -24,7 +24,7 @@ export default function SideNav(props: React.HTMLAttributes<HTMLDivElement>) {
   }, []);
 
   return (
-    <div className="flex h-full flex-col px-3 pt-4 md:px-2">
+    <div className="flex h-full flex-col px-4 pt-4 md:px-2">
       <Link
         className={cn("mb-2 flex h-20 items-end justify-start rounded-xl border p-3 md:h-40 bg-gradient-to-r from-orange-500 to-transparent", "dark:from-gray-800 dark:to-transparent")}
         href="/"
