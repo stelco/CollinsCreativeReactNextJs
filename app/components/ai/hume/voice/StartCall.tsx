@@ -30,7 +30,7 @@ export default function StartCall() {
                 exit: { scale: 0.5 },
               }}
             >
-              <div className={"flex flex-col items-center gap-4 mb-[60px] md:mb-[0px]"}>
+              <div className={"flex flex-col items-center gap-4 mb-[60px] md:mb-[0px] bg-gray-100 p-4 rounded-xl"}>
                 <Image
                   src="/ai/hume-voice-cannon.png"
                   alt="Hume Voice Call"
@@ -41,7 +41,7 @@ export default function StartCall() {
                 />
                 <div
                   style={{ width: '250px', margin: '20px 0' }}
-                  className="text-center"
+                  className="text-center text-slate-600"
                 >
                   Explore what's possible with the Empathic Voice Interface
                 </div>

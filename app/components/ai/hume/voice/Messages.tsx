@@ -14,7 +14,7 @@ const Messages = forwardRef<
   return (
     <motion.div
       layoutScroll
-      className={"grow rounded-md overflow-auto p-4"}
+      className={"rounded-md overflow-auto p-4"}
       ref={ref}
     >
       <motion.div
@@ -40,7 +40,7 @@ const Messages = forwardRef<
                     y: 10,
                   }}
                   animate={{
-                    opacity: 0.75,
+                    opacity: 1,
                     y: 0,
                   }}
                   exit={{
