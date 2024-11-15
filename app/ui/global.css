@@ -59,6 +59,10 @@ h2 {
   gap: 32px;
 }
 
+.gallery-video video {
+  max-height: 93vh;
+}
+
 .gallery-item {
   position: relative;
   width: 100%;

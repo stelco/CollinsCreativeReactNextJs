@@ -23,12 +23,27 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       window.updateDOM && window.updateDOM();
     };
 
+    const handleChatClose = () => {
+      const chatWidget = document.querySelector('.chatbit-widget');
+      if (chatWidget) {
+        chatWidget.style.display = 'none';
+      }
+    };
+
+    const closeButton = document.getElementById('closeChat');
+    if (closeButton) {
+      closeButton.addEventListener('click', handleChatClose);
+    }
+
     window.addEventListener('focus', handleFocus);
 
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(scriptConfig);
       window.removeEventListener('focus', handleFocus);
+      if (closeButton) {
+        closeButton.removeEventListener('click', handleChatClose);
+      }
     };
   }, []);
 

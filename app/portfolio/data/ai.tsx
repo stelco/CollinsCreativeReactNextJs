@@ -12,8 +12,7 @@ const ai = [
     {
         heading: 'More to follow...',
         url: '',
-        value: 'Im looking forward to adding more AI projects to this portfolio. Stay tuned!',
-        value2: 'Click the picture of me and my son for a surprise!',
+        value: 'Im fascinated by AI and looking forward to adding more projects to this portfolio. Stay tuned!',
         image: '/ai/ai.jpg',
         isWorkItem: true
     }

@@ -6,7 +6,6 @@ import { CardSkeleton } from '@/app/ui/skeletons';
 import ai from '@/app/portfolio/data/ai';
 import fs from 'fs';
 import path from 'path';
-import VideoGallery from '@/app/components/VideoGallery';
 
 export const metadata: Metadata = {
   title: 'Collins Creative | AI experiments',
@@ -65,8 +64,6 @@ export default async function Page() {
               <CardBasic CardContent={website} />
             </Suspense>
         ))}
-
-        <VideoGallery videos={videos} />
 
       </div>
 

@@ -1,13 +1,12 @@
 import skills from '@/app/portfolio/data/skills';
-import { url } from 'inspector';
 
 const aboutMe = 
     {
         title: 'About Me',
         heading: 'My name is Steven Collins and this is my Online Portfolio.',
         value: 'I am a professional Web Developer who has been in the creative industry for over 25 years. I specialise in Fully Responsive, User Friendly Front End UI Development and have a background in Contemporary Design Methodologies.',
-        value2: 'I have a passion for creating beautiful, component based, functional websites and applications that are easy to use and visually appealing. I am always looking to learn new technologies and improve my skills.',
-        image: '/meandollie.jpg',
+        value2: 'I have a passion for creating beautiful, component based, functional websites and applications that are easy to use and visually appealing. I am always looking to learn new technologies (including AI) and build on my skills.',
+        video: { src: '/ai/videos/pixverse-venom-buddy.mp4', width: 250, height: 652 },
         skills: skills,
         isWorkItem: false,
     };
