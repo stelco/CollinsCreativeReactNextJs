@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const handleChatClose = () => {
       const chatWidget = document.querySelector('.chatbit-widget');
       if (chatWidget) {
-        chatWidget.style.display = 'none';
+        (chatWidget as HTMLElement).style.display = 'none';
       }
     };
 
