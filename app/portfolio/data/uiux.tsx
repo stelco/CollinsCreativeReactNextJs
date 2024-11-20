@@ -1,5 +1,15 @@
 const uiux = [
     {
+        heading: 'UX Videos',
+        value: 'Videos I created which were used to demonstrate how features I had been working on worked within the software.',
+        value2: 'These videos were also used as part of the PR process to show stakeholders and testers the progress of the project.',
+        image: '/uiux/ux-videos.jpg',
+        isWorkItem: true,
+        buttonLink: true,
+        buttonLinkUrl: '/portfolio/ui-ux/videos',
+        isModal: false
+    },
+    {
         heading: 'Mobile Devices UI',
         value: 'Some example design mock ups for mobile device web applications. Shows display and functionality at different viewport sizes.',
         image: '/uiux/UIdesign1.jpg',

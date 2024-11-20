@@ -1,4 +1,5 @@
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
+import { CardIntro } from '@/app/ui/cards';
 
 export const dynamicParams = true;
 
@@ -30,6 +31,7 @@ const page = async ({ params }: { params: { postId: string } }) => {
 
   return (
     <main className="flex min-h-screen flex-col">
+
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Home', href: '/portfolio/home' },
@@ -45,9 +47,18 @@ const page = async ({ params }: { params: { postId: string } }) => {
           },
         ]}
       />
-      <div className="single-blog-page m-4">
-        <h2>{post.title.rendered}</h2>
-        <div className="blog-post">
+
+        <CardIntro
+            CardContent={{
+                title: 'Headless CMS Blog Posts',
+                buttonLink: true,
+                buttonLinkUrl: '/portfolio/blog',
+                value2: 'Back to all posts',
+        }}/>
+
+      <div className="single-blog-page mt-4">
+        <div className="blog-post bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg lg:flex-col lg:overflow-hidden lg:text-md">
+        <h2 className='mb-8'>{post.title.rendered}</h2>
           <p
             suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}

@@ -33,6 +33,14 @@ export default async function Page() {
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 
+      {uiux
+          .filter((ui) => ui.heading === "UX Videos")
+          .map((ui, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={ui} />
+            </Suspense>
+        ))}
+
         {uiux
           .filter((ui) => ui.heading === "Mobile Devices UI")
           .map((ui, index) => (

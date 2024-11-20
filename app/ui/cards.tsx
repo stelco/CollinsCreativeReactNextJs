@@ -9,6 +9,7 @@ import {
   UserGroupIcon,
   InboxIcon,
   ArrowTopRightOnSquareIcon,
+  ArrowLeftCircleIcon
 } from '@heroicons/react/24/outline';
 import { exo2 } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
@@ -47,8 +48,25 @@ interface CardBasicProps {
 export function CardIntro({ CardContent }: CardBasicProps) {
   return (
     <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
+
       <div className={cn("text-lg text-orange-400",  "dark:text-orange-300")}>{CardContent.title}</div>
-      <div className="text-md">{CardContent.value}</div>
+
+      {!CardContent.buttonLink && !CardContent.buttonLinkUrl ? (
+        <div className="text-md mt-2">{CardContent.value}</div>
+      ) : (
+        <div className="text-md">
+          {CardContent.value ? CardContent.value : ''}
+          <Link
+            href={CardContent.buttonLink ? CardContent.buttonLinkUrl || '' : ''}
+            rel="noopener noreferrer"
+            className="mt-2 flex items-center font-medium transition-colors hover:text-orange-500 md:text-base"
+          >
+            <span><ArrowLeftCircleIcon className="w-5 md:w-6 mr-2" /></span>
+            {CardContent.value2}
+          </Link>
+
+        </div>
+      )}
     </div>
   );
 }

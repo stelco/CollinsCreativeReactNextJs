@@ -4,6 +4,7 @@ import { exo2 } from '@/app/ui/fonts';
 import SocialIcons from '@/app/components/SocialIcons';
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
 import cn from "classnames";
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 
 interface Breadcrumb {
   label: string;
@@ -39,7 +40,11 @@ export default function Breadcrumbs({
               >
                 <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
                 {index < breadcrumbs.length - 1 ? (
-                  <span className="mx-3 inline-block">/</span>
+                  <span className="mx-3 inline-block">
+                    <ChevronRightIcon
+                      className="w-4 text-gray-500 dark:text-slate-200 align-middle"
+                    />
+                  </span>
                 ) : null}
               </li>
             ))}
