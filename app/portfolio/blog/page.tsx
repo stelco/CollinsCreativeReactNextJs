@@ -4,7 +4,10 @@ import { CardIntro } from '@/app/ui/cards';
 
 async function getPosts() {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`
+    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts`,
+    {
+      cache: 'no-cache',
+    }
   );
   const posts = await response.json();
   return posts;

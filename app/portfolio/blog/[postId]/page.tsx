@@ -16,7 +16,10 @@ export async function generateStaticParams() {
 
 async function getSinglePost(postId: any) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${postId}`
+    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${postId}`,
+    {
+      cache: 'no-cache',
+    }
   );
   const post = await response.json();
   return post;
@@ -56,14 +59,11 @@ const page = async ({ params }: { params: { postId: string } }) => {
       />
       <div className="single-blog-page mt-4">
         <div className="blog-post bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg lg:flex-col lg:overflow-hidden lg:text-md">
-
           <h2 className='mb-8'>{post.title.rendered}</h2>
-
           <div
             suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           ></div>
-
         </div>
       </div>
     </main>
