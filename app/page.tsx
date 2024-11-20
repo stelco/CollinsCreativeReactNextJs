@@ -7,7 +7,7 @@ import SkillsChart from '@/app/ui/portfolio/skills-chart';
 import { Suspense } from 'react';
 import { CardSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 import { aboutMe, aboutPage } from '@/app/portfolio/data/home';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Home',

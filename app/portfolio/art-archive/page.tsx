@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import ImageGallery from '@/app/components/ImageGallery';
+import { CardIntro } from '@/app/ui/cards';
 
 export const metadata = {
   title: 'Collins Creative | Art Archive',
@@ -41,6 +42,12 @@ export default async function Page() {
           },
         ]}
       />
+
+      <CardIntro
+          CardContent={{
+              title: 'Contemporary Artwork',
+              value: 'A collection of contemporary sketchbook artwork I created a long time ago during my time at Art College.',
+      }}/>
 
       <ImageGallery images={images} />
     </main>

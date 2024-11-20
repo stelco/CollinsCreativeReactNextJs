@@ -1,12 +1,10 @@
-//import SideNav from '@/app/ui/portfolio/sidenav';
-import Image from 'next/image';
 import { Metadata } from 'next';
 import { CardBasic } from '@/app/ui/cards';
 import SkillsChart from '@/app/ui/portfolio/skills-chart';
-import { Suspense } from 'react';
-import { CardSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 import { aboutMe, aboutPage, aboutOldPage } from '@/app/portfolio/data/home';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
+import { Suspense } from 'react';
+import { CardsSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -19,7 +17,7 @@ export default function Page() {
 
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Home', href: '/portfolio/home' }
+          { label: 'Home', href: '/portfolio/home', noSplit: true },
         ]}
       />
 
@@ -28,16 +26,16 @@ export default function Page() {
         <div className="grid gap-3 lg:grid-cols-2 md:grid-cols-2 lg:flex-row flex-grow items-start mt-2">
 
           <div className="flex flex-col justify-center gap-2 rounded-lg">
-            <Suspense fallback={<CardSkeleton />}>
+            <Suspense fallback={<CardsSkeleton />}>
               <CardBasic CardContent={aboutMe}/>
             </Suspense>
           </div>
 
           <div className="flex flex-col justify-center gap-2 rounded-lg">
-            <Suspense fallback={<CardSkeleton />}>
+            <Suspense fallback={<CardsSkeleton />}>
               <CardBasic CardContent={aboutPage}/>
             </Suspense>
-            <Suspense fallback={<CardSkeleton />}>
+            <Suspense fallback={<CardsSkeleton />}>
               <CardBasic CardContent={aboutOldPage}/>
             </Suspense>
           </div>

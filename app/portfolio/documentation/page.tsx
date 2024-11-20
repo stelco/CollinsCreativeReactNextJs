@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { CardBasic } from '@/app/ui/cards';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
+import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import documentation from '@/app/portfolio/data/documentation';
 
@@ -24,6 +24,12 @@ export default async function Page() {
           },
         ]}
       />
+
+      <CardIntro
+          CardContent={{
+              title: 'Planning and Documentation',
+              value: 'Examples of some of the preliminary planning and documentation I have created for various projects.',
+      }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 

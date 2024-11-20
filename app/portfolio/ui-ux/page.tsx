@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { CardBasic } from '@/app/ui/cards';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
+import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import uiux from '@/app/portfolio/data/uiux';
 
@@ -24,6 +24,12 @@ export default async function Page() {
           },
         ]}
       />
+
+      <CardIntro
+          CardContent={{
+              title: 'User Interface and User Experience Design',
+              value: 'A collection of UI and UX designs and prototypes I have created for various projects.',
+      }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 

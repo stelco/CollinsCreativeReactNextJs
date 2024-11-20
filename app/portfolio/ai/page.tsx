@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { CardBasic } from '@/app/ui/cards';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
+import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import ai from '@/app/portfolio/data/ai';
 import fs from 'fs';
@@ -46,6 +46,12 @@ export default async function Page() {
           },
         ]}
       />
+
+      <CardIntro
+          CardContent={{
+              title: 'Artificial Intelligence Experiments',
+              value: 'Im using this space to experiment with AI and machine learning.',
+      }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 

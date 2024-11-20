@@ -23,11 +23,12 @@ export default function BackgroundImage(props: React.HTMLAttributes<HTMLDivEleme
   return (
     <div
       className={cn(
-        "fixed inset-0 z-0",
+        "fixed inset-0",
         props.className,
         { 'bg-light': !isDarkMode },
         { 'bg-dark': isDarkMode }
       )}
+      style={{ zIndex: '-1' }}
       {...props}
     />
   );

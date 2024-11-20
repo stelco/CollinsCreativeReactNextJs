@@ -9,6 +9,7 @@ interface Breadcrumb {
   label: string;
   href: string;
   active?: boolean;
+  noSplit?: boolean;
 }
 
 export default function Breadcrumbs({
@@ -18,7 +19,14 @@ export default function Breadcrumbs({
 }) {
   return (
     <div className="flex flex-col">
-      <nav aria-label="Breadcrumb" className={cn("z-10 block rounded-xl bg-gray-100 p-3 shadow-sm", "dark:bg-gray-600 dark:text-slate-100")}>
+      <nav
+        aria-label="Breadcrumb"
+        className={cn(
+          "z-10 block rounded-xl bg-gray-100 p-3 shadow-sm",
+          "dark:bg-gray-600 dark:text-slate-100",
+          breadcrumbs.some(breadcrumb => !breadcrumb.noSplit) && "border-b-2 rounded-b-none border-gray-100 dark:border-gray-500"
+        )}
+      >
         <div className="flex justify-between items-center">
           <ol className={clsx(exo2.className, 'flex text-sm md:text-2xl')}>
             {breadcrumbs.map((breadcrumb, index) => (

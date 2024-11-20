@@ -44,6 +44,15 @@ interface CardBasicProps {
   };
 }
 
+export function CardIntro({ CardContent }: CardBasicProps) {
+  return (
+    <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
+      <div className={cn("text-lg text-orange-400",  "dark:text-orange-300")}>{CardContent.title}</div>
+      <div className="text-md">{CardContent.value}</div>
+    </div>
+  );
+}
+
 export function CardBasic({ CardContent }: CardBasicProps) {
   return <Card
     title={CardContent.title}

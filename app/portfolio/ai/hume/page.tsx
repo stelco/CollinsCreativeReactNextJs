@@ -1,4 +1,4 @@
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 
 import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
 import dynamic from "next/dynamic";
@@ -26,7 +26,7 @@ export default async function Page() {
           { label: 'Home', href: '/portfolio/home' },
           { label: 'AI', href: '/portfolio/ai' },
           {
-            label: 'Empathatic Voice Interface',
+            label: 'Empathatic Voice Chat',
             href: '/portfolio/ai/hume/voice',
             active: true,
           },

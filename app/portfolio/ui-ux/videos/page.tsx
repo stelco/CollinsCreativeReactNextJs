@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
+import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import VideoGallery from '@/app/components/VideoGallery';
+import { CardIntro } from '@/app/ui/cards';
 
 async function fetchVideos() {
   const videosDirectory = path.join(process.cwd(), 'public/websites/maxcontact/videos');
@@ -38,6 +39,12 @@ export default async function Page() {
           },
         ]}
       />
+
+      <CardIntro
+          CardContent={{
+              title: 'User experience videos',
+              value: 'Videos I created whilst working at MaxContact which were used to demonstrate how features I had been working on worked within the software.',
+      }}/>
 
       <VideoGallery videos={videos} />
     </main>
