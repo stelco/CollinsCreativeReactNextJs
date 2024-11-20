@@ -1,6 +1,5 @@
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
-import Image from 'next/image';
 
 export const dynamicParams = true;
 
@@ -59,16 +58,6 @@ const page = async ({ params }: { params: { postId: string } }) => {
         <div className="blog-post bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg lg:flex-col lg:overflow-hidden lg:text-md">
 
           <h2 className='mb-8'>{post.title.rendered}</h2>
-
-          {post.featured_media && (
-                <Image
-                src={post.featured_media.source_url}
-                alt={post.title.rendered}
-                width={1024}
-                height={532}
-                layout="responsive"
-                />
-            )}
 
           <div
             suppressHydrationWarning
