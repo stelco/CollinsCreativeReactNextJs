@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: rgb(107 114 128 / 80%)!important;
+  background-color: #ddd!important;
+  outline: none!important;
+}
+
+input:focus, textarea:focus, input:active, textarea:active {
+  outline: none;
+  border: 1px solid rgb(253 186 116 / 60%)!important;
+}
+
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -123,68 +137,4 @@ h2 {
 .image-container iframe {
   height: 90vh;
   padding: 10px;
-}
-
-/* blog page styles */
-
-.blog-page h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.blog-page p {
-  font-size: 1.4rem;
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.blog-page .posts {
-  display: grid;
-  grid-gap: 20px;
-  margin-top: 20px;
-}
-
-.blog-page .post {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.blog-page .post .post-img {
-  width: 100%;
-  height: 200px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.blog-page .post h3 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.blog-page .post p {
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin-bottom: 20px;
-}
-
-.single-blog-page .blog-post {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.single-blog-page h2 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.single-blog-page p {
-  font-size: 1.2rem;
-  font-weight: 300;
-  margin-bottom: 20px;
 }

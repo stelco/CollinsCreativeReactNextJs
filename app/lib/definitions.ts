@@ -107,3 +107,10 @@ export type Post = {
       rendered: string;
   };
 }
+
+export type Comment = {
+  id: number;
+  author_avatar_urls: { [size: number]: string };
+  author_name: string;
+  content: { rendered: string };
+}
