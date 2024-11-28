@@ -21,21 +21,47 @@ async function getSinglePost(postId: any) {
     `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts/${postId}`,
     {
       cache: 'no-cache',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     }
   );
-  const post = await response.json();
-  return post;
+  if (!response.ok) {
+    console.error('Error fetching post:', response.statusText);
+    return null;
+  }
+  try {
+    const post = await response.json();
+    return post;
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return null;
+  }
 }
 
 async function getComments(postId: any) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/comments?post=${ postId }`,
+    `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/comments?post=${postId}`,
     {
       cache: 'no-cache',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
     }
   );
-  const comments = await response.json();
-  return comments;
+  if (!response.ok) {
+    console.error('Error fetching comments:', response.statusText);
+    return [];
+  }
+  try {
+    const comments = await response.json();
+    return comments;
+  } catch (error) {
+    console.error('Error parsing JSON:', error);
+    return [];
+  }
 }
 
 // Handle comments logic here if needed
