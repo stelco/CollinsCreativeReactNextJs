@@ -54,8 +54,9 @@ const CommentForm = ({ post_id }: { post_id: string }) => {
                         name="commenter-name"
                         value={authorName}
                         onChange={(e) => setAuthorName(e.target.value)}
+                        required
                     />
-                    <div className='text-md text-orange-400 dark:text-orange-300'>Your Email</div>
+                    <div className='text-md text-orange-400 dark:text-orange-300'>Your Email (optional)</div>
                     <input
                         type="email"
                         name="commenter-email"
@@ -67,6 +68,7 @@ const CommentForm = ({ post_id }: { post_id: string }) => {
                         name="commenter-message"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
+                        required
                     ></textarea>
 
                     {/* Add reCAPTCHA here */}

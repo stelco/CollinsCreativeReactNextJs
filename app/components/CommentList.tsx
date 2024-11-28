@@ -20,7 +20,7 @@ const CommentList: React.FC<Props> = ({ comments }) => {
                         <div key={comment.id} className="comment">
                             <img className="comment-avatar" src={comment.author_avatar_urls[48]} />
                             <h4>{comment.author_name}</h4>
-                            <div
+                            <div className='mt-4'
                                 key={comment.id}
                                 dangerouslySetInnerHTML={ { __html : comment.content.rendered } }>
                             </div>
