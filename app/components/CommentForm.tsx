@@ -56,12 +56,13 @@ const CommentForm = ({ post_id }: { post_id: string }) => {
                         onChange={(e) => setAuthorName(e.target.value)}
                         required
                     />
-                    <div className='text-md text-orange-400 dark:text-orange-300'>Your Email (optional)</div>
+                    <div className='text-md text-orange-400 dark:text-orange-300'>Your Email</div>
                     <input
                         type="email"
                         name="commenter-email"
                         value={authorEmail}
                         onChange={(e) => setAuthorEmail(e.target.value)}
+                        required
                     />
                     <div className='text-md text-orange-400 dark:text-orange-300'>Your Comment</div>
                     <textarea
