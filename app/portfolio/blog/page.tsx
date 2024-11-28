@@ -39,7 +39,7 @@ const BlogPage = async () => {
         <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
 
           {posts.map((post: any) => (
-            <Link href={`/portfolio/blog/${post.id}`} className="post bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg lg:flex-col lg:overflow-hidden lg:text-md" key={post.id}>
+            <Link href={`/portfolio/blog/${post.id}`} className="post bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg lg:flex-col lg:overflow-hidden lg:text-md border border-dashed" key={post.id}>
 
               <div className="mb-4 text-2xl text-orange-400 dark:text-orange-300">{post.title.rendered}
               </div>
