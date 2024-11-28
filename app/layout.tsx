@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Place any <script> tags here */}
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       </head>
       <body
         className={cn(exo2.className, "dark:bg-slate-900 dark:text-slate-400")}

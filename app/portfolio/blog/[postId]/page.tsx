@@ -75,7 +75,7 @@ const page = async ({ params }: { params: { postId: string } }) => {
   }
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col" suppressHydrationWarning>
       <Breadcrumbs
         breadcrumbs={[
           { label: 'Home', href: '/portfolio/home' },
