@@ -43,7 +43,7 @@ export default async function Page() {
       <CardIntro
           CardContent={{
               title: 'User experience videos',
-              value: 'Videos I created whilst working at MaxContact which were used to demonstrate how features I had been working on worked within the software.',
+              value: 'Videos I created which were used to demonstrate how features I had been working on worked within the software.',
               buttonLink: true,
               buttonLinkUrl: '/portfolio/ui-ux',
               value2: 'Back to UI/UX',

@@ -18,7 +18,7 @@ import cn from "classnames";
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/portfolio/home', icon: HomeIcon },
-  { name: 'Websites', href: '/portfolio/websites', icon: GlobeAltIcon },
+  { name: 'Websites / Apps', href: '/portfolio/websites', icon: GlobeAltIcon },
   { name: 'UI/UX', href: '/portfolio/ui-ux', icon: PresentationChartLineIcon },
   { name: 'Documentation', href: '/portfolio/documentation', icon: DocumentTextIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: BuildingLibraryIcon },
