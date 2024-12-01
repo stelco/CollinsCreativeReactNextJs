@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     template: '%s | Collins Creative',
     default: 'Collins Creative',
   },
-  description: 'The official Next.js Learn Dashboard built with App Router | Customised by Steven collins',
-  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+  description: 'This is the online portfolio of Steven Collins. It is a Next.js app with Tailwind CSS, TypeScript and Heroicons. It showcases my more recent technical and design skills. Im also experimenting with new AI technologies and integrating them into the site.',
+  metadataBase: new URL('https://www.collinscreative.co.uk'),
 };
 
 export default function RootLayout({
