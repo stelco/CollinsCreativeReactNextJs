@@ -4,11 +4,11 @@ const uiux = [
         url: 'https://github.com/stelco/bet365-test',
         githubLink: true,
         value: 'This was a component I created for a test project which was used to display information in a card format. All elements within the card data are optional and fully customisable. See GitHub link above.',
-        value2: 'The component was built from a design using React, SASS and Typescript and was fully responsive.',
+        value2: 'The component was built from a design using React, SASS and Typescript and is fully responsive. It also has Storybook documentation which is available from the page.',
         image: '/uiux/card-component.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: 'https://bet365-test.vercel.app/',
+        buttonLinkUrl: 'https://bet365-test-26r24mvu9-steven-collins-projects.vercel.app/',
         buttonLinkUrlBlank: true,
     },
     {
