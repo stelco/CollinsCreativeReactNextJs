@@ -243,13 +243,18 @@ export function Card({
                 style={{ alignSelf: 'center' }}
               >
                 {
-                  isModal && (
+                  isModal && !buttonLinkUrlBlank && (
                     <span>Open Examples</span>
                   )
                 }
                 {
-                  !isModal && (
-                    <span>Open Page</span>
+                  !isModal && !buttonLinkUrlBlank && (
+                    <span>Go To Page</span>
+                  )
+                }
+                {
+                  buttonLinkUrlBlank && (
+                    <span>Open External Page</span>
                   )
                 }
                 <ArrowTopRightOnSquareIcon className="h-5 ml-4" />
