@@ -254,10 +254,12 @@ export function Card({
                 }
                 {
                   buttonLinkUrlBlank && (
-                    <span>Open External Page</span>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      Open External Page
+                      <span><ArrowTopRightOnSquareIcon className="h-5 ml-4" /></span>
+                    </div>
                   )
                 }
-                <ArrowTopRightOnSquareIcon className="h-5 ml-4" />
               </Button>
             )}
 
