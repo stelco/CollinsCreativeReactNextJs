@@ -4,6 +4,7 @@ const websites = [
     {
         heading: 'NextJs Dashboard',
         url: 'https://github.com/stelco/ReactNextJsDashboard/tree/main/nextjs-dashboard',
+        githubLink: true,
         value: 'This is a Next.js tutorial/course I recently completed. It is a Dashboard app I built using Tailwind CSS, TypeScript, GraphQl and Heroicons. I made quite a few customisations to the original tutorial and added some extra features like adding new customers and uploading profile images.',
         value2: 'I used this as a starting point for building this new portfolio site. You can find the code on my GitHub page from the link above.',
         image: '/websites/acme-dashboard.jpg',

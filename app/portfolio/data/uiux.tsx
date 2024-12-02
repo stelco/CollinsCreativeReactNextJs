@@ -2,6 +2,7 @@ const uiux = [
     {
         heading: 'Card Component',
         url: 'https://github.com/stelco/bet365-test',
+        githubLink: true,
         value: 'This was a component I created for a test project which was used to display information in a card format. All elements within the card data are optional and fully customisable. See GitHub link above.',
         value2: 'The component was built from a design using React, SASS and Typescript and was fully responsive.',
         image: '/uiux/card-component.jpg',

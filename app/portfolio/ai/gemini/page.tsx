@@ -1,23 +1,11 @@
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
 
-import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
-import dynamic from "next/dynamic";
-
 export const metadata = {
-  title: 'Collins Creative | AI Hume Empathatic Voice Interface',
+  title: 'Collins Creative | PDF Quiz Generator',
 };
 
-const Chat = dynamic(() => import("@/app/components/ai/hume/voice/Chat"), {
-  ssr: false,
-});
-
 export default async function Page() {
-  const accessToken = await getHumeAccessToken();
-
-  if (!accessToken) {
-    throw new Error();
-  }
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -27,8 +15,8 @@ export default async function Page() {
           { label: 'Home', href: '/portfolio/home' },
           { label: 'AI', href: '/portfolio/ai' },
           {
-            label: 'Empathatic Voice Chat',
-            href: '/portfolio/ai/hume/voice',
+            label: 'PDF Quiz Generator',
+            href: '/portfolio/ai/gemini',
             active: true,
           },
         ]}
@@ -44,7 +32,10 @@ export default async function Page() {
       />
 
       <div className={"grow flex flex-col"}>
-        <Chat accessToken={accessToken} />
+
+          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">PDF Quiz Generator</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">This is a work in progress. I am using the PDF.js library to render PDFs in the browser and then using a combination of JavaScript and Python to generate quiz questions from the text. The questions are then displayed in a quiz format.</p>
+
       </div>
 
     </main>
