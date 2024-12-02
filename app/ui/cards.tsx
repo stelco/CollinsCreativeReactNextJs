@@ -271,7 +271,7 @@ export function Card({
               </Button>
             )}
 
-            {buttonLink2 && buttonLinkUrl && (
+            {buttonLink2 && buttonLinkUrl2 && (
               <Button
                 onClick={() => isModal ? openModal({ src: buttonLinkUrl2, alt: heading || '', width: 800, height: 600 }) : window.open(buttonLinkUrl2, buttonLinkUrlBlank ? '_blank' : '_self')}
                 className="flex h-10 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-400 hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:text-slate-800"
