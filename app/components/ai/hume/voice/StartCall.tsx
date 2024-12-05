@@ -43,7 +43,7 @@ export default function StartCall() {
                   style={{ width: '250px', margin: '20px 0' }}
                   className="text-center text-slate-600"
                 >
-                  Explore what's possible with the Empathic Voice Interface
+                  Hi there! I'm not here to answer your questions but I can have a friendly chat with you. Click the button below to start a conversation with me.
                 </div>
                 <ButtonPortfolio
                   className={"z-50 flex items-center gap-1.5"}
@@ -61,7 +61,7 @@ export default function StartCall() {
                       stroke={"currentColor"}
                     />
                   </span>
-                  <span>Start Call</span>
+                  <span>Start Chat</span>
                 </ButtonPortfolio>
               </div>
             </motion.div>

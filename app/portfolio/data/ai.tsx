@@ -4,11 +4,23 @@ const ai = [
         url: 'https://github.com/stelco/hume-voice-next-js',
         githubLink: true,
         value: 'This project features a sample implementation of Hume`s Empathic Voice Interface using Hume`s React SDK. Here, we have a simple EVI that uses the Next.js App Router.',
-        value2: 'Ive integrated the Hume SDK into my portfolio and created a simple chat interface where you can interact with the EVI.',
+        value2: 'Ive integrated the Hume SDK into my portfolio and created a simple chat interface where you can interact with the EVI and have an empathatic conversation.',
         image: '/ai/hume.jpg',
         isWorkItem: true,
         buttonLink: true,
         buttonLinkUrl: '/portfolio/ai/hume'
+    },
+    {
+        heading: 'Next.js Gemini Chatbot',
+        url: 'https://vercel.com/steven-collins-projects/cc-gemini-ai-chatbot',
+        githubLink: true,
+        value: 'This is an open source Chatbot template powered by the Google Gemini model built with Next.js and the AI SDK by Vercel.',
+        value2: 'It currently uses the Gemini model to generate responses to user input based on planning and booking flights. It uses a PostGres database for users and chat history. I am continuing to develop this project and learning more about the various Gemini model languages.',
+        image: '/ai/gemini-chatbot.jpg',
+        isWorkItem: true,
+        buttonLink: true,
+        buttonLinkUrl: 'https://cc-gemini-ai-chatbot-bwpeqd9z5-steven-collins-projects.vercel.app/',
+        buttonLinkUrlBlank: true
     },
     {
         heading: 'PDF to Quiz Generator',

@@ -64,13 +64,21 @@ export default async function Page() {
         ))}
 
         {ai
-          .filter((website) => website.heading === "PDF to Quiz Generator")
+          .filter((website) => website.heading === "Next.js Gemini Chatbot")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={website} />
             </Suspense>
         ))}
 
+        {ai
+          .filter((website) => website.heading === "PDF to Quiz Generator")
+          .map((website, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={website} />
+            </Suspense>
+        ))}
+        
         {ai
           .filter((website) => website.heading === "More to follow...")
           .map((website, index) => (
