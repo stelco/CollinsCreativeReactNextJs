@@ -19,7 +19,7 @@ const ai = [
         image: '/ai/gemini-chatbot.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: 'https://cc-gemini-ai-chatbot-bwpeqd9z5-steven-collins-projects.vercel.app/',
+        buttonLinkUrl: 'https://cc-gemini-ai-chatbot.vercel.app/',
         buttonLinkUrlBlank: true
     },
     {
