@@ -31,7 +31,7 @@ const ai = [
         image: '/ai/pdf-to-quiz-gemini.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: 'https://pdf-to-quiz-generator-9889av241-steven-collins-projects.vercel.app/',
+        buttonLinkUrl: 'https://pdf-to-quiz-generator-kappa.vercel.app/',
         buttonLinkUrlBlank: true
     },
     {
