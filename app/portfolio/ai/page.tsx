@@ -50,13 +50,21 @@ export default async function Page() {
       <CardIntro
           CardContent={{
               title: 'Artificial Intelligence Experiments',
-              value: 'Im using this space to experiment with AI and machine learning.',
+              value: 'Im using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
       }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 
         {ai
-          .filter((website) => website.heading === "Hume Empathatic Voice Interface")
+          .filter((website) => website.heading === "Hume Empathetic Voice Interface")
+          .map((website, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={website} />
+            </Suspense>
+        ))}
+
+        {ai
+          .filter((website) => website.heading === "Hume Raw Text Processor")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={website} />
@@ -78,7 +86,7 @@ export default async function Page() {
               <CardBasic CardContent={website} />
             </Suspense>
         ))}
-        
+
         {ai
           .filter((website) => website.heading === "More to follow...")
           .map((website, index) => (
