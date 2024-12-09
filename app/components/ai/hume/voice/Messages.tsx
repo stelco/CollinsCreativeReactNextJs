@@ -32,7 +32,7 @@ const Messages = forwardRef<
                   className={cn(
                     "w-[80%]",
                     "bg-card",
-                    "border border-border rounded bg-orange-100",
+                    "border border-border rounded bg-orange-100 text-slate-800",
                     msg.type === "user_message" ? "ml-auto" : ""
                   )}
                   initial={{
