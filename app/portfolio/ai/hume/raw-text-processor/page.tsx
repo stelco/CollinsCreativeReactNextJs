@@ -66,21 +66,23 @@ export default function Page() {
         
         <div className="flex flex-col align-bottom md:flex-row gap-4 p-4 border-b-2 rounded-b-none border-gray-100 dark:border-gray-500">
 
-        <Image
-          src="/ai/hume-raw-small.png"
-          alt="Hume Voice Call"
-          objectFit="contain"
-          quality={100}
-          height={161}
-          width={100}
-        />
-
-          <textarea
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            className="mb-4 p-2 border border-gray-300 rounded"
-            style={{ flex: '1' }}
+          <div className='flex flex-row grow'>
+            <Image
+            src="/ai/hume-raw-small.png"
+            alt="Hume Voice Call"
+            objectFit="contain"
+            quality={100}
+            height={161}
+            width={100}
           />
+
+            <textarea
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              className="mb-4 p-2 border border-gray-300 rounded"
+              style={{ flex: '1' }}
+            />
+          </div>
 
           <Button
             onClick={handleSubmit}

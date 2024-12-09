@@ -20,7 +20,7 @@ export const DisplaySentiments: React.FC<DisplaySentimentsProps> = ({ results })
 
           <div className="z-10 grid gap-3 lg:grid-cols-2 md:grid-cols-1 lg:flex-row mt-2 flex-grow items-start">
 
-            <div className='code-font' style={{ maxHeight: '1302px', overflowY: 'scroll', msOverflowX: 'hidden' }}>
+            <div className='code-font hidden md:block' style={{ maxHeight: '1302px', overflowY: 'scroll', msOverflowX: 'hidden' }}>
 
               <CopyBlock
                 text={JSON.stringify(results, null, 2)}
