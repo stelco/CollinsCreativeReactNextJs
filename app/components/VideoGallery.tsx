@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Image from 'next/image';
 import Modal from '@/app/components/Modal';
 
@@ -39,11 +39,13 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
           style={{ cursor: 'pointer' }}
           onClick={() => openModal(video)}
         >
-          <video
-            src={video.src}
-            width={video.width}
-            height={video.height}
-          />
+          <Suspense fallback={<div>Loading video...</div>}>
+            <video
+              src={video.src}
+              width={video.width}
+              height={video.height}
+            />
+          </Suspense>
         </div>
       ))}
       <Modal

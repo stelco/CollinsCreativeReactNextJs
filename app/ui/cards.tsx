@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import cn from "classnames";
 
 import {
@@ -183,23 +183,27 @@ export function Card({
       <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}>
         
         {image && (
-          <Image
-            src={image}
-            width={isWorkItem ? 500 : 250}
-            height={320}
-            alt={image}
-            style={{ height: 'fit-content', borderRadius: '8px' }}
-          />
+          <Suspense fallback={<div>Loading image...</div>}>
+            <Image
+              src={image}
+              width={isWorkItem ? 500 : 250}
+              height={320}
+              alt={image}
+              style={{ height: 'fit-content', borderRadius: '8px' }}
+            />
+          </Suspense>
         )}
 
         {video && (
-          <video
-          src={video?.src}
-          width={video?.width}
-          height={video?.height}
-          controls
-          style={{ borderRadius: '8px' }}
-        />
+          <Suspense fallback={<div>Loading video...</div>}>
+            <video
+            src={video?.src}
+            width={video?.width}
+            height={video?.height}
+            controls
+            style={{ borderRadius: '8px' }}
+          />
+        </Suspense>
         )}
 
         <div className="flex flex-col flex-1 gap-6">

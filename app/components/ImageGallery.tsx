@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Image from 'next/image';
 import Modal from '@/app/components/Modal';
 
@@ -39,14 +39,16 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           style={{ cursor: 'pointer' }}
           onClick={() => openModal(img)}
         >
-          <Image
-            src={img.src}
-            alt={img.alt}
-            width={img.width}
-            height={img.height}
-            layout="responsive"
-            loading="lazy"
-          />
+          <Suspense fallback={<div>Loading image...</div>}>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              layout="responsive"
+              loading="lazy"
+            />
+          </Suspense>
         </div>
       ))}
       <Modal
