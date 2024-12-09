@@ -32,12 +32,12 @@ export default function StartCall() {
             >
               <div className={"flex flex-col items-center mb-[60px] md:mb-[0px] bg-gray-100 p-4 rounded-xl"}>
                 <Image
-                  src="/ai/hume-voice-cannon.png"
+                  src="/ai/hume-voice-small.png"
                   alt="Hume Voice Call"
                   objectFit="contain"
                   quality={100}
-                  height={130}
-                  width={130}
+                  height={161}
+                  width={257}
                 />
                 <div
                   style={{ width: '250px', margin: '20px 0' }}

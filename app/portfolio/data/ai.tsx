@@ -5,7 +5,7 @@ const ai = [
         githubLink: true,
         value: 'This project features a sample implementation of Hume`s Empathic Voice Interface using Hume`s React SDK. Here, we have a simple EVI that uses the Next.js App Router.',
         value2: 'Ive integrated the Hume SDK into my portfolio and created a simple chat interface where you can interact with the EVI and have an empathatic conversation.',
-        image: '/ai/hume.jpg',
+        image: '/ai/hume-voice.png',
         isWorkItem: true,
         buttonLink: true,
         buttonLinkUrl: '/portfolio/ai/hume/empathatic-voice'

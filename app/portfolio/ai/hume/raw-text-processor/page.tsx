@@ -3,6 +3,7 @@
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
 import { Button } from '@/app/ui/button';
+import Image from 'next/image';
 
 import { DisplaySentiments } from '@/app/components/ai/hume/processor/DisplaySentiments';
 import React, { useState } from 'react';
@@ -63,7 +64,17 @@ export default function Page() {
 
       <div className={"grow flex flex-col text-white dark:text-grey-100 mt-4 bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 dark:bg-gray-600"}>
         
-        <div className="flex flex-col md:flex-row gap-4 p-4 border-b-2 rounded-b-none border-gray-100 dark:border-gray-500">
+        <div className="flex flex-col align-bottom md:flex-row gap-4 p-4 border-b-2 rounded-b-none border-gray-100 dark:border-gray-500">
+
+        <Image
+          src="/ai/hume-raw-small.png"
+          alt="Hume Voice Call"
+          objectFit="contain"
+          quality={100}
+          height={161}
+          width={100}
+        />
+
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
