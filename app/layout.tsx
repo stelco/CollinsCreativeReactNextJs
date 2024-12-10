@@ -1,5 +1,6 @@
 import '@/app/ui/global.css';
 import '@/app/ui/custom.css';
+import '@/app/ui/animations.css';
 import cn from "classnames";
 import { exo2 } from '@/app/ui/fonts';
 import { Metadata } from 'next';

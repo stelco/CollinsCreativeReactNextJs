@@ -192,7 +192,19 @@ export function Card({
   }, [controls, inView]);
 
   return (
-    //use cn to apply dark mode
+    <div className='background-animation'>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
+      <animate></animate>
     <motion.div
       className={cn("bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}
       style={{ height: '-webkit-fill-available' }}
@@ -207,10 +219,10 @@ export function Card({
         </div>
       )}
 
-      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md md:items-start items-center`}
+      <div className={`${exo2.className} animated-div mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md md:items-start items-center`}
       style={{ height: '99%' }}
       >
-        
+        <div className="z-50">
         {image && (
           <motion.div
             ref={ref}
@@ -252,6 +264,7 @@ export function Card({
             />
           </motion.div>
         )}
+        </div>
 
         <div className="flex flex-col flex-1 gap-6">
 
@@ -383,5 +396,6 @@ export function Card({
         imgHeight={selectedImage.height}
       />
     </motion.div>
+    </div>
   );
 }
