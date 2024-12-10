@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from "classnames";
+import { CardsSkeleton } from '@/app/ui/skeletons';
+import { motion } from 'framer-motion';
 
 import {
   BanknotesIcon,
@@ -75,7 +77,13 @@ export function CardIntro({ CardContent }: CardBasicProps) {
 }
 
 export function CardBasic({ CardContent }: CardBasicProps) {
-  return <Card
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  return loading ? <CardsSkeleton /> : <Card
     title={CardContent.title}
     heading={CardContent.heading}
     url={CardContent.url}
@@ -171,9 +179,13 @@ export function Card({
 
   return (
     //use cn to apply dark mode
-    <div className={cn("bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}
-    style={{ height: '-webkit-fill-available' }}>
-
+    <motion.div
+      className={cn("bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}
+      style={{ height: '-webkit-fill-available' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       {!isWorkItem && (
         <div className="flex p-2 align-top items-center">
           {Icon ? <Icon className={cn("h-5 w-5 text-gray-700", "dark:bg-gray-600 dark:text-slate-100")} /> : null}
@@ -186,7 +198,11 @@ export function Card({
       >
         
         {image && (
-          <Suspense fallback={<div>Loading image...</div>}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0, duration: 0.5, type: 'spring', stiffness: 100 }}
+          >
             <Image
               src={image}
               width={isWorkItem ? 500 : 250}
@@ -194,19 +210,23 @@ export function Card({
               alt={image}
               style={{ height: 'fit-content', borderRadius: '8px' }}
             />
-          </Suspense>
+          </motion.div>
         )}
 
         {video && (
-          <Suspense fallback={<div>Loading video...</div>}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0, duration: 0.5, type: 'spring', stiffness: 100 }}
+          >
             <video
-            src={video?.src}
-            width={video?.width}
-            height={video?.height}
-            controls
-            style={{ borderRadius: '8px' }}
-          />
-        </Suspense>
+              src={video?.src}
+              width={video?.width}
+              height={video?.height}
+              controls
+              style={{ borderRadius: '8px' }}
+            />
+          </motion.div>
         )}
 
         <div className="flex flex-col flex-1 gap-6">
@@ -338,6 +358,6 @@ export function Card({
         imgWidth={selectedImage.width}
         imgHeight={selectedImage.height}
       />
-    </div>
+    </motion.div>
   );
 }

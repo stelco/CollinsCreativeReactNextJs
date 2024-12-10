@@ -58,41 +58,31 @@ export default async function Page() {
         {ai
           .filter((website) => website.heading === "Hume Empathetic Voice Interface")
           .map((website, index) => (
-            <Suspense fallback={<CardSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
+            <CardBasic CardContent={website} key={index} />
         ))}
 
         {ai
           .filter((website) => website.heading === "Hume Raw Text Processor")
           .map((website, index) => (
-            <Suspense fallback={<CardSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
+            <CardBasic CardContent={website} key={index} />
         ))}
 
         {ai
           .filter((website) => website.heading === "Next.js Gemini Chatbot")
           .map((website, index) => (
-            <Suspense fallback={<CardSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
+            <CardBasic CardContent={website} key={index} />
         ))}
 
         {ai
           .filter((website) => website.heading === "PDF to Quiz Generator")
           .map((website, index) => (
-            <Suspense fallback={<CardSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
+            <CardBasic CardContent={website} key={index} />
         ))}
 
         {ai
           .filter((website) => website.heading === "More to follow...")
           .map((website, index) => (
-            <Suspense fallback={<CardSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
+            <CardBasic CardContent={website} key={index} />
         ))}
 
       </div>

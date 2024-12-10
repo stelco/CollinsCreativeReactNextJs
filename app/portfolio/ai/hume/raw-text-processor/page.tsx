@@ -95,7 +95,7 @@ export default function Page() {
 
         {loading ? (
           <div className="flex justify-center items-center mt-4">
-            <span className="visually-hidden text-slate-600 dark:text-slate-200">Loading Sentiments, Please Wait...</span>
+            <span className="visually-hidden text-slate-600 dark:text-slate-200">Loading your sentiments, please wait...</span>
           </div>
         ) : (
           <DisplaySentiments results={results} />
