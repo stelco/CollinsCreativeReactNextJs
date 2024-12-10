@@ -37,7 +37,7 @@ export default function StartCall() {
                   objectFit="contain"
                   quality={100}
                   height={161}
-                  width={257}
+                  width={180}
                 />
                 <div
                   style={{ width: '250px', margin: '20px 0' }}

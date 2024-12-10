@@ -52,17 +52,17 @@ export function CardIntro({ CardContent }: CardBasicProps) {
   return (
     <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
 
-      <div className={cn("text-lg text-orange-400",  "dark:text-orange-300")}>{CardContent.title}</div>
+      <div className={cn("text-[25px] text-orange-400",  "dark:text-orange-300")}>{CardContent.title}</div>
 
       {!CardContent.buttonLink && !CardContent.buttonLinkUrl ? (
-        <div className="text-md mt-2">{CardContent.value}</div>
+        <div className="text-[1.025rem] lg:text-lg mb-2">{CardContent.value}</div>
       ) : (
         <div className="text-md">
           {CardContent.value ? CardContent.value : ''}
           <Link
             href={CardContent.buttonLink ? CardContent.buttonLinkUrl || '' : ''}
             rel="noopener noreferrer"
-            className="mt-2 flex items-center font-medium transition-colors hover:text-orange-500 md:text-base"
+            className="mt-2 flex items-center font-medium transition-colors hover:text-orange-500 md:text-base mb-2"
           >
             <span><ArrowLeftCircleIcon className="w-5 md:w-6 mr-2" /></span>
             {CardContent.value2}
@@ -214,7 +214,7 @@ export function Card({
           <div className="flex flex-col gap-3 grow">
 
             <div
-              className={cn("flex items-center justify-flex-start text-orange-400",  "dark:text-orange-300")}
+              className={cn("flex items-start justify-flex-start text-orange-400",  "dark:text-orange-300")}
               >
 
               {heading && (
@@ -226,7 +226,8 @@ export function Card({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center font-medium transition-colors text-orange-400 hover:text-orange-600 md:text-base pl-3"
+                  className="flex items-center mt-[3px] justify-end font-medium transition-colors text-orange-400 hover:text-orange-600 md:text-base pl-3"
+                  style={{ flex: '1' }}
                 >
                     {
                       githubLink && (
@@ -249,7 +250,7 @@ export function Card({
                 <div className='text-[1.025rem] lg:text-lg'>{value}</div>
               )}
               {value2 && (
-                <div className='text-[1.025rem] lg:text-lg'>{value2}</div>
+                <div className='mt-[10px] text-[1.025rem] lg:text-lg'>{value2}</div>
               )}
             </div>
 
