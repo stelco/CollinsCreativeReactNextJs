@@ -4,6 +4,7 @@ import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
 import { Button } from '@/app/ui/button';
 import Image from 'next/image';
+import { GenericLoader } from '@/app/ui/skeletons';
 
 import { DisplaySentiments } from '@/app/components/ai/hume/processor/DisplaySentiments';
 import React, { useState } from 'react';
@@ -93,11 +94,7 @@ export default function Page() {
           </Button>
         </div>
 
-        {loading ? (
-          <div className="flex justify-center items-center mt-4">
-            <span className="visually-hidden text-slate-600 dark:text-slate-200">Loading your sentiments, please wait...</span>
-          </div>
-        ) : (
+        { loading ? <GenericLoader /> : (
           <DisplaySentiments results={results} />
         )}
       </div>

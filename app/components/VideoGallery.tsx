@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, Suspense } from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import Modal from '@/app/components/Modal';
+import { GenericLoader } from '@/app/ui/skeletons';
 
 interface Video {
   id: string;
@@ -17,8 +17,13 @@ interface VideoGalleryProps {
 }
 
 export default function VideoGallery({ videos }: VideoGalleryProps) {
+  const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({ src: '', alt: '', width: 0, height: 0 });
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const openModal = (video: Video) => {
     setSelectedImage(video);
@@ -30,7 +35,7 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
     setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
   };
 
-  return (
+  return loading ? <GenericLoader /> : (
     <div className="mt-6 gallery-video">
       {videos.map((video: Video) => (
         <div
@@ -39,13 +44,11 @@ export default function VideoGallery({ videos }: VideoGalleryProps) {
           style={{ cursor: 'pointer' }}
           onClick={() => openModal(video)}
         >
-          <Suspense fallback={<div>Loading video...</div>}>
             <video
               src={video.src}
               width={video.width}
               height={video.height}
             />
-          </Suspense>
         </div>
       ))}
       <Modal

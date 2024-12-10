@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cn from "classnames";
 import { CardsSkeleton } from '@/app/ui/skeletons';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 import {
   BanknotesIcon,
@@ -177,6 +178,15 @@ export function Card({
     setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
   };
 
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
   return (
     //use cn to apply dark mode
     <motion.div
@@ -199,9 +209,14 @@ export function Card({
         
         {image && (
           <motion.div
+            ref={ref}
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0, duration: 0.5, type: 'spring', stiffness: 100 }}
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, scale: 1 },
+              hidden: { opacity: 0, scale: 0.8 }
+            }}
+            transition={{ delay: 0, duration: 0.3, type: 'spring', stiffness: 100 }}
           >
             <Image
               src={image}
@@ -215,9 +230,14 @@ export function Card({
 
         {video && (
           <motion.div
+            ref={ref}
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0, duration: 0.5, type: 'spring', stiffness: 100 }}
+            animate={controls}
+            variants={{
+              visible: { opacity: 1, scale: 1 },
+              hidden: { opacity: 0, scale: 0.8 }
+            }}
+            transition={{ delay: 0, duration: 0.3, type: 'spring', stiffness: 100 }}
           >
             <video
               src={video?.src}

@@ -1,3 +1,5 @@
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
+
 // Loading animation
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
@@ -41,6 +43,20 @@ export function CardSkeleton() {
 
       </div>
 
+    </div>
+  );
+}
+
+export function GenericLoader() {
+  return (
+    <div className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-4 bg-grey-100 text-slate-500 dark:bg-gray-600 dark:text-slate-100 shadow-sm`}
+    style={{ width: 'auto', margin: '12px auto', textAlign: 'center' }}>
+      <div className={'spinner mb-2'}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+      </div>
+      <p>Loading, please wait</p>
     </div>
   );
 }

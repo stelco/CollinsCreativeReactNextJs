@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Modal from '@/app/components/Modal';
+import { GenericLoader } from '@/app/ui/skeletons';
 
 interface Image {
   id: string;
@@ -17,8 +18,13 @@ interface ImageGalleryProps {
 }
 
 export default function ImageGallery({ images }: ImageGalleryProps) {
+  const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({ src: '', alt: '', width: 0, height: 0 });
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const openModal = (img: Image) => {
     setSelectedImage(img);
@@ -30,7 +36,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
   };
 
-  return (
+  return loading ? <GenericLoader /> : (
     <div className="mt-6 gallery">
       {images.map((img) => (
         <div
@@ -39,7 +45,6 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           style={{ cursor: 'pointer' }}
           onClick={() => openModal(img)}
         >
-          <Suspense fallback={<div>Loading image...</div>}>
             <Image
               src={img.src}
               alt={img.alt}
@@ -48,7 +53,6 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               layout="responsive"
               loading="lazy"
             />
-          </Suspense>
         </div>
       ))}
       <Modal

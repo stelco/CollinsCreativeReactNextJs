@@ -145,3 +145,19 @@ h2 {
   height: 90vh;
   padding: 10px;
 }
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  animation: rotateMe 2s linear infinite;
+}
+
+@keyframes rotateMe {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
