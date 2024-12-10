@@ -102,6 +102,7 @@ export function CardBasic({ CardContent }: CardBasicProps) {
     buttonLinkUrlBlank={!!CardContent.buttonLinkUrlBlank}
     isModal={!!CardContent.isModal}
     type="person"
+    index={0}
   />;
 }
 
@@ -114,13 +115,14 @@ export async function CardWrapper() {
   } = await fetchCardData();
   return (
     <>
-      <Card title="Collected" value={totalPaidInvoices} type="collected" />
-      <Card title="Pending" value={totalPendingInvoices} type="pending" />
-      <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
+      <Card title="Collected" value={totalPaidInvoices} type="collected" index={0} />
+      <Card title="Pending" value={totalPendingInvoices} type="pending" index={1} />
+      <Card title="Total Invoices" value={numberOfInvoices} type="invoices" index={2} />
       <Card
         title="Total Customers"
         value={numberOfCustomers}
         type="customers"
+        index={3}
       />
     </>
   );
@@ -143,7 +145,8 @@ export function Card({
   buttonLinkUrl,
   buttonLinkUrl2,
   buttonLinkUrlBlank,
-  isModal
+  isModal,
+  index
 }: {
   title?: string;
   heading?: string;
@@ -162,6 +165,7 @@ export function Card({
   buttonLinkUrl2?: string;
   buttonLinkUrlBlank?: boolean;
   isModal?: boolean;
+  index: number;
 }) {
   const Icon = iconMap[type];
 
@@ -203,7 +207,7 @@ export function Card({
         </div>
       )}
 
-      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md`}
+      <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md md:items-start items-center`}
       style={{ height: '99%' }}
       >
         
@@ -216,7 +220,7 @@ export function Card({
               visible: { opacity: 1, scale: 1 },
               hidden: { opacity: 0, scale: 0.8 }
             }}
-            transition={{ delay: 0, duration: 0.3, type: 'spring', stiffness: 100 }}
+            transition={{ delay: index * 0.2, duration: 0.5, type: 'spring', stiffness: 100 }} // Different delay for each card
           >
             <Image
               src={image}
@@ -237,7 +241,7 @@ export function Card({
               visible: { opacity: 1, scale: 1 },
               hidden: { opacity: 0, scale: 0.8 }
             }}
-            transition={{ delay: 0, duration: 0.3, type: 'spring', stiffness: 100 }}
+            transition={{ delay: index * 0.2, duration: 0.5, type: 'spring', stiffness: 100 }} // Different delay for each card
           >
             <video
               src={video?.src}

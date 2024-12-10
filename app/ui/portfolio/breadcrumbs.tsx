@@ -29,7 +29,7 @@ export default function Breadcrumbs({
         )}
       >
         <div className="flex justify-between items-center">
-          <ol className={clsx(exo2.className, 'flex text-sm md:text-2xl')}>
+          <ol className={clsx(exo2.className, 'flex text-[1.025rem] lg:text-lg')}>
             {breadcrumbs.map((breadcrumb, index) => (
               <li
                 key={breadcrumb.href}
@@ -41,7 +41,7 @@ export default function Breadcrumbs({
               >
                 <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
                 {index < breadcrumbs.length - 1 ? (
-                  <span className="mx-3 inline-block">
+                  <span className="mx-[7px] inline-block">
                     <ChevronRightIcon
                       className="w-4 text-gray-500 dark:text-slate-200 align-middle"
                     />
