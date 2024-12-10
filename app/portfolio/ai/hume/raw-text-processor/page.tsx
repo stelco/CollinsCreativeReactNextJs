@@ -64,39 +64,50 @@ export default function Page() {
       />
 
       <div className={"grow flex flex-col text-white dark:text-grey-100 mt-4 bg-gray-100 rounded-xl p-2 shadow-sm bg-grey-100 dark:bg-gray-600"}>
+
+      <div
+        className={'background-animation'}
+        style={{ height: 'auto' }}
+        >
+        <animate></animate>
+        <animate></animate>
+        <animate></animate>
+        <animate></animate>
         
-        <div className="flex flex-col align-bottom md:flex-row gap-4 p-4 border-b-2 rounded-b-none border-gray-100 dark:border-gray-500">
+          <div className="flex flex-col align-bottom md:flex-row gap-4 p-4 border-b-2 rounded-b-none border-gray-100 dark:border-gray-500"
+          style={{ zIndex: 9999, position: 'relative' }}>
 
-          <div className='flex flex-row grow'>
-            <Image
-            src="/ai/hume-raw-small.png"
-            alt="Hume Voice Call"
-            objectFit="contain"
-            quality={100}
-            height={161}
-            width={100}
-          />
-
-            <textarea
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              className="mb-4 p-2 border border-gray-300 rounded"
-              style={{ flex: '1' }}
+            <div className='flex flex-row grow'>
+              <Image
+              src="/ai/hume-raw-small.png"
+              alt="Hume Voice Call"
+              objectFit="contain"
+              quality={100}
+              height={161}
+              width={100}
             />
+
+              <textarea
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                className="mb-4 p-2 border border-gray-300 rounded"
+                style={{ flex: '1' }}
+              />
+            </div>
+
+            <Button
+              onClick={handleSubmit}
+              className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-400 hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:text-slate-800"
+              style={{ alignSelf: 'center' }}
+            >
+              Generate Sentiments
+            </Button>
           </div>
 
-          <Button
-            onClick={handleSubmit}
-            className="flex h-10 mt-4 items-center justify-center rounded-xl px-4 text-md font-medium text-white transition-colors bg-orange-400 hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:text-slate-800"
-            style={{ alignSelf: 'center' }}
-          >
-            Generate Sentiments
-          </Button>
+          { loading ? <GenericLoader /> : (
+            <DisplaySentiments results={results} />
+          )}
         </div>
-
-        { loading ? <GenericLoader /> : (
-          <DisplaySentiments results={results} />
-        )}
       </div>
     </main>
   );

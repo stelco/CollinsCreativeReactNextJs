@@ -8,7 +8,8 @@ const ai = [
         image: '/ai/hume-voice.png',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: '/portfolio/ai/hume/empathatic-voice'
+        buttonLinkUrl: '/portfolio/ai/hume/empathatic-voice',
+        isAI: true
     },
     {
         heading: 'Hume Raw Text Processor',
@@ -19,7 +20,8 @@ const ai = [
         image: '/ai/hume-raw-text.jpg',
         isWorkItem: true,
         buttonLink: true,
-        buttonLinkUrl: '/portfolio/ai/hume/raw-text-processor'
+        buttonLinkUrl: '/portfolio/ai/hume/raw-text-processor',
+        isAI: true
     },
     {
         heading: 'Next.js Gemini Chatbot',
@@ -31,7 +33,8 @@ const ai = [
         isWorkItem: true,
         buttonLink: true,
         buttonLinkUrl: 'https://cc-gemini-ai-chatbot.vercel.app/',
-        buttonLinkUrlBlank: true
+        buttonLinkUrlBlank: true,
+        isAI: true
     },
     {
         heading: 'PDF to Quiz Generator',
@@ -43,14 +46,16 @@ const ai = [
         isWorkItem: true,
         buttonLink: true,
         buttonLinkUrl: 'https://pdf-to-quiz-generator-kappa.vercel.app/',
-        buttonLinkUrlBlank: true
+        buttonLinkUrlBlank: true,
+        isAI: true
     },
     {
         heading: 'More to follow...',
         url: '',
         value: 'Im fascinated by AI and looking forward to adding more projects to this portfolio. Stay tuned!',
         image: '/ai/ai.jpg',
-        isWorkItem: true
+        isWorkItem: true,
+        isAI: true
     }
 ];
 
