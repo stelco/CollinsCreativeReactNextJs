@@ -56,7 +56,9 @@ export function CardIntro({ CardContent }: CardBasicProps) {
   return (
     <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
 
-      <div className={cn("text-[25px] text-orange-400",  "dark:text-orange-300")}>{CardContent.title}</div>
+      <div className={cn("text-[25px] text-orange-400",  "dark:text-orange-300")}
+      style={{ lineHeight: '1.8rem', marginBottom: '10px' }}
+      >{CardContent.title}</div>
 
       {!CardContent.buttonLink && !CardContent.buttonLinkUrl ? (
         <div className="text-[1.025rem] lg:text-lg mb-2">{CardContent.value}</div>

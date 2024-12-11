@@ -13,7 +13,7 @@ export default function StartCall() {
       {status.value !== "connected" ? (
         <div
           className={'background-animation'}
-          style={{ overflow: 'unset' }}
+          style={{ overflow: 'unset', position: 'absolute', margin: '50px auto', width: '100%' }}
           >
         <animate></animate>
         <animate></animate>

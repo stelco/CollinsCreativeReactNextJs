@@ -15,6 +15,7 @@ const Messages = forwardRef<
     <motion.div
       layoutScroll
       className={"rounded-md overflow-auto p-4"}
+      style={{ height: "calc(100vh - 232px)" }}
       ref={ref}
     >
       <motion.div
