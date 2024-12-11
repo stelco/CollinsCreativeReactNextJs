@@ -7,9 +7,26 @@ import ai from '@/app/portfolio/data/ai';
 import fs from 'fs';
 import path from 'path';
 
+//todo: move metadata to a new util file
 export const metadata: Metadata = {
   title: 'Collins Creative | AI experiments',
-  description: 'AI experiments by Collins Creative',
+  description: 'AI experiments by Steven Collins. This page features a collection of AI experiments and projects that I have been working on. I am using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
+  keywords: 'AI, machine learning, experiments, projects, DALLE-3, OpenAI, Steven Collins, empathy, raw, text, processor, voice, chatbot, PDF, quiz, generator, Hume, Next.js, Gemini',
+  authors: [{ name: 'Steven Collins' }],
+  openGraph: {
+    title: 'Collins Creative | AI experiments',
+    description: 'AI experiments by Steven Collins. This page features a collection of AI experiments and projects that I have been working on. I am using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
+    url: 'https://www.collinscreative.com/portfolio/ai',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.collinscreative.com/cc-logo.png',
+        width: 800,
+        height: 600,
+        alt: 'AI experiments thumbnail',
+      },
+    ],
+  }
 };
 
 async function fetchVideos() {
