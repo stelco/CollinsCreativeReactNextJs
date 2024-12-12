@@ -9,6 +9,7 @@
   "dependencies": {
     "@heroicons/react": "^2.1.4",
     "@humeai/voice-react": "^0.1.15",
+    "@next/third-parties": "^15.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toggle": "^1.0.3",

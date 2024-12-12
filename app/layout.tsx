@@ -4,6 +4,7 @@ import '@/app/ui/animations.css';
 import cn from "classnames";
 import { exo2 } from '@/app/ui/fonts';
 import BackgroundImage from '@/app/components/BackgroundImage';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export default function RootLayout({
   children
@@ -12,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Place any <script> tags here */}
-      </head>
+      <GoogleTagManager gtmId="G-P0EZF7RJ8B" />
       <body
         className={cn(exo2.className, "dark:bg-slate-900 dark:text-slate-400")}
       >
