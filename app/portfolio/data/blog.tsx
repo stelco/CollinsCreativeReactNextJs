@@ -6,6 +6,7 @@ const blog = [
         keywords: 'headless cms, wordpress, wp rest api, blog, posts',
         authors: [{ name: 'Steven Collins' }],
         openGraph: {
+            site_name: 'Collins Creative',
             title: 'Collins Creative | Blog',
             description: 'A headless CMS using a collection of blog posts fetched from WordPress via the WP REST API',
             url: 'https://www.collinscreative.co.uk/portfolio/blog',

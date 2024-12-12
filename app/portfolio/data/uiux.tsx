@@ -1,6 +1,7 @@
 const uiux = [
     //metadata
     {
+        site_name: 'Collins Creative',
         title: 'Collins Creative | UI/UX',
         description: 'Examples of User Interface and User Experience design work I have completed for various projects.',
         keywords: 'UI, UX, User Interface, User Experience, design, mobile, desktop, wireframes, system integration, eLearning, portal, mobile app, tablet, design mockups, design components, card component, React, SASS, Typescript, Storybook, Figma, Balsamiq Mockups',

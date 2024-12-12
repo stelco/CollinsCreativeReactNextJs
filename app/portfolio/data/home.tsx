@@ -2,6 +2,8 @@ import skills from '@/app/portfolio/data/skills';
 
 const homeMetaData =
 {
+    
+    site_name: 'Collins Creative',
     title: 'Collins Creative | Home',
     description: 'Welcome to the online portfolio of Steven Collins. This site showcases my latest work and experiments in Web Development, App Development, Design and AI.',
     keywords: 'Web Development, Design, AI, Portfolio, Creative, React, Next.js, Tailwind CSS, TypeScript, GraphQl, Heroicons',

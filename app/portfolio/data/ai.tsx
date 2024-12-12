@@ -6,6 +6,7 @@ const ai = [
         keywords: 'AI, machine learning, experiments, projects, DALLE-3, OpenAI, Steven Collins, empathy, raw, text, processor, voice, chatbot, PDF, quiz, generator, Hume, Next.js, Gemini',
         authors: [{ name: 'Steven Collins' }],
         openGraph: {
+            site_name: 'Collins Creative',
             title: 'Collins Creative | AI experiments',
             description: 'AI experiments by Steven Collins. This page features a collection of AI experiments and projects that I have been working on. I am using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
             url: 'https://www.collinscreative.co.uk/portfolio/ai',

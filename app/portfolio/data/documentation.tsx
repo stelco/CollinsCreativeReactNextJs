@@ -6,6 +6,7 @@ const documentation = [
         keywords: 'documentation, research, planning, projects, research, prototypes, CMS, administration, guidance, VueJs, components, structure, UI, eLearning, portal, Joomla, Content Management System, schools, website, ILM, First Line Management, Graphic Design, ZX Spectrum, Vanilla Javascript, JQuery',
         authors: [{ name: 'Steven Collins' }],
         openGraph: {
+            site_name: 'Collins Creative',
             title: 'Collins Creative | Documentation',
             description: 'Examples of some of the preliminary planning, research and documentation I have created for various projects.',
             url: 'https://www.collinscreative.co.uk/portfolio/documentation',
