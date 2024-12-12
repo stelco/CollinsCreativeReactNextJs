@@ -1,5 +1,27 @@
 const ai = [
     {
+        //metadata
+        title: 'Collins Creative | AI experiments',
+        site_name: 'https://www.collinscreative.co.uk',
+        description: 'AI experiments by Steven Collins. This page features a collection of AI experiments and projects that I have been working on. I am using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
+        keywords: 'AI, machine learning, experiments, projects, DALLE-3, OpenAI, Steven Collins, empathy, raw, text, processor, voice, chatbot, PDF, quiz, generator, Hume, Next.js, Gemini',
+        authors: [{ name: 'Steven Collins' }],
+        openGraph: {
+          title: 'Collins Creative | AI experiments',
+          description: 'AI experiments by Steven Collins. This page features a collection of AI experiments and projects that I have been working on. I am using this space to experiment with AI and machine learning. All card images are created using DALLE-3 by OpenAI.',
+          url: 'https://www.collinscreative.co.uk/portfolio/ai',
+          type: 'website',
+          images: [
+            {
+              url: 'https://www.collinscreative.co.uk/ai/hume-voice-small.png',
+              width: 180,
+              height: 180,
+              alt: 'AI experiments thumbnail',
+            },
+          ],
+        }
+    },
+    {
         heading: 'Hume Empathetic Voice Interface',
         url: 'https://github.com/stelco/hume-voice-next-js',
         githubLink: true,
