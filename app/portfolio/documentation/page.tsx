@@ -5,8 +5,14 @@ import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import documentation from '@/app/portfolio/data/documentation';
 
+const documentationMetadata = documentation.find((website) => website.title === 'Collins Creative | Documentation');
+
 export const metadata: Metadata = {
-  title: 'Collins Creative | Documentation',
+  title: documentationMetadata?.title,
+  description: documentationMetadata?.description,
+  keywords: documentationMetadata?.keywords,
+  authors: documentationMetadata?.authors,
+  openGraph: documentationMetadata?.openGraph,
 };
  
 export default async function Page() {
@@ -28,7 +34,7 @@ export default async function Page() {
       <CardIntro
           CardContent={{
               title: 'Planning and Documentation',
-              value: 'Examples of some of the preliminary planning and documentation I have created for various projects.',
+              value: 'Examples of some of the preliminary planning, research and documentation I have created for various projects.',
       }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">

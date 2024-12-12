@@ -1,5 +1,27 @@
 const documentation = [
     {
+        //metadata
+        title: 'Collins Creative | Documentation',
+        description: 'Examples of some of the preliminary planning, research and documentation I have created for various projects.',
+        keywords: 'documentation, research, planning, projects, research, prototypes, CMS, administration, guidance, VueJs, components, structure, UI, eLearning, portal, Joomla, Content Management System, schools, website, ILM, First Line Management, Graphic Design, ZX Spectrum, Vanilla Javascript, JQuery',
+        authors: [{ name: 'Steven Collins' }],
+        openGraph: {
+            title: 'Collins Creative | Documentation',
+            description: 'Examples of some of the preliminary planning, research and documentation I have created for various projects.',
+            url: 'https://www.collinscreative.co.uk/portfolio/documentation',
+            type: 'website',
+            images: [
+                {
+                    site_name: 'Collins Creative',
+                    url: 'https://www.collinscreative.co.uk/documentation/tech-imp1.jpg',
+                    width: 296,
+                    height: 167,
+                    alt: 'Documentation thumbnail',
+                },
+            ],
+        }
+    },
+    {
         heading: 'VueJs Component Structure Document',
         value: 'I produced this document to show how components are structured within a VueJs application',
         image: '/documentation/tech-imp1.jpg',

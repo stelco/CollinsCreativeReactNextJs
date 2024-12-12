@@ -1,6 +1,28 @@
 import skills from '@/app/portfolio/data/skills';
 
 const websites = [
+    //metadata
+    {
+        title: 'Collins Creative | Websites',
+        description: 'A collection of websites and applications I was involved in building during my various job roles and freelance projects built from scratch.',
+        keywords: 'websites, web design, web development, joomla, wordpress, react, nextjs, vuejs, angular, tailwindcss, css, html, javascript, typescript, graphql, c#, .net, azure devops, git, bitbucket, gulp, responsive design, accessibility',
+        authors: [{ name: 'Steven Collins' }],
+        openGraph: {
+            title: 'Collins Creative | Websites',
+            description: 'A collection of websites and applications I was involved in building during my various job roles and freelance projects built from scratch.',
+            url: 'https://www.collinscreative.co.uk/portfolio/websites',
+            type: 'website',
+            images: [
+                {
+                    site_name: 'Collins Creative',
+                    url: 'https://www.collinscreative.co.uk/websites/maxcontact.jpg',
+                    width: 296,
+                    height: 167,
+                    alt: 'Websites thumbnail',
+                },
+            ],
+        }
+    },
     {
         heading: 'NextJs Dashboard',
         url: 'https://github.com/stelco/ReactNextJsDashboard/tree/main/nextjs-dashboard',

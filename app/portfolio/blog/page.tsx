@@ -1,6 +1,18 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+import blog from '@/app/portfolio/data/blog';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
+
+const blogMetadata = blog.find((website) => website.title === 'Collins Creative | Blog');
+
+export const metadata: Metadata = {
+  title: blogMetadata?.title,
+  description: blogMetadata?.description,
+  keywords: blogMetadata?.keywords,
+  authors: blogMetadata?.authors,
+  openGraph: blogMetadata?.openGraph,
+};
 
 async function getPosts() {
   const response = await fetch(

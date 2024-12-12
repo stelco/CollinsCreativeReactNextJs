@@ -1,11 +1,19 @@
 import fs from 'fs';
 import path from 'path';
+import { Metadata } from 'next';
+import art from '@/app/portfolio/data/art';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import ImageGallery from '@/app/components/ImageGallery';
 import { CardIntro } from '@/app/ui/cards';
 
-export const metadata = {
-  title: 'Collins Creative | Art Archive',
+const blogMetadata = art.find((website) => website.title === 'Collins Creative | Art Archive');
+
+export const metadata: Metadata = {
+  title: blogMetadata?.title,
+  description: blogMetadata?.description,
+  keywords: blogMetadata?.keywords,
+  authors: blogMetadata?.authors,
+  openGraph: blogMetadata?.openGraph,
 };
 
 async function fetchImages() {

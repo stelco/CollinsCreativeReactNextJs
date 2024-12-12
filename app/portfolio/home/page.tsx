@@ -1,14 +1,19 @@
 import { Metadata } from 'next';
 import { CardBasic } from '@/app/ui/cards';
 import SkillsChart from '@/app/ui/portfolio/skills-chart';
-import { aboutMe, aboutPage, aboutOldPage } from '@/app/portfolio/data/home';
+import { aboutMe, aboutPage, aboutOldPage, homeMetaData } from '@/app/portfolio/data/home';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { Suspense } from 'react';
 import { CardsSkeleton, RevenueChartSkeleton } from '@/app/ui/skeletons';
 
+const homepageMetadata = homeMetaData;
+
 export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Collins Creative Home Page'
+  title: homepageMetadata?.title,
+  description: homepageMetadata?.description,
+  keywords: homepageMetadata?.keywords,
+  authors: homepageMetadata?.authors,
+  openGraph: homepageMetadata?.openGraph,
 };
 
 export default function Page() {

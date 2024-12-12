@@ -5,8 +5,14 @@ import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import uiux from '@/app/portfolio/data/uiux';
 
+const uiuxMetadata = uiux.find((website) => website.title === 'Collins Creative | UI/UX');
+
 export const metadata: Metadata = {
-  title: 'Collins Creative | UIUX',
+  title: uiuxMetadata?.title,
+  description: uiuxMetadata?.description,
+  keywords: uiuxMetadata?.keywords,
+  authors: uiuxMetadata?.authors,
+  openGraph: uiuxMetadata?.openGraph,
 };
  
 export default async function Page() {

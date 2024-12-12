@@ -1,5 +1,28 @@
 import skills from '@/app/portfolio/data/skills';
 
+const homeMetaData =
+{
+    title: 'Collins Creative | Home',
+    description: 'Welcome to the online portfolio of Steven Collins. This site showcases my latest work and experiments in Web Development, App Development, Design and AI.',
+    keywords: 'Web Development, Design, AI, Portfolio, Creative, React, Next.js, Tailwind CSS, TypeScript, GraphQl, Heroicons',
+    authors: [{ name: 'Steven Collins' }],
+    openGraph: {
+        title: 'Collins Creative | Home',
+        description: 'Welcome to the online portfolio of Steven Collins. This site showcases my latest work and experiments in Web Development, App Development, Design and AI.',
+        url: 'https://www.collinscreative.co.uk/portfolio/home',
+        type: 'website',
+        images: [
+            {
+                site_name: 'Collins Creative',
+                url: 'https://www.collinscreative.co.uk/meandollie.jpg',
+                width: 240,
+                height: 320,
+                alt: 'Home Page thumbnail',
+            },
+        ],
+    }
+}
+
 const aboutMe = 
     {
         title: 'About Me',
@@ -30,4 +53,4 @@ const aboutPage =
         url: 'http://stelco-001-site1.itempurl.com/'
     };
 
-export { aboutMe, aboutPage, aboutOldPage };
+export { aboutMe, aboutPage, aboutOldPage, homeMetaData };

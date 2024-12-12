@@ -1,4 +1,26 @@
 const uiux = [
+    //metadata
+    {
+        title: 'Collins Creative | UI/UX',
+        description: 'Examples of User Interface and User Experience design work I have completed for various projects.',
+        keywords: 'UI, UX, User Interface, User Experience, design, mobile, desktop, wireframes, system integration, eLearning, portal, mobile app, tablet, design mockups, design components, card component, React, SASS, Typescript, Storybook, Figma, Balsamiq Mockups',
+        authors: [{ name: 'Steven Collins' }],
+        openGraph: {
+            title: 'Collins Creative | UI/UX',
+            description: 'Examples of User Interface and User Experience design work I have completed for various projects.',
+            url: 'https://www.collinscreative.co.uk/portfolio/ui-ux',
+            type: 'website',
+            images: [
+                {
+                    site_name: 'Collins Creative',
+                    url: 'https://www.collinscreative.co.uk/uiux/card-component.jpg',
+                    width: 296,
+                    height: 167,
+                    alt: 'Card Component thumbnail',
+                },
+            ],
+        }
+    },
     {
         heading: 'Card Component',
         url: 'https://github.com/stelco/bet365-test',

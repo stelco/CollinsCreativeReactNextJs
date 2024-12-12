@@ -5,8 +5,14 @@ import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardsSkeleton } from '@/app/ui/skeletons';
 import websites from '@/app/portfolio/data/websites';
 
+const websitesMetadata = websites.find((website) => website.title === 'Collins Creative | Websites');
+
 export const metadata: Metadata = {
-  title: 'Collins Creative | Websites',
+  title: websitesMetadata?.title,
+  description: websitesMetadata?.description,
+  keywords: websitesMetadata?.keywords,
+  authors: websitesMetadata?.authors,
+  openGraph: websitesMetadata?.openGraph,
 };
  
 export default async function Page() {
