@@ -14,9 +14,9 @@ const art = [
             images: [
                 {
                     site_name: 'Collins Creative',
-                    url: 'https://www.collinscreative.co.uk/art-archive/plaque-fullsize.jpg',
-                    width: 306,
-                    height: 297,
+                    url: 'https://www.collinscreative.co.uk/art-archive/plaque-small.jpg',
+                    width: 300,
+                    height: 292,
                     alt: 'Blog thumbnail',
                 },
             ],
