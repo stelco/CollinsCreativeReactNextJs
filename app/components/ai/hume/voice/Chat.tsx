@@ -1,10 +1,11 @@
 "use client";
 
-import { VoiceProvider } from "@humeai/voice-react";
+import { VoiceProvider, useVoice } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import StartCall from "./StartCall";
-import { ComponentRef, useRef } from "react";
+import History from "./History";
+import { useRef } from "react";
 
 type MessagesRef = {
   scrollHeight: number;
@@ -13,11 +14,13 @@ type MessagesRef = {
 
 export default function ClientComponent({
   accessToken,
+  historyHeight
 }: {
   accessToken: string;
+  historyHeight: string;
 }) {
   const timeout = useRef<number | null>(null);
-  const ref = useRef<MessagesRef | null>(null);
+  const messagesRef = useRef<MessagesRef | null>(null);
 
   // optional: use configId from environment variable
   const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];
@@ -25,7 +28,7 @@ export default function ClientComponent({
   return (
     <div
       className={
-        "relative grow flex flex-col mx-auto w-full overflow-hidden h-[0px]"
+        "relative grow flex flex-col mx-auto w-full"
       }
       style={{ maxHeight: "calc(100vh - 11.2rem)" }}
     >
@@ -38,10 +41,10 @@ export default function ClientComponent({
           }
 
           timeout.current = window.setTimeout(() => {
-            if (ref.current) {
-              const scrollHeight = ref.current.scrollHeight;
+            if (messagesRef.current) {
+              const scrollHeight = messagesRef.current.scrollHeight;
 
-              ref.current.scrollTo({
+              messagesRef.current.scrollTo({
                 top: scrollHeight,
                 behavior: "smooth",
               });
@@ -49,10 +52,42 @@ export default function ClientComponent({
           }, 200);
         }}
       >
-        <Messages ref={ref} />
-        <Controls />
-        <StartCall />
+        <VoiceContent messagesRef={messagesRef} accessToken={accessToken} historyHeight={historyHeight} />
       </VoiceProvider>
     </div>
   );
 }
+
+const VoiceContent = ({ messagesRef, accessToken, historyHeight }: { messagesRef: React.RefObject<MessagesRef>, accessToken: string, historyHeight: string; }) => {
+  const { status } = useVoice();
+
+  console.log("status-----------", status);
+
+  switch (status.value) {
+    case "disconnected":
+      return (
+        <div className="flex flex-col md:items-start md:justify-start gap-4 lg:flex-row">
+          <StartCall accessToken={accessToken} />
+          <History
+            accessToken={accessToken}
+            historyHeight={ "calc(100vh - 11.8rem)" }
+          />
+        </div>
+      );
+    case "connected":
+      return (
+        <>
+        <div className="flex flex-col md:items-start md:justify-start gap-4 lg:flex-row">
+          <Messages ref={messagesRef} />
+          <History
+            accessToken={accessToken}
+            historyHeight={ "calc(100vh - 17.2rem)" }
+          />
+        </div>
+        <Controls />
+        </>
+      );
+    default:
+      return <div>Connecting...</div>;
+  }
+};

@@ -4,23 +4,21 @@ import { ButtonPortfolio } from '@/app/ui/button';
 import { Phone } from "lucide-react";
 import Image from 'next/image';
 
-export default function StartCall() {
+export default function StartCall({ accessToken }: { accessToken: string }) {
   const { status, connect } = useVoice();
 
   return (
     <AnimatePresence>
-
-      {status.value !== "connected" ? (
+      {status.value != "connected" && (
         <div
-          className={'background-animation'}
-          style={{ overflow: 'unset', position: 'absolute', margin: '50px auto', width: '100%' }}
-          >
-        <animate></animate>
-        <animate></animate>
-        <animate></animate>
-        <animate></animate>
+          className={'background-animation flex-1'}
+        >
+          <animate></animate>
+          <animate></animate>
+          <animate></animate>
+          <animate></animate>
           <motion.div
-            className={"inset-0 p-4 flex items-center justify-center bg-background"}
+            className={"inset-0 p-4 mt-[40px] flex items-center justify-center bg-background"}
             style={{ zindex: "9999", position: "relative" }}
             initial="initial"
             animate="enter"
@@ -39,7 +37,7 @@ export default function StartCall() {
                   exit: { scale: 0.5 },
                 }}
               >
-                <div className={"flex flex-col items-center mb-[60px] md:mb-[0px] bg-gray-100 p-4 rounded-xl"}>
+                <div className={"flex flex-col items-center bg-gray-100 p-4 rounded-xl w-full max-w-[300px]"}>
                   <Image
                     src="/ai/hume-voice-small.png"
                     alt="Hume Voice Call"
@@ -52,32 +50,41 @@ export default function StartCall() {
                     style={{ width: '250px', margin: '20px 0' }}
                     className="text-center text-slate-600"
                   >
-                    Hi there! I'm not here to answer your questions but I can have a friendly chat with you. Click the button below to start a conversation with me.
+                    Hi there! I'm not here to answer your questions but I can have a friendly chat with you.                  
+                    <br/>
+                    Click the button below to start a conversation with me.
+                    <br/>
+                    You can also see an example transcript and the top 3 emotions from it.
                   </div>
-                  <ButtonPortfolio
-                    className={"z-50 flex items-center gap-1.5"}
-                    onClick={() => {
-                      connect()
-                        .then(() => {})
-                        .catch(() => {})
-                        .finally(() => {});
-                    }}
-                  >
-                    <span>
-                      <Phone
-                        className={"size-4 opacity-50"}
-                        strokeWidth={2}
-                        stroke={"currentColor"}
-                      />
-                    </span>
-                    <span>Start Chat</span>
-                  </ButtonPortfolio>
+
+                  <div className="flex flex-row flex-wrap justify-center gap-4 align-middle">
+
+                      <ButtonPortfolio
+                        className={"z-50 flex items-center gap-1.5"}
+                        onClick={() => {
+                          connect()
+                            .then(() => {})
+                            .catch(() => {})
+                            .finally(() => {});
+                        }}
+                      >
+                        <span>
+                          <Phone
+                            className={"size-4 opacity-50"}
+                            strokeWidth={2}
+                            stroke={"currentColor"}
+                          />
+                        </span>
+                        <span>Start Chat</span>
+                      </ButtonPortfolio>                        
+                  </div>
+
                 </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>
         </div>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

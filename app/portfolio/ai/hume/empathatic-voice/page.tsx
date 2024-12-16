@@ -40,7 +40,7 @@ export default async function Page() {
       />
 
       <div className={"grow flex flex-col"}>
-        <Chat accessToken={accessToken} />
+        <Chat accessToken={accessToken} historyHeight="" />
       </div>
 
     </main>
