@@ -54,7 +54,7 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
                     <br/>
                     Click the button below to start a conversation with me.
                     <br/>
-                    You can also see an example transcript and the top 3 emotions from it.
+                    You can also see an example response and the top 3 emotions from it.
                   </div>
 
                   <div className="flex flex-row flex-wrap justify-center gap-4 align-middle">

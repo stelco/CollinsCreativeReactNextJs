@@ -158,7 +158,7 @@ export function getTopEmotions(chatEvents: ReturnChatEvent[]): Partial<EmotionSc
   // Build a Partial<EmotionScores> with only the top 3 emotions
   const result: Partial<EmotionScores> = {};
   for (const { emotion, score } of top3) {
-    result[emotion] = score;
+    result[emotion] = parseFloat((score * 100).toFixed(2));
   }
 
   console.log("emotions result------------", result);

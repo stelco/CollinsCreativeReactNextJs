@@ -73,14 +73,26 @@ export default function ClientComponent({
       >
 
         <div
-        className="flex flex-col max-w-[300px] p-4 mt-4 justify-end
+        className="flex flex-col max-w-[500px] p-4 mt-4 justify-end
          bg-gray-100 rounded-xl shadow-sm bg-grey-100 text-slate-500 dark:bg-gray-600 dark:text-slate-100"
         style={{ height: historyHeight }}>
         <div className="overflow-auto h-full">
 
+            {/* all chat events */}
+            <div className="flex flex-col">
+            <div className="text-[20px] text-orange-400 dark:text-orange-300 mt-2">All Chat Events</div>
+            {allChatEvents
+              .filter(message => message.role === "USER" || message.role === "AGENT")
+              .map((message, index) => (
+                <div key={index} className="text-sm mt-[3px] mb-[3px]">
+                <span className={ message.role == "AGENT" ? 'text-orange-200' : 'text-orange-400'}>{message.role}:</span> {message.messageText}
+                </div>
+            ))}
+            </div>
+
             {/* transcript */}
             <div className="flex flex-col">
-            <div className="text-[15px] text-orange-400 dark:text-orange-300 mt-2">Transcript</div>
+            <div className="text-[20px] text-orange-400 dark:text-orange-300 mt-2">Transcript</div>
             {transcript.map((line, index) => (
                 <div key={index} className="text-sm">
                 {line}
@@ -90,10 +102,10 @@ export default function ClientComponent({
 
             {/* top 3 emotions */}
             <div className="flex flex-col mt-2 mb-2 pb-2 border-b-2 border-gray-200 dark:border-gray-500">
-            <div className="text-[15px] text-orange-400 dark:text-orange-300">Top 3 Emotions</div>
+            <div className="text-[20px] text-orange-400 dark:text-orange-300">Top 3 Emotions</div>
             {emotions.map((emotion, index) => (
                 <div key={index} className="text-sm">
-                    {emotion.messageText}
+                    {emotion.messageText}%
                 </div>
             ))}
             </div>
