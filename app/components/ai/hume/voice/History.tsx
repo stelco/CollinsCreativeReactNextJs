@@ -79,19 +79,19 @@ export default function ClientComponent({
         <div className="overflow-auto h-full">
 
             {/* all chat events */}
-            <div className="flex flex-col">
+            <div className="flex flex-col mt-2 mb-2 pb-2 border-b-2 border-gray-200 dark:border-gray-500">
             <div className="text-[20px] text-orange-400 dark:text-orange-300 mt-2">All Chat Events</div>
             {allChatEvents
               .filter(message => message.role === "USER" || message.role === "AGENT")
               .map((message, index) => (
                 <div key={index} className="text-sm mt-[3px] mb-[3px]">
-                <span className={ message.role == "AGENT" ? 'text-orange-200' : 'text-orange-400'}>{message.role}:</span> {message.messageText}
+                <span className={ message.role == "AGENT" ? 'text-orange-400' : 'text-orange-500'}>{message.role}:</span> {message.messageText}
                 </div>
             ))}
             </div>
 
             {/* transcript */}
-            <div className="flex flex-col">
+            <div className="flex flex-col mt-2 mb-2 pb-2 border-b-2 border-gray-200 dark:border-gray-500">
             <div className="text-[20px] text-orange-400 dark:text-orange-300 mt-2">Transcript</div>
             {transcript.map((line, index) => (
                 <div key={index} className="text-sm">
