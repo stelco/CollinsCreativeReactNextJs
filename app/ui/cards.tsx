@@ -212,7 +212,7 @@ export function Card({
         </div>
       )}
 
-      <div className={ isAI ? 'background-animation' : ''}>
+      <div className={ isAI ? 'background-animation' : 'no-background-animation' }>
             <animate></animate>
             <animate></animate>
             <animate></animate>
@@ -223,7 +223,7 @@ export function Card({
             <animate></animate>
             <animate></animate>
             <animate></animate>
-        <div className={`${exo2.className} animated-div mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md md:items-start items-center`}
+        <div className={`${exo2.className} mt-2 flex flex-col gap-6 rounded-xl bg-white items-start text-grey-400 dark:bg-gray-700 dark:text-slate-200 px-4 py-4 text-left text-lg ${isWorkItem == false ? 'lg:flex-row' : 'lg:flex-col'} lg:overflow-hidden lg:text-md md:items-start items-center`}
         style={{ height: '99%' }}
         >
           <div className="z-50">

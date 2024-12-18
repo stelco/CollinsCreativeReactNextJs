@@ -38,8 +38,8 @@
   {
     "id": 6,
     "name": "React",
-    "color": "skill-intermediate",
-    "percentage": 80
+    "color": "skill-advanced",
+    "percentage": 100
   },
   {
     "id": 7,
@@ -55,8 +55,8 @@
   {
     "id": 9,
     "name": "C#",
-    "color": "skill-basic",
-    "percentage": 50
+    "color": "skill-intermediate",
+    "percentage": 70
   },
   {
     "id": 10,
@@ -93,7 +93,8 @@
   {
     "id": 16,
     "name": "CMS Development",
-    "color": "skill-intermediate"
+    "color": "skill-advanced",
+    "percentage": 80
   },
   {
     "id": 17,
@@ -110,8 +111,7 @@
   {
     "id": 19,
     "name": "BitBucket",
-    "color": "skill-intermediate",
-    "percentage": 60
+    "color": "skill-intermediate"
   },
   {
     "id": 20,

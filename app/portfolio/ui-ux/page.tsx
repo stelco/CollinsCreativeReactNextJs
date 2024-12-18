@@ -34,13 +34,21 @@ export default async function Page() {
       <CardIntro
           CardContent={{
               title: 'User Interface and User Experience Design',
-              value: 'A collection of UI and UX designs and prototypes I have created for various projects.',
+              value: 'A collection of UI and UX designs and prototypes I have created for various projects. The most recent work is at the top.',
       }}/>
 
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
 
       {uiux
           .filter((ui) => ui.heading === "Card Component")
+          .map((ui, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={ui} />
+            </Suspense>
+        ))}
+
+      {uiux
+          .filter((ui) => ui.heading === "Material Grid Component")
           .map((ui, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
               <CardBasic CardContent={ui} />

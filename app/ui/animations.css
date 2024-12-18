@@ -24,6 +24,10 @@
     }
 }
 
+.no-background-animation {
+    height: 99%;
+}
+
 .background-animation {
     position: relative;
     overflow: hidden;

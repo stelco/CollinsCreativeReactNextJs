@@ -1,4 +1,5 @@
 import skills from '@/app/portfolio/data/skills';
+import { github } from 'react-code-blocks';
 
 const homeMetaData =
 {
@@ -40,6 +41,7 @@ const aboutPage =
     {
         title: 'About This Portfolio',
         url: 'https://github.com/stelco/CollinsCreativeReactNextJs',
+        githubLink: true,
         heading: 'React/Next.js',
         value: 'This is a Next.js app with Tailwind CSS, TypeScript, GraphQl and Heroicons. It is a simple portfolio site that showcases my more recent technical and design skills. Im also experimenting with new AI technologies and integrating them into the site (WIP).',
         value2: 'It is built using the Next.js tutorial Dashboard page (available in website section) as a boilerplate and the components, styling and data have been customised for my portfolio pages. It uses a PostGres SQL database for the Dashboard data and local JSON data for the Skills. You can find the code on my GitHub page from the link above.',
