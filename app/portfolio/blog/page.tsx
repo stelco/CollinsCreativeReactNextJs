@@ -42,6 +42,8 @@ const BlogPage = async () => {
         ]}
       />
 
+      <NewBlogPostPage />
+
         <CardIntro
           CardContent={{
             title: 'Headless CMS Blog Posts',
