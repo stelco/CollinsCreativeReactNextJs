@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import blog from '@/app/portfolio/data/blog';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardIntro } from '@/app/ui/cards';
+import { NewBlogPostPage } from '@/app/portfolio/blog/new-post';
 
 const blogMetadata = blog.find((website) => website.title === 'Collins Creative | Blog');
 
