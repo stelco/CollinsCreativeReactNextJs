@@ -15,7 +15,7 @@ function BlogPostForm() {
     setMessage('');
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?Authorization=BearerclD7SdMciVanapSZgnPan3Og`,
+        `${process.env.NEXT_PUBLIC_WORDPRESS_API_URL}/posts?Authorization=BearerclD7SdMciVanapSZgnPan3Og&username=admin`,
         {
           method: 'POST',
           headers: {
