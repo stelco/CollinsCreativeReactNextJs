@@ -1,0 +1,37 @@
+.switch {
+    all: unset;
+    color: currentColor;
+    border-radius: 50%;
+    border: 1px dashed currentColor;
+    cursor: pointer;
+    --size: 24px;
+    height: var(--size);
+    width: var(--size);
+    transition: all 0.3s ease-in-out 0s !important;
+  }
+  
+  [data-mode="light"] .switch {
+    background-color: #fb923c;
+  }
+  
+  [data-mode="dark"] .switch {
+    box-shadow: calc(var(--size) / 4) calc(var(--size) / -4) calc(var(--size) / 8)
+      inset #fff;
+    border: none;
+    background: transparent;
+    animation: n linear 0.5s;
+  }
+  
+  @keyframes n {
+    40% {
+      transform: rotate(-15deg);
+    }
+    80% {
+      transform: rotate(10deg);
+    }
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
