@@ -2,7 +2,7 @@
 import { cn } from "@/utils";
 import { useVoice } from "@humeai/voice-react";
 import Expressions from "./Expressions";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ComponentRef, forwardRef } from "react";
 
 const Messages = forwardRef<
@@ -14,8 +14,8 @@ const Messages = forwardRef<
   return (
     <motion.div
       layoutScroll
-      className={"grow rounded-md overflow-auto p-4"}
-      style={{ height: "calc(100vh - 232px)" }}
+      className={"grow overflow-auto p-4 pt-24"}
+      style={{ marginBottom: '130px' }}
       ref={ref}
     >
       <motion.div
@@ -49,12 +49,25 @@ const Messages = forwardRef<
                     y: 0,
                   }}
                 >
-                  <div
-                    className={cn(
-                      "text-xs capitalize font-medium leading-none opacity-50 pt-4 px-3"
-                    )}
-                  >
-                    {msg.message.role}
+                  <div className={"flex items-center justify-between pt-4 px-3"}>
+                    <div
+                      className={cn(
+                        "text-xs capitalize font-medium leading-none opacity-50 tracking-tight"
+                      )}
+                    >
+                      {msg.message.role}
+                    </div>
+                    <div
+                      className={cn(
+                        "text-xs capitalize font-medium leading-none opacity-50 tracking-tight"
+                      )}
+                    >
+                      {msg.receivedAt.toLocaleTimeString(undefined, {
+                        hour: "numeric",
+                        minute: "2-digit",
+                        second: undefined,
+                      })}
+                    </div>
                   </div>
                   <div className={"pb-3 px-3"}>{msg.message.content}</div>
                   <Expressions values={{ ...msg.models.prosody?.scores }} />

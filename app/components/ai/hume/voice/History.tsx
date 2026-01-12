@@ -68,8 +68,6 @@ export default function ClientComponent({
     <div style={{ maxHeight: "calc(100vh - 11.2rem)", display: "flex", justifyContent: "center" }}
     >
       <VoiceProvider
-        auth={{ type: "accessToken", value: accessToken }}
-        configId={configId}
       >
 
         <div

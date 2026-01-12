@@ -1,43 +1,37 @@
 import { useVoice } from "@humeai/voice-react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ButtonPortfolio } from '@/app/ui/button';
+import { AnimatePresence, motion } from "motion/react";
+import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
+import { toast } from "sonner";
+import { ButtonPortfolio } from "@/app/ui/button";
 import Image from 'next/image';
 
-export default function StartCall({ accessToken }: { accessToken: string }) {
+export default function StartCall({ configId, accessToken }: { configId?: string, accessToken: string }) {
   const { status, connect } = useVoice();
 
   return (
     <AnimatePresence>
-      {status.value != "connected" && (
-        <div
-          className={'background-animation flex-1'}
+      {status.value !== "connected" ? (
+        <motion.div
+          className={"fixed inset-0 p-4 flex items-center justify-center bg-background"}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          variants={{
+            initial: { opacity: 0 },
+            enter: { opacity: 1 },
+            exit: { opacity: 0 },
+          }}
         >
-          <animate></animate>
-          <animate></animate>
-          <animate></animate>
-          <animate></animate>
-          <motion.div
-            className={"inset-0 p-4 mt-[40px] flex items-center justify-center bg-background"}
-            style={{ zindex: "9999", position: "relative" }}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            variants={{
-              initial: { opacity: 0 },
-              enter: { opacity: 1 },
-              exit: { opacity: 0 },
-            }}
-          >
-            <AnimatePresence>
-              <motion.div
-                variants={{
-                  initial: { scale: 0.5 },
-                  enter: { scale: 1 },
-                  exit: { scale: 0.5 },
-                }}
-              >
-                <div className={"flex flex-col items-center bg-gray-100 p-4 rounded-xl w-full max-w-[300px]"}>
+          <AnimatePresence>
+            <motion.div
+              variants={{
+                initial: { scale: 0.5 },
+                enter: { scale: 1 },
+                exit: { scale: 0.5 },
+              }}
+            >
+              <div className={"flex flex-col items-center bg-gray-100 p-4 rounded-xl w-full max-w-[300px]"}>
                   <Image
                     src="/ai/hume-voice-small.png"
                     alt="Hume Voice Call"
@@ -57,42 +51,41 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
                     You can also see an example response and the top 3 emotions from it.
                   </div>
 
-                  <div className="flex flex-row flex-wrap justify-center gap-4 align-middle">
-
-                      <ButtonPortfolio
-                        className={"z-50 flex items-center gap-1.5"}
-                        onClick={() => {
-                          console.log("Attempting connection...");
-                          console.log("Access token available:", !!accessToken);
-                          console.log("Access token length:", accessToken?.length);
-                          
-                          connect()
-                            .then(() => {
-                              console.log("Connection successful!");
-                            })
-                            .catch((error) => {
-                              console.error("Connection error:", error);
-                            })
-                            .finally(() => {});
-                        }}
-                      >
-                        <span>
-                          <Phone
-                            className={"size-4 opacity-50"}
-                            strokeWidth={2}
-                            stroke={"currentColor"}
-                          />
-                        </span>
-                        <span>Start Chat</span>
-                      </ButtonPortfolio>                        
-                  </div>
-
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-        </div>
-      )}
+                  <div className="flex flex-row flex-wrap justify-center gap-4 align-middle"></div>
+              <ButtonPortfolio
+                className={"z-50 flex items-center gap-1.5"}
+                onClick={() => {
+                  console.log("Attempting connection...");
+                  console.log("Access token available:", !!accessToken);
+                  console.log("Access token length:", accessToken?.length);
+                  
+                  connect({
+                    auth: { type: "accessToken", value: accessToken },
+                    ...(configId && { configId })
+                  })
+                    .then(() => {
+                      console.log("Connection successful!");
+                    })
+                    .catch((error) => {
+                      console.error("Connection error:", error);
+                    })
+                    .finally(() => {});
+                }}
+              >
+                <span>
+                  <Phone
+                    className={"size-4 opacity-50"}
+                    strokeWidth={2}
+                    stroke={"currentColor"}
+                  />
+                </span>
+                <span>Start Chat</span>
+              </ButtonPortfolio>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      ) : null}
     </AnimatePresence>
   );
 }

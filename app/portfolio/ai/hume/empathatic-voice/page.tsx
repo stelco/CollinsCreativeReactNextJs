@@ -3,6 +3,7 @@ import { CardIntro } from '@/app/ui/cards';
 
 import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
 import dynamicImport from "next/dynamic";
+import { Toaster } from "@/app/components/ai/hume/voice/ui/sonner";
 
 const Chat = dynamicImport(() => import("@/app/components/ai/hume/voice/Chat"), {
   ssr: false,
@@ -12,9 +13,6 @@ export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   const accessToken = await getHumeAccessToken();
-
-  console.log("Access token generated:", accessToken ? "✓ Valid" : "✗ Invalid");
-  console.log("Token length:", accessToken?.length);
 
   if (!accessToken) {
     throw new Error("Failed to generate Hume access token");
@@ -29,7 +27,7 @@ export default async function Page() {
           { label: 'AI', href: '/portfolio/ai' },
           {
             label: 'Empathatic Voice Chat',
-            href: '/portfolio/ai/hume/voice',
+            href: '/portfolio/ai/hume/empathatic-voice',
             active: true,
           },
         ]}
@@ -45,8 +43,10 @@ export default async function Page() {
       />
 
       <div className={"grow flex flex-col"}>
-        <Chat accessToken={accessToken} historyHeight="" />
+        <Chat accessToken={accessToken} />
       </div>
+
+      <Toaster position="top-center" richColors={true} />
 
     </main>
   );
