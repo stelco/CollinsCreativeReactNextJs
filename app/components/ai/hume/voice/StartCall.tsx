@@ -47,8 +47,6 @@ export default function StartCall({ configId, accessToken }: { configId?: string
                     Hi there! I'm not here to answer your questions but I can have a friendly chat with you.                  
                     <br/>
                     Click the button below to start a conversation with me.
-                    <br/>
-                    You can also see an example response and the top 3 emotions from it.
                   </div>
 
                   <div className="flex flex-row flex-wrap justify-center gap-4 align-middle"></div>
