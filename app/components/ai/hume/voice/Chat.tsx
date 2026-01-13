@@ -4,16 +4,37 @@ import { VoiceProvider } from "@humeai/voice-react";
 import Messages from "./Messages";
 import Controls from "./Controls";
 import StartCall from "./StartCall";
-import { ComponentRef, useRef } from "react";
+import { ComponentRef, useRef, useState, useEffect } from "react";
 import { toast } from "sonner";
 
 export default function ClientComponent({
-  accessToken,
+  accessToken: initialToken,
 }: {
   accessToken: string;
 }) {
+  const [accessToken, setAccessToken] = useState(initialToken);
   const timeout = useRef<number | null>(null);
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
+
+  // Fetch fresh token on mount to avoid cached tokens
+  useEffect(() => {
+    const fetchFreshToken = async () => {
+      try {
+        const response = await fetch('/api/hume-token');
+        if (response.ok) {
+          const { accessToken: freshToken } = await response.json();
+          if (freshToken) {
+            console.log('Fresh token fetched, length:', freshToken.length);
+            setAccessToken(freshToken);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch fresh token:', error);
+      }
+    };
+
+    fetchFreshToken();
+  }, []);
 
   // optional: use configId from environment variable
   const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];

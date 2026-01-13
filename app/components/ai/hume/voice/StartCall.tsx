@@ -65,6 +65,9 @@ export default function StartCall({ configId, accessToken }: { configId?: string
                     })
                     .catch((error) => {
                       console.error("Connection error:", error);
+                      console.error("Error details:", JSON.stringify(error, null, 2));
+                      console.error("Error message:", error?.message);
+                      console.error("Error type:", error?.type);
                     })
                     .finally(() => {});
                 }}

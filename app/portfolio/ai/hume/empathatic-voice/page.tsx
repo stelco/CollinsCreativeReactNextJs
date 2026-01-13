@@ -10,6 +10,7 @@ const Chat = dynamicImport(() => import("@/app/components/ai/hume/voice/Chat"), 
 });
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default async function Page() {
   const accessToken = await getHumeAccessToken();
