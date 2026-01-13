@@ -11,7 +11,7 @@ export default function StartCall({ configId, accessToken }: { configId?: string
     <AnimatePresence>
       {status.value !== "connected" ? (
         <motion.div
-          className={"fixed inset-0 p-4 flex items-center justify-center bg-background"}
+          className={"fixed inset-0 p-4 flex items-center justify-center bg-background z-[-1]"}
           initial="initial"
           animate="enter"
           exit="exit"
