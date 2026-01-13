@@ -54,6 +54,7 @@ export default function StartCall({ configId, accessToken }: { configId?: string
                   console.log("Attempting connection...");
                   console.log("Access token available:", !!accessToken);
                   console.log("Access token length:", accessToken?.length);
+                  console.log("Access token value:", accessToken);
                   
                   connect({
                     auth: { type: "accessToken", value: accessToken },
