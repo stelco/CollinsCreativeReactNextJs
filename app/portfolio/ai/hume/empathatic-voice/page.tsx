@@ -18,6 +18,9 @@ export default async function Page() {
     throw new Error("Failed to generate Hume access token");
   }
 
+  console.log("[Page] Access token received, length:", accessToken?.length);
+  console.log("[Page] First 20 chars:", accessToken?.substring(0, 20));
+
   return (
     <main className="flex min-h-screen flex-col">
 

@@ -27,6 +27,8 @@ export const getHumeAccessToken = async () => {
     }
 
     console.log("Access token generated successfully, length:", accessToken.length);
+    console.log("Access token (first 50 chars):", accessToken.substring(0, 50));
+    console.log("Access token type:", typeof accessToken);
     return accessToken;
   } catch (error) {
     console.error("Error generating Hume access token:", error);
