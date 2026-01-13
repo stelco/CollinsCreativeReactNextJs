@@ -1,8 +1,6 @@
 import { useVoice } from "@humeai/voice-react";
 import { AnimatePresence, motion } from "motion/react";
-import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
-import { toast } from "sonner";
 import { ButtonPortfolio } from "@/app/ui/button";
 import Image from 'next/image';
 
@@ -31,7 +29,7 @@ export default function StartCall({ configId, accessToken }: { configId?: string
                 exit: { scale: 0.5 },
               }}
             >
-              <div className={"flex flex-col items-center bg-gray-100 p-4 rounded-xl w-full max-w-[300px]"}>
+              <div className={"flex flex-col items-center bg-gray-100 p-4 rounded-xl w-full max-w-[240px] md:max-w-[300px] mt-[300px] md:mt-0"}>
                   <Image
                     src="/ai/hume-voice-small.png"
                     alt="Hume Voice Call"
