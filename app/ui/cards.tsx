@@ -54,7 +54,7 @@ interface CardBasicProps {
 
 export function CardIntro({ CardContent }: CardBasicProps) {
   return (
-    <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500", "dark:bg-gray-600 dark:text-slate-100")}>
+    <div className={cn("px-4 bg-gray-100 rounded-b-xl p-2 shadow-sm bg-grey-100 text-slate-500 z-[1]", "dark:bg-gray-600 dark:text-slate-100 z-[1]")}>
 
       <div className={cn("text-[25px] text-orange-400",  "dark:text-orange-300")}
       style={{ lineHeight: '1.8rem', marginBottom: '10px' }}
