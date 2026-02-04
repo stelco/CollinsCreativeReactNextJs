@@ -143,6 +143,12 @@ export function getTopEmotions(chatEvents: ReturnChatEvent[]): Partial<EmotionSc
 
   const totalMessages = userMessages.length;
 
+  // Return empty object if no user messages with emotions
+  if (totalMessages === 0 || !userMessages[0]?.emotionFeatures) {
+    console.log("No user messages with emotion features found");
+    return {};
+  }
+
   // Infer emotion keys from the first user message
   const firstMessageEmotions = JSON.parse(userMessages[0].emotionFeatures!) as EmotionScores;
   const emotionKeys = Object.keys(firstMessageEmotions) as (keyof EmotionScores)[];

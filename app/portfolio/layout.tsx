@@ -52,7 +52,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="z-10 w-full flex-none md:w-64">
         <SideNav />
       </div>
-      <div className="flex-grow p-4 md:overflow-y-auto">
+      <div className="flex-grow p-4 md:overflow-y-auto scrollbar-thin scrollbar-thumb-orange-400 scrollbar-track-gray-200 dark:scrollbar-track-gray-700 hover:scrollbar-thumb-orange-500">
         {children}
       </div>
     </div>

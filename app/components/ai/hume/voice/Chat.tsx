@@ -6,6 +6,7 @@ import Controls from "./Controls";
 import StartCall from "./StartCall";
 import { ComponentRef, useRef, useState, useEffect } from "react";
 import { toast } from "sonner";
+import { useVoice } from "@humeai/voice-react";
 
 export default function ClientComponent({
   accessToken: initialToken,
@@ -13,6 +14,8 @@ export default function ClientComponent({
   accessToken: string;
 }) {
   const [accessToken, setAccessToken] = useState(initialToken);
+  const [viewMode, setViewMode] = useState<'live' | 'history'>('live');
+  const [resumeChatId, setResumeChatId] = useState<string | null>(null);
   const timeout = useRef<number | null>(null);
   const ref = useRef<ComponentRef<typeof Messages> | null>(null);
 
@@ -66,10 +69,89 @@ export default function ClientComponent({
           toast.error(error.message);
         }}
       >
-        <Messages ref={ref} />
-        <Controls />
-        <StartCall configId={configId} accessToken={accessToken} />
+        <VoiceWrapper 
+          ref={ref} 
+          accessToken={accessToken} 
+          viewMode={viewMode} 
+          setViewMode={setViewMode}
+          configId={configId}
+          resumeChatId={resumeChatId}
+          setResumeChatId={setResumeChatId}
+        />
       </VoiceProvider>
     </div>
+  );
+}
+
+function VoiceWrapper({ 
+  ref, 
+  accessToken, 
+  viewMode, 
+  setViewMode,
+  configId,
+  resumeChatId,
+  setResumeChatId
+}: { 
+  ref: React.RefObject<ComponentRef<typeof Messages>>;
+  accessToken: string;
+  viewMode: 'live' | 'history';
+  setViewMode: (mode: 'live' | 'history') => void;
+  configId?: string;
+  resumeChatId: string | null;
+  setResumeChatId: (id: string | null) => void;
+}) {
+  const { status, connect } = useVoice();
+  const [refetchTrigger, setRefetchTrigger] = useState(0);
+  const [isResuming, setIsResuming] = useState(false);
+  const [hasResumedMessages, setHasResumedMessages] = useState(false);
+  const prevStatus = useRef(status.value);
+
+  // Track when chat ends to trigger history refetch
+  useEffect(() => {
+    if (prevStatus.current === "connected" && status.value === "disconnected") {
+      console.log("Chat ended, triggering history refetch");
+      setRefetchTrigger(prev => prev + 1);
+      setHasResumedMessages(false);
+    }
+    prevStatus.current = status.value;
+  }, [status.value]);
+
+  // Auto-connect when resuming a chat
+  useEffect(() => {
+    if (resumeChatId && status.value !== "connected") {
+      console.log("Auto-resuming chat with chat_group_id:", resumeChatId);
+      setIsResuming(true);
+      connect({
+        auth: { type: "accessToken", value: accessToken },
+        ...(configId && { configId }),
+        resumedChatGroupId: resumeChatId
+      })
+        .then(() => {
+          console.log("Resumed chat successfully with chat_group_id:", resumeChatId);
+          setResumeChatId(null);
+          setIsResuming(false);
+        })
+        .catch((error) => {
+          console.error("Failed to resume chat:", error);
+          setResumeChatId(null);
+          setIsResuming(false);
+        });
+    }
+  }, [resumeChatId, status.value, connect, accessToken, configId, setResumeChatId]);
+
+  return (
+    <>
+      <Messages 
+        ref={ref} 
+        accessToken={accessToken} 
+        viewMode={viewMode} 
+        setViewMode={setViewMode} 
+        refetchTrigger={refetchTrigger}
+        onResumeChat={setResumeChatId}
+        onResumedMessagesChange={setHasResumedMessages}
+      />
+      <Controls />
+      {viewMode === 'live' && !resumeChatId && !isResuming && !hasResumedMessages && status.value !== "connected" && <StartCall configId={configId} accessToken={accessToken} resumedChatId={resumeChatId} onChatStarted={() => setResumeChatId(null)} />}
+    </>
   );
 }

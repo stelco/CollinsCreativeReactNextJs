@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .min-h-screen {
+    min-height: 96vh;
+  }
+
+  @media (max-width: 1024px) {
+    .min-h-screen {
+      min-height: 78vh;
+    }
+  }
+}

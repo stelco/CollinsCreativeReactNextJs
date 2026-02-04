@@ -4,7 +4,7 @@ import { Phone } from "lucide-react";
 import { ButtonPortfolio } from "@/app/ui/button";
 import Image from 'next/image';
 
-export default function StartCall({ configId, accessToken }: { configId?: string, accessToken: string }) {
+export default function StartCall({ configId, accessToken, resumedChatId, onChatStarted }: { configId?: string, accessToken: string, resumedChatId?: string | null, onChatStarted?: () => void }) {
   const { status, connect } = useVoice();
 
   return (
@@ -58,10 +58,15 @@ export default function StartCall({ configId, accessToken }: { configId?: string
                   
                   connect({
                     auth: { type: "accessToken", value: accessToken },
-                    ...(configId && { configId })
+                    ...(configId && { configId }),
+                    ...(resumedChatId && { resumedChatId })
                   })
                     .then(() => {
                       console.log("Connection successful!");
+                      if (resumedChatId) {
+                        console.log("Resumed chat:", resumedChatId);
+                      }
+                      onChatStarted?.();
                     })
                     .catch((error) => {
                       console.error("Connection error:", error);
