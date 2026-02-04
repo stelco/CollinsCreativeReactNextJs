@@ -72,11 +72,14 @@ export default function ClientComponent({
       
       setIsLoadingChats(true);
       try {
+        const apiKey = process.env.NEXT_PUBLIC_HUME_API_KEY;
+        console.log("Using API key:", apiKey ? `${apiKey.substring(0, 10)}...` : "MISSING");
+        
         const response = await fetch(
           `https://api.hume.ai/v0/evi/chats?page_number=${pageNumber}&page_size=8&ascending_order=false`,
           {
             headers: {
-              "X-Hume-Api-Key": process.env.NEXT_PUBLIC_HUME_API_KEY || "",
+              "X-Hume-Api-Key": apiKey || "",
             },
           }
         );
