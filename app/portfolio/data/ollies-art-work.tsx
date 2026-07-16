@@ -18,6 +18,13 @@ const olliesArtWork = [
           height: 300,
           alt: 'Ollies artwork thumbnail',
         },
+        {
+          site_name: 'Collins Creative',
+          url: 'https://www.collinscreative.co.uk/ollie-art-archive/20260716_131751.jpg',
+          width: 300,
+          height: 300,
+          alt: 'Ollies artwork thumbnail 2',
+        },
       ],
     },
   },
