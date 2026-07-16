@@ -244,7 +244,7 @@ const Messages = forwardRef<
       </div>
 
       {/* Right Column - History */}
-      <div className="hidden lg:block w-80 flex-shrink-0 overflow-auto pl-3 relative z-50 scrollbar-thin scrollbar-thumb-orange-400 scrollbar-track-gray-200 dark:scrollbar-track-gray-700 hover:scrollbar-thumb-orange-500 mr-[-15px]">
+      <div className="hidden md:block w-80 flex-shrink-0 overflow-auto pl-3 relative z-50 scrollbar-thin scrollbar-thumb-orange-400 scrollbar-track-gray-200 dark:scrollbar-track-gray-700 hover:scrollbar-thumb-orange-500 mr-[-15px]">
         <History 
           accessToken={accessToken} 
           historyHeight="100%" 
