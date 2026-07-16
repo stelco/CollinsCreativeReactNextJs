@@ -7,7 +7,7 @@ const olliesArtWork = [
     authors: [{ name: 'Steven Collins' }],
     openGraph: {
       title: 'Collins Creative | Ollies Art Work',
-      description: 'A collection of my sons artworkwhich he has produced since starting high school. Such a talented boy...like father like son!',
+      description: 'A collection of my sons artwork which he has produced since starting high school. Such a talented boy...like father like son!',
       url: 'https://www.collinscreative.co.uk/portfolio/ollies-art-work',
       type: 'website',
       images: [

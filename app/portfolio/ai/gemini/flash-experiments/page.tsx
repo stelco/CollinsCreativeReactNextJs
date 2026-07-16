@@ -4,6 +4,8 @@ import ImageGallery from '@/app/components/ImageGallery';
 import VideoGallery from '@/app/components/VideoGallery';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import fs from 'fs';
+import path from 'path';
 import {
   flashExperimentsMetaData,
   flashExperimentsIntro,
@@ -18,6 +20,12 @@ export const metadata: Metadata = {
   authors: flashExperimentsMetaData.authors,
   openGraph: flashExperimentsMetaData.openGraph,
 };
+
+const availableFlashExperimentVideos = flashExperimentVideos.filter((video) => {
+  const relativePublicPath = video.src.replace(/^\//, '');
+  const fullPath = path.join(process.cwd(), 'public', relativePublicPath);
+  return fs.existsSync(fullPath);
+});
 
 export default function Page() {
   return (
@@ -77,9 +85,9 @@ export default function Page() {
           </div>
 
           <div className="px-4 pb-4" style={{ zIndex: 9999, position: 'relative' }}>
-            <VideoGallery videos={flashExperimentVideos.slice(0, 2)} />
+            <VideoGallery videos={availableFlashExperimentVideos.slice(0, 2)} />
             <ImageGallery images={flashExperimentSourceImages} />
-            <VideoGallery videos={flashExperimentVideos.slice(2)} />
+            <VideoGallery videos={availableFlashExperimentVideos.slice(2)} />
           </div>
         </div>
       </div>
