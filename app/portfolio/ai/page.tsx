@@ -58,6 +58,13 @@ export default async function Page() {
       />
       <div className="z-10 grid gap-3 lg:grid-cols-3 md:grid-cols-2 lg:flex-row mt-2 flex-grow items-start">
         {ai
+          .filter((website) => website.heading === "Gemini Flash Experiments")
+          .map((website, index) => (
+            <Suspense fallback={<CardSkeleton />} key={index}>
+              <CardBasic CardContent={website} />
+            </Suspense>
+          ))}
+        {ai
           .filter((website) => website.heading === "Hume Empathetic Voice Interface")
           .map((website, index) => (
             <Suspense fallback={<CardSkeleton />} key={index}>
@@ -85,6 +92,7 @@ export default async function Page() {
               <CardBasic CardContent={website} />
             </Suspense>
           ))}
+
         {ai
           .filter((website) => website.heading === "More to follow...")
           .map((website, index) => (

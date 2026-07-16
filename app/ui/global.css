@@ -91,6 +91,17 @@ h2 {
   height: 150px;
 }
 
+.gallery-video .gallery-item {
+  height: auto;
+  overflow: visible;
+}
+
+.gallery-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .pdf-container {
   height: 90vh;
 }

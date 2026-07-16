@@ -23,6 +23,18 @@ const ai = [
         }
     },
     {
+        heading: 'Gemini Flash Experiments',
+        url: 'https://ai.google.dev/gemini-api/docs/models#gemini-2.5-flash',
+        githubLink: true,
+        value: 'A collection of image and video experiments using Gemini Flash focused on fast multimodal prompts, structured outputs, and rapid iteration workflows.',
+        value2: 'This sandbox explores low-latency generation patterns and practical app integrations for text, image and video understanding',
+        image: '/ai/gemini-chatbot.jpg',
+        isWorkItem: true,
+        buttonLink: true,
+        buttonLinkUrl: '/portfolio/ai/gemini/flash-experiments',
+        isAI: true
+    },
+    {
         heading: 'Hume Empathetic Voice Interface',
         url: 'https://github.com/stelco/hume-voice-next-js',
         githubLink: true,
