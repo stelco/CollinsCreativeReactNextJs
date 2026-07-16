@@ -22,7 +22,7 @@ const links = [
   { name: 'UI/UX', href: '/portfolio/ui-ux', icon: PresentationChartLineIcon },
   { name: 'Documentation', href: '/portfolio/documentation', icon: DocumentTextIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: BuildingLibraryIcon },
-  { name: 'Ollies Art Work', href: '/portfolio/ollies-art-work', icon: BookOpenIcon },
+  { name: 'Ollies Creations', href: '/portfolio/ollies-art-work', icon: BookOpenIcon },
   //{ name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
   { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];

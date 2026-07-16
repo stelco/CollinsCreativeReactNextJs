@@ -6,7 +6,7 @@ import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import ImageGallery from '@/app/components/ImageGallery';
 import { CardIntro } from '@/app/ui/cards';
 
-const ollieMetadata = olliesArtWork.find((website) => website.title === 'Collins Creative | Ollies Art Work');
+const ollieMetadata = olliesArtWork.find((website) => website.title === 'Collins Creative | Ollies Creations');
 
 export const metadata: Metadata = {
   title: ollieMetadata?.title,
