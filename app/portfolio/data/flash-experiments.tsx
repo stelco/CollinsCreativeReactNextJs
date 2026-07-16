@@ -136,6 +136,8 @@ const flashExperimentVideos = [
   },
 ];
 
+
+
 const flashExperimentSourceImages = [
   {
     id: '20260716_131748.jpg',
@@ -148,6 +150,13 @@ const flashExperimentSourceImages = [
     id: '20260716_131751.jpg',
     src: '/ollie-art-archive/20260716_131751.jpg',
     alt: 'Source image 2 used for Gemini generated video 3',
+    width: 400,
+    height: 400,
+  },
+    {
+    id: 'IMG-20260522-WA0001.jpg',
+    src: '/ollie-art-archive/IMG-20260522-WA0001.jpg',
+    alt: 'Source image 3 used for Gemini generated video 3',
     width: 400,
     height: 400,
   },
