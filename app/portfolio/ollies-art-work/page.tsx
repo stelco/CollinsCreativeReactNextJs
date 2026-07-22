@@ -5,6 +5,7 @@ import olliesArtWork from '@/app/portfolio/data/ollies-art-work';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import ImageGallery from '@/app/components/ImageGallery';
 import { CardIntro } from '@/app/ui/cards';
+import { getImageTimestamp } from '@/app/lib/image-metadata';
 
 const ollieMetadata = olliesArtWork.find((website) => website.title === 'Collins Creative | Ollies Creations');
 
@@ -20,16 +21,20 @@ async function fetchImages() {
   const imagesDirectory = path.join(process.cwd(), 'public/ollie-art-archive');
   const filenames = fs.readdirSync(imagesDirectory);
 
-  const images = filenames.map((filename) => {
+  const images = await Promise.all(filenames.map(async (filename) => {
     const filePath = path.posix.join('/ollie-art-archive', filename);
+    const absoluteFilePath = path.join(imagesDirectory, filename);
+    const timestamp = await getImageTimestamp(absoluteFilePath);
+
     return {
       id: filename,
       src: filePath,
       alt: filename,
       width: 150,
       height: 150,
+      timestamp,
     };
-  });
+  }));
 
   return images;
 }

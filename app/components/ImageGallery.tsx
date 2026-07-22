@@ -11,14 +11,16 @@ interface Image {
   alt: string;
   width: number;
   height: number;
+  timestamp?: string | null;
 }
 
 interface ImageGalleryProps {
   images: Image[];
   size?: 'default' | 'large';
+  timestampLabelPrefix?: string;
 }
 
-export default function ImageGallery({ images, size = 'default' }: ImageGalleryProps) {
+export default function ImageGallery({ images, size = 'default', timestampLabelPrefix = 'Ollie created this on' }: ImageGalleryProps) {
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
@@ -74,6 +76,8 @@ export default function ImageGallery({ images, size = 'default' }: ImageGalleryP
         onClose={closeModal}
         imgSrc={selectedIndex >= 0 ? images[selectedIndex].src : ''}
         imgAlt={selectedIndex >= 0 ? images[selectedIndex].alt : ''}
+        imgTimestamp={selectedIndex >= 0 ? images[selectedIndex].timestamp : null}
+        timestampLabelPrefix={timestampLabelPrefix}
         onNext={images.length > 1 ? goToNextImage : undefined}
         onPrevious={images.length > 1 ? goToPreviousImage : undefined}
       />
