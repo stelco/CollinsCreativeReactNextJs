@@ -107,19 +107,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, onNext, 
           )}
 
           { isImage && (
-            <Image
-              src={imgSrc}
-              alt={imgAlt}
-              width={1600}
-              height={1600}
-              sizes="92vw"
-              style={{
-                width: 'auto',
-                height: 'auto',
-                maxWidth: '92vw',
-                maxHeight: '85vh',
-              }}
-            />
+            <div className="relative h-[85vh] w-[92vw] max-w-[92vw] bg-gray-500/70 rounded-xl">
+              <Image
+                src={imgSrc}
+                alt={imgAlt}
+                fill
+                sizes="92vw"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
           )}
         </div>
       </div>
