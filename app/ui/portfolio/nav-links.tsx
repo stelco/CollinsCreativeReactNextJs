@@ -37,10 +37,10 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              (pathname ?? '') === link.href || (pathname ?? '').startsWith(link.href) ? 'flex h-[48px] grow items-center justify-center gap-2 rounded-xl border-gray-300 p-2 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3 bg-gray-100 text-orange-600 dark:text-orange-400 dark:bg-gray-600 hover:text-orange-600' : 'flex h-[48px] grow items-center justify-center gap-2 rounded-xl border-gray-300 bg-gray-100 p-2 text-sm font-medium md:flex-none md:justify-start md:p-2 md:px-3 text-slate-600 hover:text-orange-600 dark:bg-gray-600 dark:text-slate-200 dark:hover:text-orange-400'
+              (pathname ?? '') === link.href || (pathname ?? '').startsWith(link.href) ? 'flex h-[40px] min-w-0 flex-1 items-center justify-center gap-1 rounded-xl border-gray-300 px-1 py-1 text-xs font-medium md:h-[48px] md:flex-none md:justify-start md:gap-2 md:rounded-xl md:p-2 md:px-3 md:text-sm bg-gray-100 text-orange-600 dark:text-orange-400 dark:bg-gray-600 hover:text-orange-600' : 'flex h-[40px] min-w-0 flex-1 items-center justify-center gap-1 rounded-xl border-gray-300 bg-gray-100 px-1 py-1 text-xs font-medium md:h-[48px] md:flex-none md:justify-start md:gap-2 md:rounded-xl md:p-2 md:px-3 md:text-sm text-slate-600 hover:text-orange-600 dark:bg-gray-600 dark:text-slate-200 dark:hover:text-orange-400'
             )}
           >
-            <LinkIcon className="w-6" />
+            <LinkIcon className="h-5 w-5 md:h-6 md:w-6" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
