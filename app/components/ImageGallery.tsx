@@ -21,20 +21,30 @@ interface ImageGalleryProps {
 export default function ImageGallery({ images, size = 'default' }: ImageGalleryProps) {
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState({ src: '', alt: '', width: 0, height: 0 });
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
   useEffect(() => {
     setLoading(false);
   }, []);
 
-  const openModal = (img: Image) => {
-    setSelectedImage(img);
+  const openModal = (index: number) => {
+    setSelectedIndex(index);
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
-    setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
+    setSelectedIndex(-1);
+  };
+
+  const goToNextImage = () => {
+    if (!images.length) return;
+    setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPreviousImage = () => {
+    if (!images.length) return;
+    setSelectedIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   const galleryClassName = size === 'large' ? 'gallery gallery-large' : 'gallery';
@@ -42,12 +52,12 @@ export default function ImageGallery({ images, size = 'default' }: ImageGalleryP
 
   return loading ? <GenericLoader /> : (
     <div className={`mt-6 ${galleryClassName}`}>
-      {images.map((img) => (
+      {images.map((img, index) => (
         <div
           key={img.id}
           className={galleryItemClassName}
           style={{ cursor: 'pointer' }}
-          onClick={() => openModal(img)}
+          onClick={() => openModal(index)}
         >
             <Image
               src={img.src}
@@ -62,8 +72,10 @@ export default function ImageGallery({ images, size = 'default' }: ImageGalleryP
       <Modal
         isOpen={isOpen}
         onClose={closeModal}
-        imgSrc={selectedImage.src}
-        imgAlt={selectedImage.alt}
+        imgSrc={selectedIndex >= 0 ? images[selectedIndex].src : ''}
+        imgAlt={selectedIndex >= 0 ? images[selectedIndex].alt : ''}
+        onNext={images.length > 1 ? goToNextImage : undefined}
+        onPrevious={images.length > 1 ? goToPreviousImage : undefined}
       />
     </div>
   );

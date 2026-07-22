@@ -1,6 +1,7 @@
 // components/Modal.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { XCircleIcon } from '@heroicons/react/24/solid';
 
 interface ModalProps {
@@ -8,14 +9,41 @@ interface ModalProps {
   onClose: () => void;
   imgSrc: string;
   imgAlt: string;
+  onNext?: () => void;
+  onPrevious?: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, onNext, onPrevious }) => {
   if (!isOpen) return null;
 
   const isPdf = imgSrc.endsWith('.pdf');
   const isVideo = imgSrc.endsWith('.mp4');
   const isImage = !isPdf && !isVideo;
+  const canNavigate = isImage && !!onNext && !!onPrevious;
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+
+      if (!canNavigate) return;
+
+      if (event.key === 'ArrowRight') {
+        onNext();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        onPrevious();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [canNavigate, onClose, onNext, onPrevious]);
 
   return (
     <div className="modal">
@@ -32,6 +60,30 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt }) => {
           style={{ cursor: 'hand', borderRadius: '50%', backgroundColor: '#fff', zIndex: 99999 }}
           onClick={onClose}
         />
+
+          {canNavigate && (
+            <button
+              type="button"
+              aria-label="Previous image"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500 bg-transparent p-2 text-gray-500 transition-colors hover:bg-white/80 hover:text-black"
+              style={{ zIndex: 99999 }}
+              onClick={onPrevious}
+            >
+              <ChevronLeftIcon className="h-6 w-6 md:h-8 md:w-8" />
+            </button>
+          )}
+
+          {canNavigate && (
+            <button
+              type="button"
+              aria-label="Next image"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 rounded-full border border-gray-500 bg-transparent p-2 text-gray-500 transition-colors hover:bg-white/80 hover:text-black"
+              style={{ zIndex: 99999 }}
+              onClick={onNext}
+            >
+              <ChevronRightIcon className="h-6 w-6 md:h-8 md:w-8" />
+            </button>
+          )}
    
           {isPdf && (
             <div className="pdf-container">
