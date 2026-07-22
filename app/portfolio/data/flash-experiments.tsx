@@ -64,6 +64,13 @@ const flashExperimentVideos = [
     width: 400,
     height: 400,
   },
+{
+    id: 'VID-20260613-WA0001.mp4',
+    src: '/ai/videos/VID-20260613-WA0001.mp4',
+    alt: 'Video 20260613 WA0001',
+    width: 400,
+    height: 400,
+  },
   {
     id: 'VID-20251026-WA0020.mp4',
     src: '/ai/videos/VID-20251026-WA0020.mp4',
@@ -126,14 +133,7 @@ const flashExperimentVideos = [
     alt: 'Video 20260610 WA0007',
     width: 400,
     height: 400,
-  },
-  {
-    id: 'VID-20260613-WA0001.mp4',
-    src: '/ai/videos/VID-20260613-WA0001.mp4',
-    alt: 'Video 20260613 WA0001',
-    width: 400,
-    height: 400,
-  },
+  }
 ];
 
 

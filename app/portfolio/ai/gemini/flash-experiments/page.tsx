@@ -85,9 +85,9 @@ export default function Page() {
           </div>
 
           <div className="px-4 pb-4" style={{ zIndex: 9999, position: 'relative' }}>
-            <VideoGallery videos={availableFlashExperimentVideos.slice(0, 2)} />
+            <VideoGallery videos={availableFlashExperimentVideos.slice(0, 3)} />
             <ImageGallery images={flashExperimentSourceImages} />
-            <VideoGallery videos={availableFlashExperimentVideos.slice(2)} />
+            <VideoGallery videos={availableFlashExperimentVideos.slice(3)} />
           </div>
         </div>
       </div>

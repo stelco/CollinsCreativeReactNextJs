@@ -57,7 +57,7 @@ export default async function Page() {
               value: 'A collection of contemporary sketchbook artwork I created a long time ago during my time at Art College.',
       }}/>
 
-      <ImageGallery images={images} />
+      <ImageGallery images={images} size="large" />
     </main>
   );
 }

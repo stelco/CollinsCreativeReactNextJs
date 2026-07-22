@@ -57,7 +57,7 @@ export default async function Page() {
         }}
       />
 
-      <ImageGallery images={images} />
+      <ImageGallery images={images} size="large" />
     </main>
   );
 }

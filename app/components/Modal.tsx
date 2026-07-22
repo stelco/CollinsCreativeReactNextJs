@@ -8,20 +8,23 @@ interface ModalProps {
   onClose: () => void;
   imgSrc: string;
   imgAlt: string;
-  imgWidth: number;
-  imgHeight: number;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgWidth, imgHeight }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt }) => {
   if (!isOpen) return null;
 
   const isPdf = imgSrc.endsWith('.pdf');
   const isVideo = imgSrc.endsWith('.mp4');
+  const isImage = !isPdf && !isVideo;
 
   return (
     <div className="modal">
       <div
-        className="modal-content w-[70vw] md:w-[45vw]"
+        className={`modal-content ${
+          isImage
+            ? 'w-auto bg-transparent overflow-visible shadow-none'
+            : 'w-[92vw] md:w-[80vw] lg:w-[70vw]'
+        }`}
         style={{ maxHeight: '90vh' }}
       >
         <XCircleIcon
@@ -51,14 +54,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgWidth
             />
           )}
 
-          { !isPdf && !isVideo && (
+          { isImage && (
             <Image
               src={imgSrc}
               alt={imgAlt}
-              width={imgWidth}
-              height={imgHeight}
-              layout="responsive"
-              objectFit="contain"
+              width={1600}
+              height={1600}
+              sizes="92vw"
+              style={{
+                width: 'auto',
+                height: '85vh',
+                maxWidth: '92vw',
+                maxHeight: '85vh',
+              }}
             />
           )}
         </div>

@@ -74,6 +74,11 @@ h2 {
   gap: 8px;
 }
 
+.gallery-large {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
 .gallery-video {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 0fr));
@@ -89,6 +94,10 @@ h2 {
   width: 100%;
   overflow: hidden;
   height: 150px;
+}
+
+.gallery-item-large {
+  height: 240px;
 }
 
 .gallery-video .gallery-item {

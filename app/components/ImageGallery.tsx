@@ -15,9 +15,10 @@ interface Image {
 
 interface ImageGalleryProps {
   images: Image[];
+  size?: 'default' | 'large';
 }
 
-export default function ImageGallery({ images }: ImageGalleryProps) {
+export default function ImageGallery({ images, size = 'default' }: ImageGalleryProps) {
   const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState({ src: '', alt: '', width: 0, height: 0 });
@@ -36,12 +37,15 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     setSelectedImage({ src: '', alt: '', width: 0, height: 0 });
   };
 
+  const galleryClassName = size === 'large' ? 'gallery gallery-large' : 'gallery';
+  const galleryItemClassName = size === 'large' ? 'gallery-item gallery-item-large' : 'gallery-item';
+
   return loading ? <GenericLoader /> : (
-    <div className="mt-6 gallery">
+    <div className={`mt-6 ${galleryClassName}`}>
       {images.map((img) => (
         <div
           key={img.id}
-          className="gallery-item"
+          className={galleryItemClassName}
           style={{ cursor: 'pointer' }}
           onClick={() => openModal(img)}
         >
@@ -60,8 +64,6 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         onClose={closeModal}
         imgSrc={selectedImage.src}
         imgAlt={selectedImage.alt}
-        imgWidth={selectedImage.width}
-        imgHeight={selectedImage.height}  
       />
     </div>
   );
