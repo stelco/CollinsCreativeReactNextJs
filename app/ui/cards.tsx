@@ -397,8 +397,6 @@ export function Card({
         onClose={closeModal}
         imgSrc={selectedImage.src}
         imgAlt={selectedImage.alt}
-        imgWidth={selectedImage.width}
-        imgHeight={selectedImage.height}
       />
     </motion.div>
   );
