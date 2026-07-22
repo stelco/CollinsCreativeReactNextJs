@@ -115,7 +115,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, onNext, 
               sizes="92vw"
               style={{
                 width: 'auto',
-                height: '85vh',
+                height: 'auto',
                 maxWidth: '92vw',
                 maxHeight: '85vh',
               }}

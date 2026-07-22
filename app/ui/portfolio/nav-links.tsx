@@ -6,8 +6,7 @@ import {
   PresentationChartLineIcon,
   DocumentTextIcon,
   BuildingLibraryIcon,
-  SparklesIcon,
-  BookOpenIcon
+  SparklesIcon
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,7 +21,7 @@ const links = [
   { name: 'UI/UX', href: '/portfolio/ui-ux', icon: PresentationChartLineIcon },
   { name: 'Documentation', href: '/portfolio/documentation', icon: DocumentTextIcon },
   { name: 'Art Archive', href: '/portfolio/art-archive', icon: BuildingLibraryIcon },
-  { name: 'Ollies Creations', href: '/portfolio/ollies-art-work', icon: BookOpenIcon },
+  { name: 'Ollies Creations', href: '/portfolio/ollies-art-work', icon: BuildingLibraryIcon },
   //{ name: 'Dashboard', href: '/dashboard', icon: ChartBarSquareIcon },
   { name: 'Artificial Intelligence', href: '/portfolio/ai', icon: SparklesIcon },
 ];
