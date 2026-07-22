@@ -63,22 +63,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgTimes
         <button
           type="button"
           aria-label="Close image"
-          className="absolute right-4 top-4 rounded-full border border-white bg-black p-1 md:p-2 text-white"
+          className="absolute right-4 top-4 rounded-full border border-white bg-black p-1.5 md:p-2 text-white"
           style={{ zIndex: 99999 }}
           onClick={onClose}
         >
-          <XMarkIcon className="h-3 w-3 md:h-8 md:w-8" />
+          <XMarkIcon className="h-4 w-4 md:h-8 md:w-8" />
         </button>
 
           {canNavigate && (
             <button
               type="button"
               aria-label="Previous image"
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 rounded-full border border-white bg-transparent p-1 md:p-2 text-white transition-colors hover:bg-white/80 hover:text-black"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 rounded-full border border-white bg-transparent p-1.5 md:p-2 text-white transition-colors hover:bg-white/80 hover:text-black"
               style={{ zIndex: 99999 }}
               onClick={onPrevious}
             >
-              <ChevronLeftIcon className="h-3 w-3 md:h-8 md:w-8" />
+              <ChevronLeftIcon className="h-4 w-4 md:h-8 md:w-8" />
             </button>
           )}
 
@@ -86,11 +86,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imgSrc, imgAlt, imgTimes
             <button
               type="button"
               aria-label="Next image"
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 rounded-full border border-white bg-transparent p-1 md:p-2 text-white transition-colors hover:bg-white/80 hover:text-black"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 rounded-full border border-white bg-transparent p-1.5 md:p-2 text-white transition-colors hover:bg-white/80 hover:text-black"
               style={{ zIndex: 99999 }}
               onClick={onNext}
             >
-              <ChevronRightIcon className="h-3 w-3 md:h-8 md:w-8" />
+              <ChevronRightIcon className="h-4 w-4 md:h-8 md:w-8" />
             </button>
           )}
    
