@@ -4,8 +4,6 @@ import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
 import { CardBasic, CardIntro } from '@/app/ui/cards';
 import { CardSkeleton } from '@/app/ui/skeletons';
 import ai from '@/app/portfolio/data/ai';
-import fs from 'fs';
-import path from 'path';
 
 // Extract metadata from ai.tsx
 const aiMetadata = ai.find((website) => website.title === 'Collins Creative | AI experiments');
@@ -18,25 +16,7 @@ export const metadata: Metadata = {
   openGraph: aiMetadata?.openGraph,
 };
 
-async function fetchVideos() {
-  const videosDirectory = path.join(process.cwd(), 'public/ai/videos');
-  const filenames = fs.readdirSync(videosDirectory);
-
-  const videos = filenames.map((filename) => {
-    const filePath = path.posix.join('/ai/videos', filename);
-    return {
-      id: filename,
-      src: filePath,
-      alt: filename,
-      width: 100,
-      height: 300,
-    };
-  });
-  return videos;
-}
-
-export default async function Page() {
-  const videos = await fetchVideos();
+export default function Page() {
 
   return (
     <main className="flex min-h-screen flex-col">
