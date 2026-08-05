@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import fs from 'fs/promises';
 import path from 'path';
 import olliesArtWork from '@/app/portfolio/data/ollies-art-work';
 import Breadcrumbs from '@/app/ui/portfolio/breadcrumbs';
@@ -16,45 +17,28 @@ export const metadata: Metadata = {
   openGraph: ollieMetadata?.openGraph,
 };
 
-const ollieArchiveImageFilenames = [
-  '1000032777.jpg',
-  '1000032779.jpg',
-  '1000034333.jpg',
-  '1000034551.jpg',
-  '1000034552.jpg',
-  '1000034553.jpg',
-  '1000034562.jpg',
-  '1000034563.jpg',
-  '1000034565.jpg',
-  '1000034566.jpg',
-  '20260107_205611.jpg',
-  '20260107_210531.jpg',
-  '20260117_082252.jpg',
-  '20260509_143836.jpg',
-  '20260716_131748.jpg',
-  '20260716_131751.jpg',
-  '20260716_142733.jpg',
-  '20260716_144450.jpg',
-  '20260716_144852.jpg',
-  'IMG-20260508-WA0001.jpg',
-  'IMG-20260522-WA0001.jpg',
-  'IMG-20260605-WA0000.jpg',
-  'IMG-20260617-WA0000.jpg',
-  'IMG-20260621-WA0001.jpg',
-  'IMG-20260702-WA0001.jpg',
-  'IMG_20221029_195518.jpg',
-  'IMG_20221031_180044.jpg',
-  'queen.png',
-  'xmas-1.jpg',
-];
+const SUPPORTED_IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
+
+async function getArchiveImageFilenames(imagesDirectory: string) {
+  const entries = await fs.readdir(imagesDirectory, { withFileTypes: true });
+
+  return entries
+    .filter((entry) => entry.isFile() && SUPPORTED_IMAGE_EXTENSIONS.has(path.extname(entry.name).toLowerCase()))
+    .map((entry) => entry.name)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+}
 
 async function fetchImages() {
   const imagesDirectory = path.join(process.cwd(), 'public', 'ollie-art-archive');
+  const imageFilenames = await getArchiveImageFilenames(imagesDirectory);
 
-  const images = await Promise.all(
-    ollieArchiveImageFilenames.map(async (filename) => {
+  const imagesWithSortTime = await Promise.all(
+    imageFilenames.map(async (filename) => {
       const absoluteFilePath = path.join(imagesDirectory, filename);
       const timestamp = await getImageTimestamp(absoluteFilePath);
+      const stats = await fs.stat(absoluteFilePath);
+      const exifTime = timestamp ? new Date(timestamp).getTime() : Number.NaN;
+      const sortTime = Number.isNaN(exifTime) ? stats.mtimeMs : exifTime;
 
       return {
         id: filename,
@@ -63,11 +47,14 @@ async function fetchImages() {
         width: 150,
         height: 150,
         timestamp,
+        sortTime,
       };
     }),
   );
 
-  return images;
+  return imagesWithSortTime
+    .sort((a, b) => b.sortTime - a.sortTime)
+    .map(({ sortTime: _sortTime, ...image }) => image);
 }
 
 export default async function Page() {
