@@ -58,51 +58,37 @@ const flashExperimentVideos = [
     height: 400,
   },
   {
+    id: 'gemini_generated_video_37aaf615.mp4',
+    src: '/ai/videos/gemini_generated_video_37aaf615.mp4',
+    alt: 'Gemini generated video 4',
+    width: 400,
+    height: 400,
+  },
+  {
+    id: 'gemini_generated_video_99e0adb9.mp4',
+    src: '/ai/videos/gemini_generated_video_99e0adb9.mp4',
+    alt: 'Gemini generated video 5',
+    width: 400,
+    height: 400,
+  },
+  {
+    id: 'received_1603185251163281.mp4',
+    src: '/ai/videos/received_1603185251163281.mp4',
+    alt: 'Received clip 1603185251163281',
+    width: 400,
+    height: 400,
+  },
+  {
     id: 'pixverse-venom-buddy.mp4',
     src: '/ai/videos/pixverse-venom-buddy.mp4',
     alt: 'Pixverse venom buddy',
     width: 400,
     height: 400,
   },
-{
+  {
     id: 'VID-20260613-WA0001.mp4',
     src: '/ai/videos/VID-20260613-WA0001.mp4',
     alt: 'Video 20260613 WA0001',
-    width: 400,
-    height: 400,
-  },
-  {
-    id: 'VID-20251026-WA0020.mp4',
-    src: '/ai/videos/VID-20251026-WA0020.mp4',
-    alt: 'Video 20251026 WA0020',
-    width: 400,
-    height: 400,
-  },
-  {
-    id: 'VID-20251129-WA0020.mp4',
-    src: '/ai/videos/VID-20251129-WA0020.mp4',
-    alt: 'Video 20251129 WA0020',
-    width: 400,
-    height: 400,
-  },
-  {
-    id: 'VID-20251130-WA0007.mp4',
-    src: '/ai/videos/VID-20251130-WA0007.mp4',
-    alt: 'Video 20251130 WA0007',
-    width: 400,
-    height: 400,
-  },
-  {
-    id: 'VID-20251227-WA0000.mp4',
-    src: '/ai/videos/VID-20251227-WA0000.mp4',
-    alt: 'Video 20251227 WA0000',
-    width: 400,
-    height: 400,
-  },
-  {
-    id: 'VID-20260412-WA0006.mp4',
-    src: '/ai/videos/VID-20260412-WA0006.mp4',
-    alt: 'Video 20260412 WA0006',
     width: 400,
     height: 400,
   },
@@ -133,7 +119,7 @@ const flashExperimentVideos = [
     alt: 'Video 20260610 WA0007',
     width: 400,
     height: 400,
-  }
+  },
 ];
 
 
