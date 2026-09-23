@@ -87,22 +87,6 @@ export default async function Page() {
             </Suspense>
         ))}
 
-        {websites
-          .filter((website) => website.heading === "Shenanigans Irish Bar")
-          .map((website, index) => (
-            <Suspense fallback={<CardsSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
-        ))}
-
-        {websites
-          .filter((website) => website.heading === "Direct Roof and Build Ltd")
-          .map((website, index) => (
-            <Suspense fallback={<CardsSkeleton />} key={index}>
-              <CardBasic CardContent={website} />
-            </Suspense>
-        ))}
-
       </div>
 
     </main>
